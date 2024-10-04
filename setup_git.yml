@@ -1,0 +1,21 @@
+---
+- name: Configure Git user name and email
+  hosts: all
+  become: yes
+  tasks:
+    - name: Set Git user name
+      git_config:
+        name: user.name
+        value: "{{ git_user_name }}"
+        scope: global
+
+    - name: Set Git user email
+      git_config:
+        name: user.email
+        value: "{{ git_user_email }}"
+        scope: global
+
+  vars:
+    git_user_name: "Riley Mathews"
+    git_user_email: "rileymathews80@gmail.com"
+
