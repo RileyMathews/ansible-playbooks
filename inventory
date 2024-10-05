@@ -1,3 +1,8 @@
+[all:vars]
+ansible_user=riley
+ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
+
+[targets]
 rabbitmq.local
 redis.local
 mealie.local
