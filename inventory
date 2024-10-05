@@ -6,3 +6,4 @@ ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
 rabbitmq.local
 redis.local
 mealie.local
+searxng.local
