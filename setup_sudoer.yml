@@ -1,0 +1,22 @@
+---
+- name: Allow 'riley' to use sudo without a password
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure /etc/sudoers.d directory exists
+      file:
+        path: /etc/sudoers.d
+        state: directory
+        mode: '0750'
+        owner: root
+        group: root
+
+    - name: Add 'riley' to sudoers for passwordless sudo
+      copy:
+        dest: /etc/sudoers.d/riley
+        content: 'riley ALL=(ALL) NOPASSWD:ALL'
+        owner: root
+        group: root
+        mode: '0440'
+        validate: 'visudo -cf %s'
+
