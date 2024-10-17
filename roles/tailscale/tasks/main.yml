@@ -1,0 +1,10 @@
+---
+
+- name: Ensure Tailscale is installed and configured
+  include_role:
+    name: artis3n.tailscale
+  vars:
+    tailscale_authkey: "{{ ts_key }}"
+    tailscale_args: "--ssh"
+  when: ts_key is defined
+

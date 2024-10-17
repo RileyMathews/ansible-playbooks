@@ -1,0 +1,12 @@
+# install_docker/tasks/main.yml
+---
+- name: Install Docker
+  include_role:
+    name: geerlingguy.docker
+
+- name: Add user 'riley' to the docker group
+  user:
+    name: riley
+    groups: docker
+    append: yes
+

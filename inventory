@@ -5,3 +5,9 @@ ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
 [targets]
 mealie.local
 searxng.local
+debian-testing.local
+
+[docker]
+debian-testing.local
+mealie.local
+searxng.local
