@@ -1,0 +1,40 @@
+---
+- name: Check if certificate already exists
+  stat:
+    path: "{{ certbot_cert_dir }}/fullchain.pem"
+  register: cert_stat
+
+- name: Ensure Certbot and Cloudflare DNS plugin are installed
+  apt:
+    name: 
+      - certbot
+      - python3-certbot-dns-cloudflare
+    state: present
+    update_cache: yes
+
+- name: Create Cloudflare credentials file
+  template:
+    src: cloudflare.ini.j2
+    dest: /etc/letsencrypt/cloudflare.ini
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Issue a certificate using DNS-01 challenge
+  command: >
+    certbot certonly
+    --dns-cloudflare
+    --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
+    --agree-tos
+    --email {{ certbot_email }}
+    {% if certbot_use_staging %}
+    --staging
+    {% endif %}
+    -d {{ certbot_domain }}
+  args:
+    creates: "{{ certbot_cert_dir }}/fullchain.pem"
+  when: not cert_stat.stat.exists
+
+- name: Test Certbot auto-renewal
+  command: certbot renew --dry-run
+

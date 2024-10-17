@@ -11,3 +11,6 @@ debian-testing.local
 debian-testing.local
 mealie.local
 searxng.local
+
+[reverse_proxy]
+debian-testing.local

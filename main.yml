@@ -19,3 +19,8 @@
   become: yes
   roles:
     - install_docker
+
+- hosts: reverse_proxy
+  become: yes
+  roles:
+    - certbot
