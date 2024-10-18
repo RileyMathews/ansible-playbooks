@@ -1,20 +1,25 @@
 ---
-- hosts: all
+- hosts: arch
   become: yes
   roles:
     - tailscale
 
-- hosts: all
+- hosts: arch
   become: yes
   roles:
     - setup_git
 
-- hosts: docker
+- hosts: arch
+  become: yes
+  roles:
+    - hostname
+
+- hosts: docker:&arch
   become: yes
   roles:
     - install_docker
 
-- hosts: reverse_proxy
+- hosts: reverse_proxy:&arch
   become: yes
   roles:
     - certbot

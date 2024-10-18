@@ -15,3 +15,6 @@ searxng.local
 
 [reverse_proxy]
 debian-testing.local
+
+[arch]
+arch-testing.local
