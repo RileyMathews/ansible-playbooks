@@ -37,4 +37,5 @@
 
 - name: Test Certbot auto-renewal
   command: certbot renew --dry-run
+  when: not cert_stat.stat.exists
 
