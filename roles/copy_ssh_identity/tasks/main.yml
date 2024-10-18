@@ -22,3 +22,12 @@
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
     mode: '0644'
+
+- name: Copy ssh authorized keys to system
+  copy:
+    src: authorized_keys
+    dest: "/home/{{ target_user }}/.ssh/authorized_keys"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: '0644'
+

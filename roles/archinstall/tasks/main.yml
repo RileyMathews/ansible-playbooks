@@ -1,0 +1,24 @@
+- name: Copy user_configuration.json to the VM
+  template:
+    src: user_configuration.json.j2
+    dest: /tmp/user_configuration.json
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy user_credentials.json to the VM
+  copy:
+    src: user_credentials.json
+    dest: /tmp/user_credentials.json
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Run archinstall with the provided profiles
+  command: "archinstall --config /tmp/user_configuration.json --creds /tmp/user_credentials.json --silent"
+  become: true
+
+- name: reboot
+  ansible.builtin.reboot:
+    reboot_timeout: 0
+  ignore_errors: true

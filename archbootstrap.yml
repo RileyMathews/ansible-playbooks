@@ -1,0 +1,6 @@
+---
+- hosts: arch
+  become: yes
+  roles:
+    - copy_ssh_identity
+

@@ -10,9 +10,8 @@
     - setup_git
 
 - hosts: arch
-  become: yes
   roles:
-    - hostname
+    - setup_dotfiles
 
 - hosts: docker:&arch
   become: yes
