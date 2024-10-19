@@ -1,2 +1,2 @@
 ---
-hostname: arch-testing
+certbot_domain: "arch-testing.rileymathews.com"

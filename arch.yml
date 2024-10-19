@@ -2,6 +2,11 @@
 - hosts: arch
   become: yes
   roles:
+    - copy_ssh_identity
+
+- hosts: arch
+  become: yes
+  roles:
     - tailscale
 
 - hosts: arch
@@ -21,4 +26,9 @@
 - hosts: reverse_proxy:&arch
   become: yes
   roles:
-    - certbot
+    - certbot-arch
+
+- hosts: reverse_proxy:&arch
+  become: yes
+  roles:
+    - nginx

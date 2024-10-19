@@ -16,6 +16,7 @@ arch-testing.local
 
 [reverse_proxy]
 debian-testing.local
+arch-testing.local
 
 [arch]
 arch-testing.local
