@@ -4,17 +4,6 @@
   roles:
     - tailscale
 
-- hosts: all
-  become: yes
-  roles:
-    - copy_ssh_identity
-
-
-- hosts: all
-  become: yes
-  roles:
-    - setup_git
-
 - hosts: docker
   become: yes
   roles:
@@ -24,3 +13,8 @@
   become: yes
   roles:
     - certbot
+
+- hosts: public_tcp_proxy
+  become: yes
+  roles:
+    - setup-ha-proxy

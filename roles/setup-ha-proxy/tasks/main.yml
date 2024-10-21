@@ -1,0 +1,21 @@
+---
+- name: Install HAProxy
+  apt:
+    name: haproxy
+    state: present
+    update_cache: yes
+
+- name: Copy HAProxy configuration file
+  copy:
+    src: haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Ensure HAProxy service is started and enabled
+  service:
+    name: haproxy
+    state: started
+    enabled: yes
+

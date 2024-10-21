@@ -16,7 +16,9 @@ arch-testing.local
 
 [reverse_proxy]
 debian-testing.local
-arch-testing.local
+
+[public_tcp_proxy]
+proxy.rileymathews.com
 
 [arch]
 arch-testing.local
