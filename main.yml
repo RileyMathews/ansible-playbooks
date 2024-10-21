@@ -18,3 +18,8 @@
   become: yes
   roles:
     - setup-ha-proxy
+
+- hosts: public_proxy
+  become: yes
+  roles:
+    - public_proxy

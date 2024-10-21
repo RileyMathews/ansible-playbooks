@@ -1,0 +1,11 @@
+---
+available_sites:
+  - name: whoami 
+    listen_host: "whoami.rileymathews.com"
+    backend_host: "http://whoami:8000"
+
+certbot_cert_dir: /etc/letsencrypt/live
+certbot_email: "dev@rileymathews.com"  # Email for Certbot registration
+cloudflare_api_token: "{{ vault_cloudflare_api_token }}"  # Cloudflare API token, set per host or in a vault
+certbot_use_staging: false
+

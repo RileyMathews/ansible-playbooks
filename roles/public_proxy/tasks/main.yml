@@ -1,0 +1,98 @@
+---
+- name: install nginx/certbot dependencies
+  apt:
+    name:
+      - curl
+      - gnupg2
+      - ca-certificates
+      - lsb-release
+      - debian-archive-keyring
+      - certbot
+      - python3-certbot-dns-cloudflare
+    state: present
+    update_cache: yes
+
+- name: Create Cloudflare credentials file
+  template:
+    src: cloudflare.ini.j2
+    dest: /etc/letsencrypt/cloudflare.ini
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Check if certificate already exists
+  stat:
+    path: "{{ certbot_cert_dir }}/{{ site.listen_host }}/fullchain.pem"
+  register: cert_stats
+  loop: "{{ available_sites }}"
+  loop_control:
+    loop_var: site
+
+- name: Issue a certificate using DNS-01 challenge
+  command: >
+    certbot certonly
+    --dns-cloudflare
+    --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
+    --agree-tos
+    --email {{ certbot_email }}
+    {% if certbot_use_staging %}
+    --staging
+    {% endif %}
+    -d {{ item.site.listen_host }}
+  args:
+    creates: "{{ certbot_cert_dir }}/{{ item.site.listen_host }}/fullchain.pem"
+  loop: "{{ cert_stats.results }}"
+  when: not item.stat.exists
+  notify: reload_nginx
+
+- name: Add the official Nginx repository key
+  apt_key:
+    url: https://nginx.org/keys/nginx_signing.key
+    state: present
+
+- name: Add the official Nginx repository to sources list
+  apt_repository:
+    repo: "deb https://nginx.org/packages/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} nginx"
+    state: present
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install Nginx from the official repository
+  apt:
+    name: nginx
+    state: present
+
+- name: Copy nginx conf file
+  ansible.builtin.copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload_nginx
+
+- name: Create sites-available directory
+  ansible.builtin.file:
+    path: /etc/nginx/sites-available
+    state: directory
+
+- name: Create site available files
+  ansible.builtin.template:
+    src: site.conf.j2
+    dest: "/etc/nginx/sites-available/{{ item.name }}.conf"
+    owner: root
+    group: root
+    mode: '0644'
+  loop: "{{ available_sites }}"
+  notify: reload_nginx
+  vars:
+    listen_host: "{{ item.listen_host }}"
+    backend_host: "{{ item.backend_host }}"
+
+- name: Start nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+    enabled: true
