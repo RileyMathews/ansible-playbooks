@@ -64,6 +64,26 @@
     name: nginx
     state: present
 
+- name: Ensure systemd override directory for nginx exists
+  ansible.builtin.file:
+    path: /etc/systemd/system/nginx.service.d
+    state: directory
+    mode: '0755'
+
+- name: Create systemd override for nginx to wait for tailscale
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/nginx.service.d/override.conf
+    content: |
+      [Unit]
+      After=tailscaled.service
+      Wants=tailscaled.service
+    mode: '0644'
+    owner: root
+    group: root
+  notify:
+    - restart_systemd
+    - restart_nginx
+
 - name: Copy nginx conf file
   ansible.builtin.copy:
     src: nginx.conf
@@ -96,3 +116,14 @@
     name: nginx
     state: started
     enabled: true
+
+- name: Create renewal hook to reload nginx
+  copy:
+    dest: /etc/letsencrypt/renewal-hooks/deploy/reload_nginx.sh
+    content: |
+      #!/bin/sh
+      systemctl reload nginx
+    owner: root
+    group: root
+    mode: '0755'
+
