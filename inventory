@@ -6,15 +6,14 @@ ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
 mealie.local
 searxng.local
 debian-testing.local
-arch-testing.local
 whoami.local
 
 [docker]
 debian-testing.local
 mealie.local
 searxng.local
-arch-testing.local
 whoami.local
+rpgweave.local
 
 # servers that run their own reverse proxy to be accessible on the tailnet
 [reverse_proxy]
@@ -30,5 +29,3 @@ proxy.rileymathews.com
 [public_proxy]
 public-proxy.local
 
-[arch]
-arch-testing.local
