@@ -18,10 +18,6 @@ server {
     ssl_prefer_server_ciphers on;
     ssl_ciphers HIGH:!aNULL:!MD5;
 
-    # Location of your site's content
-    root /var/www/html;
-    index index.html;
-
     # WebSocket and HTTP proxy configuration
     location / {
         proxy_pass {{ backend_host }};

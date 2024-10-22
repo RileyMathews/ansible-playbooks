@@ -27,6 +27,8 @@ proxy.rileymathews.com
 public-proxy.local
 debian-testing.local
 rpgweave-staging.local
+rpgweave.local
 
 [rpgweave]
 rpgweave-staging.local
+rpgweave.local

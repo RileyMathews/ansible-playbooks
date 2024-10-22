@@ -23,8 +23,7 @@
 - name: login to docker registry
   ansible.builtin.shell:
     cmd: docker login registry.gitlab.com -u rileymathews -p {{ docker_registry_password }}
+  become: true
+  become_method: sudo
+  become_user: riley
 
-- name: start the compose project
-  ansible.builtin.shell:
-    chdir: /opt/rpgweave
-    cmd: docker compose up -d

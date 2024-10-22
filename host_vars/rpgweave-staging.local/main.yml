@@ -6,5 +6,4 @@ available_sites:
 
 
 accept_tcp_proxy: false
-rpgweave_env_file: "{{ lookup('file', 'env.secret') }}"
 

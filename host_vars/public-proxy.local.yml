@@ -6,6 +6,6 @@ available_sites:
 
   - name: rpgweave
     listen_host: "rpgweave.com"
-    backend_host: "http://rpgweave-production:8000"
+    backend_host: "http://rpgweave:8000"
 
 accept_tcp_proxy: true
