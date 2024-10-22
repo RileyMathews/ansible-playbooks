@@ -1,0 +1,34 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/homeassistant
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create config directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/homeassistant/config
+    state: directory
+    owner: riley
+    group: riley
+
+- name: copy over config file
+  become: yes
+  ansible.builtin.copy:
+    src: configuration.yaml
+    dest: /opt/homeassistant/config/configuration.yaml
+    owner: riley
+    group: riley
+  notify: restart_homeassistant
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/homeassistant/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_homeassistant
+

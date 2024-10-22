@@ -21,8 +21,10 @@
   notify: restart_rpgweave
 
 - name: login to docker registry
-  ansible.builtin.shell:
-    cmd: docker login registry.gitlab.com -u rileymathews -p {{ docker_registry_password }}
+  community.docker.docker_login:
+    username: riley
+    registry_url: registry.gitlab.com
+    password: "{{ docker_registry_password }}"
   become: true
   become_method: sudo
   become_user: riley

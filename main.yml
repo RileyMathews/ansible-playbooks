@@ -23,3 +23,11 @@
   become: yes
   roles:
     - rpgweave
+
+- hosts: homeassistant.local
+  roles:
+    - homeassistant
+
+- hosts: ntfy.local
+  roles:
+    - ntfy

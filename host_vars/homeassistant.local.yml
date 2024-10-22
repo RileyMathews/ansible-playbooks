@@ -1,0 +1,7 @@
+---
+available_sites:
+  - name: homeassistant
+    listen_host: "home.rileymathews.com"
+    backend_host: "http://127.0.0.1:8123"
+
+accept_tcp_proxy: false

@@ -1,0 +1,6 @@
+---
+- name: restart_ntfy
+  become: true
+  ansible.builtin.service:
+    name: ntfy
+    state: restarted
