@@ -1,2 +1,8 @@
-certbot_domain: "debian-testing.rileymathews.com"
-certbot_use_staging: true
+---
+available_sites:
+  - name: whoami 
+    listen_host: "debian-testing.rileymathews.com"
+    backend_host: "http://127.0.0.1:8000"
+
+accept_tcp_proxy: false
+

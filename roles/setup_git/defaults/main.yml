@@ -1,5 +1,0 @@
-# configure_git/defaults/main.yml
----
-git_user_name: "Riley Mathews"
-git_user_email: "rileymathews80@gmail.com"
-

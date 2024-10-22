@@ -1,6 +1,5 @@
-certbot_domain: "example.com"  # Default domain, override per host
+certbot_cert_dir: /etc/letsencrypt/live
 certbot_email: "dev@rileymathews.com"  # Email for Certbot registration
 cloudflare_api_token: "{{ vault_cloudflare_api_token }}"  # Cloudflare API token, set per host or in a vault
-certbot_cert_dir: "/etc/letsencrypt/live/{{ certbot_domain }}"  # Certificate directory
 certbot_use_staging: false
 

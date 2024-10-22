@@ -9,17 +9,12 @@
   roles:
     - install_docker
 
-- hosts: reverse_proxy
-  become: yes
-  roles:
-    - certbot
-
 - hosts: public_tcp_proxy
   become: yes
   roles:
     - setup-ha-proxy
 
-- hosts: public_proxy
+- hosts: proxy
   become: yes
   roles:
-    - public_proxy
+    - proxy
