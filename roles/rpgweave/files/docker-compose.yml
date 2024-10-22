@@ -1,0 +1,16 @@
+services:
+  rpgweave:
+    image: registry.gitlab.com/rpgweave/rpg_weave:${IMAGE_TAG-latest}
+    network_mode: host
+    env_file:
+      - env.secret
+    restart: unless-stopped
+
+  celery:
+    image: registry.gitlab.com/rpgweave/rpg_weave:${IMAGE_TAG-latest}
+    network_mode: host
+    env_file:
+      - env.secret
+    command: "./bin/celery"
+    restart: unless-stopped
+

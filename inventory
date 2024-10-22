@@ -14,6 +14,7 @@ mealie.local
 searxng.local
 whoami.local
 rpgweave.local
+rpgweave-staging.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -25,3 +26,7 @@ proxy.rileymathews.com
 [proxy]
 public-proxy.local
 debian-testing.local
+rpgweave-staging.local
+
+[rpgweave]
+rpgweave-staging.local

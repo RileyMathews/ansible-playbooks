@@ -18,3 +18,8 @@
   become: yes
   roles:
     - proxy
+
+- hosts: rpgweave
+  become: yes
+  roles:
+    - rpgweave

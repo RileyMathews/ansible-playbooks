@@ -1,0 +1,30 @@
+---
+- name: create install directory
+  ansible.builtin.file:
+    path: /opt/rpgweave
+    state: directory
+    owner: riley
+
+- name: Copy env.secret to the server
+  ansible.builtin.template:
+    src: env.secret.j2
+    dest: /opt/rpgweave/env.secret
+    owner: riley
+    mode: '0600'  # Optional: Set appropriate permissions
+  notify: restart_rpgweave
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/rpgweave/docker-compose.yml
+    owner: riley
+  notify: restart_rpgweave
+
+- name: login to docker registry
+  ansible.builtin.shell:
+    cmd: docker login registry.gitlab.com -u rileymathews -p {{ docker_registry_password }}
+
+- name: start the compose project
+  ansible.builtin.shell:
+    chdir: /opt/rpgweave
+    cmd: docker compose up -d
