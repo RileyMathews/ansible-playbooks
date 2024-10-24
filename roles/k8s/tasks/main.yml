@@ -1,0 +1,51 @@
+---
+- name: add repository key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key
+    state: present
+
+- name: add k8s repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /"
+    state: present
+
+- name: install common dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - containerd
+      - gnupg2
+      - kubeadm
+      - kubectl
+      - kubelet
+    state: present
+    update_cache: true
+
+- name: start containerd
+  become: true
+  ansible.builtin.service:
+    name: containerd
+    state: started
+    enabled: true
+
+- name: copy config file
+  become: true
+  ansible.builtin.copy:
+    src: config.toml
+    dest: /etc/containerd/config.toml
+  notify: restart_containerd
+
+- name: copy sysctl file to enable ipv4 forwarding
+  become: true
+  ansible.builtin.copy:
+    src: sysctl.conf
+    dest: /etc/sysctl.conf
+
+- name: copy k8s module file
+  become: true
+  ansible.builtin.copy:
+    src: k8s.conf
+    dest: /etc/modules-load.d/k8s.conf
+

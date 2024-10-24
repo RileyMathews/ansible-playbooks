@@ -7,6 +7,18 @@ mealie.local
 searxng.local
 debian-testing.local
 whoami.local
+pi-hole.local
+
+[tailscale]
+mealie.local
+searxng.local
+debian-testing.local
+whoami.local
+pi-hole.local
+rpgweave.local
+rpgweave-staging.local
+homeassistant.local
+swarm-test.local
 
 [docker]
 debian-testing.local
@@ -16,6 +28,8 @@ whoami.local
 rpgweave.local
 rpgweave-staging.local
 homeassistant.local
+swarm-test.local
+searxng.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -31,7 +45,22 @@ rpgweave-staging.local
 rpgweave.local
 homeassistant.local
 ntfy.local
+searxng.local
 
 [rpgweave]
 rpgweave-staging.local
 rpgweave.local
+
+[k8s]
+k8s-ctrlr.local
+k8s1.local
+k8s2.local
+k8s3.local
+
+[k8s_ctrlr]
+k8s-ctrlr.local
+
+[k8s_nodes]
+k8s1.local
+k8s2.local
+k8s3.local
