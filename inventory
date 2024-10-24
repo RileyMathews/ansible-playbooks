@@ -18,7 +18,6 @@ pi-hole.local
 rpgweave.local
 rpgweave-staging.local
 homeassistant.local
-swarm-test.local
 
 [docker]
 debian-testing.local
@@ -28,7 +27,6 @@ whoami.local
 rpgweave.local
 rpgweave-staging.local
 homeassistant.local
-swarm-test.local
 searxng.local
 
 # the server that acts as a public gateway into the tailnet
