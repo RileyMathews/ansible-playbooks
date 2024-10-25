@@ -62,3 +62,6 @@ k8s-ctrlr.local
 k8s1.local
 k8s2.local
 k8s3.local
+
+[redis]
+redis.local

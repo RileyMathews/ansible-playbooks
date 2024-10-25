@@ -1,0 +1,39 @@
+---
+- name: install apt dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - gnupg2
+
+- name: add redis signing key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://packages.redis.io/gpg
+    state: present
+
+- name: add redis repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb https://packages.redis.io/deb bookworm main"
+    state: present
+
+- name: add redis package
+  become: true
+  ansible.builtin.apt:
+    name: redis
+    state: present
+    update_cache: yes
+
+- name: add conf file
+  become: true
+  ansible.builtin.copy:
+    src: redis.conf
+    dest: /etc/redis/redis.conf
+  notify: restart_redis
+
+- name: start redis
+  become: true
+  ansible.builtin.service:
+    name: redis-server
+    state: started
+    enabled: true

@@ -40,10 +40,6 @@
   roles:
     - k8s
 
-# - hosts: k8s_ctrlr
-#   roles:
-#     - k8s_ctrlr
-#
-# - hosts: k8s_nodes
-#   roles:
-#     - k8s_nodes
+- hosts: redis
+  roles:
+    - redis
