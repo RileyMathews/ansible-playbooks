@@ -19,6 +19,7 @@ rpgweave.local
 rpgweave-staging.local
 homeassistant.local
 vaultwarden.local
+rabbitmq.local
 
 [docker]
 debian-testing.local

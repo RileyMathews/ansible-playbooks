@@ -47,3 +47,7 @@
 - hosts: vaultwarden.local
   roles:
    - vaultwarden
+
+- hosts: rabbitmq.local
+  roles:
+   - rabbitmq
