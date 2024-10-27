@@ -34,6 +34,7 @@
     --dns-cloudflare
     --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
     --agree-tos
+    --non-interactive
     --email {{ certbot_email }}
     {% if certbot_use_staging %}
     --staging

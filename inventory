@@ -18,6 +18,7 @@ pi-hole.local
 rpgweave.local
 rpgweave-staging.local
 homeassistant.local
+vaultwarden.local
 
 [docker]
 debian-testing.local
@@ -28,6 +29,7 @@ rpgweave.local
 rpgweave-staging.local
 homeassistant.local
 searxng.local
+vaultwarden.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -44,6 +46,7 @@ rpgweave.local
 homeassistant.local
 ntfy.local
 searxng.local
+vaultwarden.local
 
 [rpgweave]
 rpgweave-staging.local
@@ -65,3 +68,4 @@ k8s3.local
 
 [redis]
 redis.local
+

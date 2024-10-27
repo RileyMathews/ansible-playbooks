@@ -43,3 +43,7 @@
 - hosts: redis
   roles:
     - redis
+
+- hosts: vaultwarden.local
+  roles:
+   - vaultwarden

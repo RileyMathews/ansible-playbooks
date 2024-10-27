@@ -1,0 +1,7 @@
+---
+available_sites:
+  - name: vaultwarden
+    listen_host: "vaultwarden.rileymathews.com"
+    backend_host: "http://127.0.0.1:8000"
+
+accept_tcp_proxy: false
