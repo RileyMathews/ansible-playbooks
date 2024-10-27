@@ -8,6 +8,7 @@ searxng.local
 debian-testing.local
 whoami.local
 pi-hole.local
+db1.local
 
 [tailscale]
 mealie.local

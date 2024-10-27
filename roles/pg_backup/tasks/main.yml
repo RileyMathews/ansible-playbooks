@@ -1,0 +1,52 @@
+---
+- name: Copy backup service file
+  become: true
+  ansible.builtin.copy:
+    src: backup.service
+    dest: /etc/systemd/system/backup.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload_systemd
+
+- name: Copy backup timer file
+  become: true
+  ansible.builtin.copy:
+    src: backup.timer
+    dest: /etc/systemd/system/backup.timer
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload_systemd
+
+- name: copy the backup script
+  become: true
+  ansible.builtin.copy:
+    src: backup.sh
+    dest: /usr/local/bin/backup.sh
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: make the env file directory
+  become: true
+  ansible.builtin.file:
+    name: /var/lib/backup
+    state: directory
+
+- name: copy backup env file
+  become: true
+  ansible.builtin.template:
+    src: env.j2
+    dest: /var/lib/backup/env
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Enable and start backup timer
+  become: true
+  ansible.builtin.systemd:
+    name: backup.timer
+    enabled: yes
+    state: started
+

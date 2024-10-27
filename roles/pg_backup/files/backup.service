@@ -1,0 +1,5 @@
+[Unit]
+Description=Backup the postgresql instance
+
+[Service]
+ExecStart=/usr/local/bin/backup.sh
