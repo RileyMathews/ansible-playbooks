@@ -62,8 +62,8 @@
     name: "{{ item }}"
     state: present
   loop:
-    - /rpgweave-staging
-    - /rpgweave
+    - rpgweave-staging
+    - rpgweave
 
 - name: add users
   become: true
@@ -77,9 +77,9 @@
         write_priv: .*
     state: present
   loop:
-    - username: rpgwevae-staging
+    - username: rpgweave-staging
       password: "{{ rpgweave_staging_rabbitmq_password }}"
-      vhost: /rpgweave-staging
+      vhost: rpgweave-staging
     - username: rpgweave
       password: "{{ rpgweave_rabbitmq_password }}"
-      vhost: /rpgweave
+      vhost: rpgweave
