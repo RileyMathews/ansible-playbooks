@@ -4,47 +4,9 @@
     name:
       - curl
       - gnupg2
-      - ca-certificates
-      - lsb-release
       - debian-archive-keyring
-      - certbot
-      - python3-certbot-dns-cloudflare
     state: present
     update_cache: yes
-
-- name: Create Cloudflare credentials file
-  template:
-    src: cloudflare.ini.j2
-    dest: /etc/letsencrypt/cloudflare.ini
-    owner: root
-    group: root
-    mode: '0600'
-
-- name: Check if certificate already exists
-  stat:
-    path: "{{ certbot_cert_dir }}/{{ site.listen_host }}/fullchain.pem"
-  register: cert_stats
-  loop: "{{ available_sites }}"
-  loop_control:
-    loop_var: site
-
-- name: Issue a certificate using DNS-01 challenge
-  command: >
-    certbot certonly
-    --dns-cloudflare
-    --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
-    --agree-tos
-    --non-interactive
-    --email {{ certbot_email }}
-    {% if certbot_use_staging %}
-    --staging
-    {% endif %}
-    -d {{ item.site.listen_host }}
-  args:
-    creates: "{{ certbot_cert_dir }}/{{ item.site.listen_host }}/fullchain.pem"
-  loop: "{{ cert_stats.results }}"
-  when: not item.stat.exists
-  notify: reload_nginx
 
 - name: Add the official Nginx repository key
   apt_key:
@@ -56,14 +18,11 @@
     repo: "deb https://nginx.org/packages/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} nginx"
     state: present
 
-- name: Update apt cache
-  apt:
-    update_cache: yes
-
 - name: Install Nginx from the official repository
   apt:
     name: nginx
     state: present
+    update_cache: true
 
 - name: Ensure systemd override directory for nginx exists
   ansible.builtin.file:
@@ -117,14 +76,4 @@
     name: nginx
     state: started
     enabled: true
-
-- name: Create renewal hook to reload nginx
-  copy:
-    dest: /etc/letsencrypt/renewal-hooks/deploy/reload_nginx.sh
-    content: |
-      #!/bin/sh
-      systemctl reload nginx
-    owner: root
-    group: root
-    mode: '0755'
 

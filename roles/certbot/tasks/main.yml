@@ -1,0 +1,54 @@
+---
+- name: install certbot dependencies
+  apt:
+    name:
+      - gnupg2
+      - ca-certificates
+      - debian-archive-keyring
+      - certbot
+      - python3-certbot-dns-cloudflare
+    state: present
+    update_cache: yes
+
+- name: Create Cloudflare credentials file
+  template:
+    src: cloudflare.ini.j2
+    dest: /etc/letsencrypt/cloudflare.ini
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Check if certificate already exists
+  stat:
+    path: "{{ certbot_cert_dir }}/{{ site.listen_host }}/fullchain.pem"
+  register: cert_stats
+  loop: "{{ available_sites }}"
+  loop_control:
+    loop_var: site
+
+- name: Issue a certificate using DNS-01 challenge
+  command: >
+    certbot certonly
+    --dns-cloudflare
+    --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
+    --agree-tos
+    --non-interactive
+    --email {{ certbot_email }}
+    {% if certbot_use_staging %}
+    --staging
+    {% endif %}
+    -d {{ item.site.listen_host }}
+  args:
+    creates: "{{ certbot_cert_dir }}/{{ item.site.listen_host }}/fullchain.pem"
+  loop: "{{ cert_stats.results }}"
+  when: not item.stat.exists
+
+- name: Create renewal hook to reload nginx
+  copy:
+    dest: /etc/letsencrypt/renewal-hooks/deploy/reload_nginx.sh
+    content: |
+      #!/bin/sh
+      systemctl reload nginx
+    owner: root
+    group: root
+    mode: '0755'

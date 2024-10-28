@@ -38,6 +38,17 @@ vaultwarden.local
 [public_tcp_proxy]
 proxy.rileymathews.com
 
+[certbot]
+public-proxy.local
+debian-testing.local
+rpgweave-staging.local
+rpgweave.local
+homeassistant.local
+ntfy.local
+searxng.local
+vaultwarden.local
+pi-hole.local
+
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
 [proxy]
@@ -49,6 +60,7 @@ homeassistant.local
 ntfy.local
 searxng.local
 vaultwarden.local
+pi-hole.local
 
 [rpgweave]
 rpgweave-staging.local

@@ -1,0 +1,7 @@
+---
+- name: copy external conf file
+  become: true
+  ansible.builtin.copy:
+    src: external.conf
+    dest: /etc/lighttpd/conf-enabled/external.conf
+  notify: restart_lighttpd

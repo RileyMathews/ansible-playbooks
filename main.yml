@@ -14,6 +14,15 @@
   roles:
     - setup-ha-proxy
 
+- hosts: certbot
+  become: yes
+  roles:
+    - certbot
+
+- hosts: pi-hole.local
+  roles:
+    - pihole
+
 - hosts: proxy
   become: yes
   roles:

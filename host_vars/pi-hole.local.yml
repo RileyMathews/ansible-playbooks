@@ -1,0 +1,7 @@
+---
+available_sites:
+  - name: pihole
+    listen_host: "pihole.rileymathews.com"
+    backend_host: "http://localhost:1080"
+
+accept_tcp_proxy: false
