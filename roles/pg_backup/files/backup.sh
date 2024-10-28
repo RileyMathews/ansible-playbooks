@@ -49,3 +49,6 @@ backup_database() {
 echo "starting postgres backup"
 backup_database "riley"
 exit 0
+
+# to restore a database. Download the file, unzip it, and run
+# pg_restore --dbname=<database> --clean --if-exists --format=directory --jobs=4 backup_dir
