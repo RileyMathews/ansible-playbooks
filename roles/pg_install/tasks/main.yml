@@ -1,0 +1,29 @@
+---
+- name: install apt dependencies
+  become: true
+  ansible.builtin.apt:
+    name: 
+      - ca-certificates
+      - gnupg2
+    state: present
+    update_cache: true
+
+- name: add postgres key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+
+- name: add postgres repo
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb https://apt.postgresql.org/pub/repos/apt bookworm-pgdg main"
+    state: present
+
+- name: install postgres
+  become: true
+  ansible.builtin.apt:
+    name:
+      - postgresql-client-16
+      - postgresql-16
+    state: present

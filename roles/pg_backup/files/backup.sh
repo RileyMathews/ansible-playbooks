@@ -1,3 +1,5 @@
+#! /bin/bash
+
 check_env_var() {
   local var_name="$1"
   
@@ -13,6 +15,8 @@ on_error() {
   echo $1
   curl -d "db backup failed" https://ntfy.rileymathews.com/home-server-alerts
 }
+
+echo "starting backup"
 
 set -e
 trap 'on_error' ERR

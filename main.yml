@@ -63,4 +63,5 @@
 
 - hosts: db1.local
   roles:
+    - pg_install
     - pg_backup

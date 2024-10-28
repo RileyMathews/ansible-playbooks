@@ -2,4 +2,5 @@
 Description=Backup the postgresql instance
 
 [Service]
+EnvironmentFile=/var/lib/backup/env
 ExecStart=/usr/local/bin/backup.sh
