@@ -69,17 +69,9 @@ rpgweave.local
 
 [k8s]
 k8s-ctrlr.local
-k8s1.local
-k8s2.local
-k8s3.local
 
 [k8s_ctrlr]
 k8s-ctrlr.local
-
-[k8s_nodes]
-k8s1.local
-k8s2.local
-k8s3.local
 
 [redis]
 redis.local
