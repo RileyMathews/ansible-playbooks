@@ -1,73 +1,77 @@
----
-- hosts: tailscale
-  become: yes
-  roles:
-    - tailscale
+# ---
+# - hosts: tailscale
+#   become: yes
+#   roles:
+#     - tailscale
+#
+# - hosts: docker
+#   become: yes
+#   roles:
+#     - install_docker
+#
+# - hosts: awscli
+#   become: true
+#   roles:
+#     - awscli2
+#
+# - hosts: public_tcp_proxy
+#   become: yes
+#   roles:
+#     - setup-ha-proxy
+#
+# - hosts: certbot
+#   become: yes
+#   roles:
+#     - certbot
+#
+# - hosts: pi-hole.local
+#   roles:
+#     - pihole
+#
+# - hosts: proxy
+#   become: yes
+#   roles:
+#     - proxy
+#
+# - hosts: rpgweave
+#   become: yes
+#   roles:
+#     - rpgweave
+#
+# - hosts: homeassistant.local
+#   roles:
+#     - homeassistant
+#
+# - hosts: searxng.local
+#   roles:
+#     - searxng
+#
+# - hosts: ntfy.local
+#   roles:
+#     - ntfy
+#
+# - hosts: k8s
+#   roles:
+#     - k8s
+#
+# - hosts: redis
+#   roles:
+#     - redis
+#
+# - hosts: vaultwarden.local
+#   roles:
+#    - vaultwarden
+#
+# - hosts: rabbitmq.local
+#   roles:
+#    - rabbitmq
+#
+# - hosts: db1.local
+#   roles:
+#     - pg_install
+#     - pg_backup
+#     - pg_setup
 
-- hosts: docker
-  become: yes
+- hosts: restic
   roles:
-    - install_docker
-
-- hosts: awscli
-  become: true
-  roles:
-    - awscli2
-
-- hosts: public_tcp_proxy
-  become: yes
-  roles:
-    - setup-ha-proxy
-
-- hosts: certbot
-  become: yes
-  roles:
-    - certbot
-
-- hosts: pi-hole.local
-  roles:
-    - pihole
-
-- hosts: proxy
-  become: yes
-  roles:
-    - proxy
-
-- hosts: rpgweave
-  become: yes
-  roles:
-    - rpgweave
-
-- hosts: homeassistant.local
-  roles:
-    - homeassistant
-
-- hosts: searxng.local
-  roles:
-    - searxng
-
-- hosts: ntfy.local
-  roles:
-    - ntfy
-
-- hosts: k8s
-  roles:
-    - k8s
-
-- hosts: redis
-  roles:
-    - redis
-
-- hosts: vaultwarden.local
-  roles:
-   - vaultwarden
-
-- hosts: rabbitmq.local
-  roles:
-   - rabbitmq
-
-- hosts: db1.local
-  roles:
-    - pg_install
-    - pg_backup
-    - pg_setup
+    - restic

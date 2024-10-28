@@ -1,0 +1,5 @@
+[Unit]
+Description=run the restic backup script
+
+[Service]
+ExecStart=/usr/local/bin/restic-backup.sh

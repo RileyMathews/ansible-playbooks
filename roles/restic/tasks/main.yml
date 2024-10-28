@@ -1,0 +1,72 @@
+---
+- name: install restic
+  become: true
+  ansible.builtin.apt:
+    name: restic
+    state: present
+    update_cache: true
+
+- name: create conf dir
+  become: true
+  ansible.builtin.file:
+    name: /etc/restic-backup
+    state: directory
+
+- name: copy dirs file
+  become: true
+  ansible.builtin.template:
+    src: directories.txt
+    dest: /etc/restic-backup/directories.txt
+
+- name: copy backup script
+  become: true
+  ansible.builtin.copy:
+    src: restic-backup.sh
+    dest: /usr/local/bin/restic-backup.sh
+    mode: '0755'
+
+- name: create password config dir
+  become: true
+  ansible.builtin.file:
+    name: /var/lib/restic-backups
+    state: directory
+
+- name: copy backup file
+  become: true
+  ansible.builtin.template:
+    src: password.j2
+    dest: /var/lib/restic-backups/password
+
+- name: copy env file
+  become: true
+  ansible.builtin.template:
+    src: env.j2
+    dest: /var/lib/restic-backups/env
+
+- name: Copy backup service file
+  become: true
+  ansible.builtin.copy:
+    src: restic-backup.service
+    dest: /etc/systemd/system/restic-backup.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload_systemd
+
+- name: Copy backup timer file
+  become: true
+  ansible.builtin.copy:
+    src: restic-backup.timer
+    dest: /etc/systemd/system/restic-backup.timer
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload_systemd
+
+- name: start backup timer
+  become: true
+  ansible.builtin.systemd:
+    name: restic-backup.timer
+    enabled: yes
+    state: started
+

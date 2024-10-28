@@ -86,3 +86,6 @@ redis.local
 
 [awscli]
 db1.local
+
+[restic]
+vaultwarden.local
