@@ -48,6 +48,8 @@ backup_database() {
 
 echo "starting postgres backup"
 backup_database "riley"
+backup_database "rpgweave"
+backup_database "rpgweave-staging"
 exit 0
 
 # to restore a database. Download the file, unzip it, and run
