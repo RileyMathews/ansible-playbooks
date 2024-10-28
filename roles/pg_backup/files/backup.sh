@@ -41,9 +41,11 @@ backup_database() {
 
     tar -czvf $tar_file_name $backup_output_name
 
-    aws s3 cp $tar_file_name "s3://$S3_BUCKET_NAME/$DATABASE_NAME/$tar_file_name"
+    aws s3 cp $tar_file_name "s3://postgres-backups/$DATABASE_NAME/$tar_file_name"
 
     curl https://ntfy.rileymathews.com/home-server-alerts -d "$DATABASE_NAME db backup finished."
 }
 
 echo "starting postgres backup"
+backup_database "riley"
+exit 0

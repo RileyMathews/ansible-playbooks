@@ -1,0 +1,76 @@
+---
+- name: install required packages
+  ansible.builtin.apt:
+    name: 
+      - python3-psycopg2 # used by the postgres ansible module to run commands against postgres
+      - acl # used to aid in giving the postgres user on the VM permissions needed to run ansible modules
+    state: present
+  become: true
+
+- name: Ensure temporary files are handled correctly during privilege escalation
+  ansible.builtin.set_fact:
+    ANSIBLE_PRIVILEGE_ESCALATION_TEMP: "/tmp/ansible-tmp"
+  become: false
+
+- name: Create PostgreSQL superuser
+  ansible.builtin.postgresql_user:
+    name: riley
+    password: "{{ riley_password }}"  # Replace with a secure password or use a variable
+    role_attr_flags: "SUPERUSER"
+    db: postgres  # Connects to the default 'postgres' database to execute the command
+    # login_host: "localhost"  # Adjust if connecting to a remote PostgreSQL instance
+    login_user: "postgres"  # Adjust if your connection user is different
+  become: true
+  become_user: postgres
+
+- name: Create PostgreSQL rpgweave-staging user
+  ansible.builtin.postgresql_user:
+    name: rpgweave-staging
+    password: "{{ rpgweave_staging_database_password }}"  # Replace with a secure password or use a variable
+  become: true
+  become_user: postgres
+
+- name: create rpgweave user
+  ansible.builtin.postgresql_user:
+    name: rpgweave
+    password: "{{ rpgweave_production_database_password }}"  # Replace with a secure password or use a variable
+  become: true
+  become_user: postgres
+
+- name: create databases
+  become: true
+  become_user: postgres
+  ansible.builtin.postgresql_db:
+    name: "{{ item }}"
+  loop:
+    - rpgweave-staging
+    - rpgweave
+    - riley
+
+- name: Allow connections to PostgreSQL on specific hostname
+  become: true
+  community.postgresql.postgresql_pg_hba:
+    contype: host
+    databases: all            # Specify the database; 'all' allows access to all databases
+    users: all                # Specify the user; 'all' allows all users
+    address: 0.0.0.0/0  # Hostname for allowed connection
+    method: md5              # Authentication method, e.g., md5, trust, peer
+    state: present           # Ensure the rule is present
+    dest: /etc/postgresql/16/main/pg_hba.conf
+  notify: restart_postgresql
+
+- name: set listen host
+  become: true
+  ansible.builtin.copy:
+    src: postgresql.conf
+    dest: /etc/postgresql/16/main/postgresql.conf
+    owner: postgres
+    group: postgres
+  notify: restart_postgresql
+
+- name: start server
+  become: true
+  ansible.builtin.service:
+    name: postgresql@16-main
+    state: started
+    enabled: true

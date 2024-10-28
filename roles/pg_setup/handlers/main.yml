@@ -1,0 +1,6 @@
+---
+- name: restart_postgresql
+  become: true
+  ansible.builtin.service:
+    name: postgresql@16-main
+    state: restarted

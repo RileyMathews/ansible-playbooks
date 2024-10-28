@@ -9,6 +9,11 @@
   roles:
     - install_docker
 
+- hosts: awscli
+  become: true
+  roles:
+    - awscli2
+
 - hosts: public_tcp_proxy
   become: yes
   roles:
@@ -65,3 +70,4 @@
   roles:
     - pg_install
     - pg_backup
+    - pg_setup

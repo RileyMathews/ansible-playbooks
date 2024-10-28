@@ -21,6 +21,7 @@ rpgweave-staging.local
 homeassistant.local
 vaultwarden.local
 rabbitmq.local
+db1.local
 
 [docker]
 debian-testing.local
@@ -83,3 +84,5 @@ k8s3.local
 [redis]
 redis.local
 
+[awscli]
+db1.local
