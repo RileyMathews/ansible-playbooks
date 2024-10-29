@@ -54,6 +54,14 @@
   roles:
     - k8s-common
 
+- hosts: k8s_ctrlr
+  roles:
+    - k8s_ctrlr
+
+- hosts: k8s_worker
+  roles:
+    - k8s_worker
+
 - hosts: redis
   roles:
     - redis
@@ -75,3 +83,7 @@
 - hosts: restic
   roles:
     - restic
+
+- hosts: vikunja.local
+  roles:
+    - vikunja

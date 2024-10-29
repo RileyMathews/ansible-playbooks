@@ -22,6 +22,7 @@ homeassistant.local
 vaultwarden.local
 rabbitmq.local
 db1.local
+vikunja.local
 
 [docker]
 debian-testing.local
@@ -33,6 +34,7 @@ rpgweave-staging.local
 homeassistant.local
 searxng.local
 vaultwarden.local
+vikunja.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -49,6 +51,7 @@ ntfy.local
 searxng.local
 vaultwarden.local
 pi-hole.local
+vikunja.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -62,6 +65,7 @@ ntfy.local
 searxng.local
 vaultwarden.local
 pi-hole.local
+vikunja.local
 
 [rpgweave]
 rpgweave-staging.local
@@ -69,9 +73,21 @@ rpgweave.local
 
 [k8s]
 k8s-ctrlr.local
+k8s1.local
+k8s2.local
+k8s3.local
+k8s4.local
+k8s5.local
 
 [k8s_ctrlr]
 k8s-ctrlr.local
+
+[k8s_worker]
+k8s1.local
+k8s2.local
+k8s3.local
+k8s4.local
+k8s5.local
 
 [redis]
 redis.local
@@ -81,3 +97,4 @@ db1.local
 
 [restic]
 vaultwarden.local
+vikunja.local

@@ -1,0 +1,34 @@
+---
+- name: initialize cluster
+  become: true
+  ansible.builtin.command:
+    cmd: "kubeadm init --control-plane-endpoint={{ ansible_default_ipv4.address }} --node-name {{ ansible_hostname }} --pod-network-cidr=10.244.0.0/16"
+    creates: /etc/kubernetes/admin.conf
+
+- name: create kube config dir for riley user
+  ansible.builtin.file:
+    name: /home/riley/.kube
+    state: directory
+    owner: riley
+    group: riley
+
+- name: copy admin file to riley's home
+  become: true
+  ansible.builtin.command:
+    cmd: cp /etc/kubernetes/admin.conf /home/riley/.kube/config
+    creates: /home/riley/.kube/config
+
+- name: give riley permission for config file
+  become: true
+  ansible.builtin.file:
+    path: /home/riley/.kube/config
+    owner: riley
+    group: riley
+
+
+- name: Generate kubeadm join command
+  become: true
+  ansible.builtin.command:
+    cmd: kubeadm token create --print-join-command
+  register: kubeadm_join_command
+  run_once: true

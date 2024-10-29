@@ -1,9 +1,2 @@
 ---
-available_sites:
-  - name: rpgweave
-    listen_host: "rpgweave.com"
-    backend_host: "http://127.0.0.1:8000"
-
-
-accept_tcp_proxy: true
-
+rpgweave_settings_module: "config.settings.prod"

@@ -1,4 +1,10 @@
 ---
+- name: add gnupg2 for signing keys
+  become: true
+  ansible.builtin.apt:
+    name: gnupg2
+    state: present
+
 - name: add repository key
   become: true
   ansible.builtin.apt_key:
@@ -16,7 +22,6 @@
   ansible.builtin.apt:
     name:
       - containerd
-      - gnupg2
       - kubeadm
       - kubectl
       - kubelet
@@ -42,10 +47,11 @@
   ansible.builtin.copy:
     src: sysctl.conf
     dest: /etc/sysctl.conf
+  notify: reload_sysctl
 
 - name: copy k8s module file
   become: true
   ansible.builtin.copy:
     src: k8s.conf
     dest: /etc/modules-load.d/k8s.conf
-
+  notify: restart_machine

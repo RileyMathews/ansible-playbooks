@@ -1,9 +1,4 @@
 ---
-available_sites:
-  - name: rpgweave-staging
-    listen_host: "staging.rpgweave.com"
-    backend_host: "http://127.0.0.1:8000"
 
-
-accept_tcp_proxy: false
+rpgweave_settings_module: "config.settings.staging"
 

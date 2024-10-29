@@ -4,3 +4,13 @@
   ansible.builtin.service:
     name: containerd
     state: restarted
+
+- name: reload_sysctl
+  become: true
+  ansible.builtin.command:
+    cmd: sysctl -p /etc/sysctl.conf
+
+- name: restart_machine
+  become: true
+  ansible.builtin.reboot:
+    msg: "rebooting..."

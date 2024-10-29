@@ -1,0 +1,8 @@
+---
+- name: Join worker node to the cluster
+  become: true
+  ansible.builtin.command:
+    cmd: "{{ hostvars['k8s-ctrlr.local']['kubeadm_join_command'].stdout }}"
+    creates: /etc/kubernetes/kubelet.conf
+  when:
+    - hostvars['k8s-ctrlr.local']['kubeadm_join_command'] is defined

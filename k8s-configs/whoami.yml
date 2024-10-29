@@ -5,7 +5,7 @@ metadata:
   labels:
     app: whoami
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: whoami
@@ -20,3 +20,16 @@ spec:
           ports:
             - containerPort: 80
               name: "whoami-http"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-example
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: whoami-http
+  selector:
+    app: whoami

@@ -1,0 +1,36 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/vikunja
+    state: directory
+    owner: riley
+    group: riley
+
+- name: copy environment file
+  ansible.builtin.template:
+    src: env.j2
+    dest: /opt/vikunja/.env
+    owner: riley
+    group: riley
+  notify: restart_vikunja
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/vikunja/files
+    - /opt/vikunja/db
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/vikunja/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_vikunja
+
+

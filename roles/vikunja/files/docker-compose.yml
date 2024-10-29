@@ -1,0 +1,11 @@
+services:
+  vikunja:
+    image: vikunja/vikunja
+    env_file:
+      - .env
+    ports:
+      - 8000:3456
+    volumes:
+      - ./files:/app/vikunja/files
+      - ./db:/db
+    restart: unless-stopped
