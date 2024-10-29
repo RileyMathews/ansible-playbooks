@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rpgweave-staging
+  labels:
+    app: rpgweave-staging
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rpgweave-staging
+  template:
+    metadata:
+      labels:
+        app: rpgweave-staging
+    spec:
+      containers:
+        - name: rpgweave-staging
+          image: registry.gitlab.com/rpgweave/rpg_weave:latest
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: config.settings.staging
+            - name: ENCRYPTION_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rpgweave-encryption-password
+                  key: ENCRYPTION_PASSWORD
+          ports:
+            - containerPort: 8000
+              name: "rpgws-http"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+              httpHeaders:
+                - name: Host
+                  value: staging.rpgweave.com
+            initialDelaySeconds: 10
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: gitlab-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rpgweave-staging
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: rpgws-http
+  selector:
+    app: rpgweave-staging
