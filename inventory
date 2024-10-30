@@ -23,6 +23,7 @@ vaultwarden.local
 rabbitmq.local
 db1.local
 vikunja.local
+gitea.local
 
 [docker]
 debian-testing.local
@@ -52,6 +53,7 @@ searxng.local
 vaultwarden.local
 pi-hole.local
 vikunja.local
+gitea.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -66,6 +68,7 @@ searxng.local
 vaultwarden.local
 pi-hole.local
 vikunja.local
+gitea.local
 
 [rpgweave]
 rpgweave-staging.local

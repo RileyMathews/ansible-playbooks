@@ -87,3 +87,7 @@
 - hosts: vikunja.local
   roles:
     - vikunja
+
+- hosts: gitea.local
+  roles:
+    - gitea
