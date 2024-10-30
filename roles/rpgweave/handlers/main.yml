@@ -1,5 +1,0 @@
----
-- name: restart_rpgweave
-  ansible.builtin.shell:
-    chdir: /opt/rpgweave
-    cmd: docker compose pull && docker compose down --remove-orphans && docker compose rm && docker compose up -d

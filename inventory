@@ -16,8 +16,6 @@ searxng.local
 debian-testing.local
 whoami.local
 pi-hole.local
-rpgweave.local
-rpgweave-staging.local
 homeassistant.local
 vaultwarden.local
 rabbitmq.local
@@ -30,8 +28,6 @@ debian-testing.local
 mealie.local
 searxng.local
 whoami.local
-rpgweave.local
-rpgweave-staging.local
 homeassistant.local
 searxng.local
 vaultwarden.local
@@ -45,8 +41,6 @@ proxy.rileymathews.com
 [certbot]
 public-proxy.local
 debian-testing.local
-rpgweave-staging.local
-rpgweave.local
 homeassistant.local
 ntfy.local
 searxng.local
@@ -60,8 +54,6 @@ gitea.local
 [proxy]
 public-proxy.local
 debian-testing.local
-rpgweave-staging.local
-rpgweave.local
 homeassistant.local
 ntfy.local
 searxng.local
@@ -69,10 +61,6 @@ vaultwarden.local
 pi-hole.local
 vikunja.local
 gitea.local
-
-[rpgweave]
-rpgweave-staging.local
-rpgweave.local
 
 [k8s]
 k8s-ctrlr.local

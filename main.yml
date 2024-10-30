@@ -33,11 +33,6 @@
   roles:
     - proxy
 
-- hosts: rpgweave
-  become: yes
-  roles:
-    - rpgweave
-
 - hosts: homeassistant.local
   roles:
     - homeassistant
