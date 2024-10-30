@@ -86,3 +86,7 @@
 - hosts: gitea.local
   roles:
     - gitea
+
+- hosts: enterprise.local
+  roles:
+    - heimdall

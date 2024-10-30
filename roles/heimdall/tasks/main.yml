@@ -1,0 +1,26 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/heimdall
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/heimdall/config
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/heimdall/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_heimdall
+

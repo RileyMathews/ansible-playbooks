@@ -22,6 +22,7 @@ rabbitmq.local
 db1.local
 vikunja.local
 gitea.local
+enterprise.local
 
 [docker]
 debian-testing.local
@@ -32,6 +33,7 @@ homeassistant.local
 searxng.local
 vaultwarden.local
 vikunja.local
+enterprise.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -48,6 +50,7 @@ vaultwarden.local
 pi-hole.local
 vikunja.local
 gitea.local
+enterprise.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -61,6 +64,7 @@ vaultwarden.local
 pi-hole.local
 vikunja.local
 gitea.local
+enterprise.local
 
 [k8s]
 k8s-ctrlr.local
