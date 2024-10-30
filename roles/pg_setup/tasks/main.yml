@@ -23,29 +23,31 @@
   become: true
   become_user: postgres
 
-- name: Create PostgreSQL rpgweave-staging user
+- name: Create PostgreSQL users
   ansible.builtin.postgresql_user:
-    name: rpgweave-staging
-    password: "{{ rpgweave_staging_database_password }}"  # Replace with a secure password or use a variable
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"  # Replace with a secure password or use a variable
   become: true
   become_user: postgres
-
-- name: create rpgweave user
-  ansible.builtin.postgresql_user:
-    name: rpgweave
-    password: "{{ rpgweave_production_database_password }}"  # Replace with a secure password or use a variable
-  become: true
-  become_user: postgres
+  loop:
+    - name: rpgweave-staging
+      password: "{{ rpgweave_staging_database_password }}"
+    - name: rpgweave
+      password: "{{ rpgweave_production_database_password }}"
+    - name: gatus
+      password: "{{ gatus_database_password }}"
 
 - name: create databases
   become: true
   become_user: postgres
   ansible.builtin.postgresql_db:
     name: "{{ item }}"
+    owner: "{{ item }}"
   loop:
     - rpgweave-staging
     - rpgweave
     - riley
+    - gatus
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true
@@ -54,7 +56,7 @@
     databases: all            # Specify the database; 'all' allows access to all databases
     users: all                # Specify the user; 'all' allows all users
     address: 0.0.0.0/0  # Hostname for allowed connection
-    method: md5              # Authentication method, e.g., md5, trust, peer
+    method: scram-sha-256              # Authentication method, e.g., md5, trust, peer
     state: present           # Ensure the rule is present
     dest: /etc/postgresql/16/main/pg_hba.conf
   notify: restart_postgresql

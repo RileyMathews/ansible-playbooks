@@ -90,3 +90,4 @@
 - hosts: enterprise.local
   roles:
     - heimdall
+    - gatus

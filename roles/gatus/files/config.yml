@@ -1,0 +1,42 @@
+storage:
+  type: postgres
+  path: "postgres://gatus:${POSTGRES_PASSWORD}@db1.local.rileymathews.com:5432/gatus"
+
+
+endpoint-defaults: &defaults
+  group: Services
+  interval: 30s
+  client:
+    timeout: 10s
+  conditions:
+    - "[STATUS] == 200"
+    - "[CERTIFICATE_EXPIRATION] > 72h"
+  alerts:
+    - type: ntfy
+
+alerting:
+  ntfy:
+    topic: "home-server-alerts"
+    priority: 2
+    url: "https://ntfy.rileymathews.com"
+    default-alert:
+      failure-threshold: 3
+      send-on-resolved: true
+
+
+endpoints:
+  - name: rpgweave
+    <<: *defaults
+    url: "https://rpgweave.com"
+
+  - name: vaultwarden
+    <<: *defaults
+    url: "https://vaultwarden.rileymathews.com"
+
+  - name: homeassistant
+    <<: *defaults
+    url: "https://home.rileymathews.com"
+
+  - name: gitea
+    <<: *defaults
+    url: "https://gitea.rileymathews.com"

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rpgweave-staging
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: rpgws-http
+  selector:
+    app: rpgweave-staging
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-rpgweave-staging
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: staging.rpgweave.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rpgweave-staging
+                port:
+                  number: 80

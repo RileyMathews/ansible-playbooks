@@ -4,16 +4,12 @@ available_sites:
     listen_host: "whoami.rileymathews.com"
     backend_host: "http://whoami:8000"
 
-  - name: whoami-k8s
-    listen_host: "k8s.rileymathews.com"
-    backend_host: "http://10.0.0.200:80"
-
   - name: rpgweave-staging
     listen_host: "staging.rpgweave.com"
-    backend_host: "http://10.0.0.201:80"
+    backend_host: "http://10.0.0.202:80"
 
   - name: rpgweave
     listen_host: "rpgweave.com"
-    backend_host: "http://10.0.0.201:80"
+    backend_host: "http://10.0.0.202:80"
 
 accept_tcp_proxy: true
