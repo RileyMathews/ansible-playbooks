@@ -10,6 +10,8 @@
   become: true
   ansible.builtin.user:
     name: "git"
+    system: true
+    password: "!"
     state: "present"
     shell: "/bin/bash"
     create_home: true
@@ -37,6 +39,14 @@
     state: directory
     group: git
     owner: git
+
+- name: create etc config dir
+  become: true
+  ansible.builtin.file:
+    name: /etc/gitea
+    state: directory
+    owner: git
+    group: git
 
 - name: start gitea
   become: true
