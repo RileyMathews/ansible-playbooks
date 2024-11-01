@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: board-game-companion
+  labels:
+    app: board-game-companion
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: board-game-companion
+  template:
+    metadata:
+      labels:
+        app: board-game-companion
+    spec:
+      containers:
+        - name: board-game-companion
+          image: registry.gitlab.com/rileymathews/board-game-companion:latest
+          env:
+            - name: RAILS_MASTER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: board-game-companion-rails-master-key
+                  key: RAILS_MASTER_KEY
+          ports:
+            - containerPort: 3000
+              name: "bgc-http"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+              httpHeaders:
+                - name: Host
+                  value: bgc.rileymathews.com
+            initialDelaySeconds: 10
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: gitlab-registry

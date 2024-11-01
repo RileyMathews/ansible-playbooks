@@ -1,15 +1,15 @@
 ---
 available_sites:
-  - name: whoami 
-    listen_host: "whoami.rileymathews.com"
-    backend_host: "http://whoami:8000"
-
   - name: rpgweave-staging
     listen_host: "staging.rpgweave.com"
     backend_host: "http://10.0.0.202:80"
 
   - name: rpgweave
     listen_host: "rpgweave.com"
+    backend_host: "http://10.0.0.202:80"
+
+  - name: board-game-companion
+    listen_host: "bgc.rileymathews.com"
     backend_host: "http://10.0.0.202:80"
 
 accept_tcp_proxy: true

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: board-game-companion
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: bgc-http
+  selector:
+    app: board-game-companion
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-board-game-companion
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: bgc.rileymathews.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: board-game-companion
+                port:
+                  number: 80
