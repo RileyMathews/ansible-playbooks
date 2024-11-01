@@ -11,7 +11,7 @@ while IFS= read -r dir; do
     # Do something with each line
     echo "Processing: $dir"
     restic backup $dir
-    curl "https://ntfy.rileymathews.com/home-server-alerts" -d "restic backup of $hostname finished"
 done < "$file_path"
 
+curl "https://ntfy.rileymathews.com/home-server-alerts" -d "restic backup of $hostname finished"
 echo "done!"

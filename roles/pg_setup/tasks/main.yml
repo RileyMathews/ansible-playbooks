@@ -36,6 +36,8 @@
       password: "{{ rpgweave_production_database_password }}"
     - name: gatus
       password: "{{ gatus_database_password }}"
+    - name: board-game-companion
+      password: "{{ board_game_companion_database_password }}"
 
 - name: create databases
   become: true
@@ -48,6 +50,7 @@
     - rpgweave
     - riley
     - gatus
+    - board-game-companion
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true

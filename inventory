@@ -93,3 +93,4 @@ db1.local
 [restic]
 vaultwarden.local
 vikunja.local
+gitea.local

@@ -5,3 +5,5 @@ available_sites:
     backend_host: "http://127.0.0.1:3000"
 
 accept_tcp_proxy: false
+restic_backup_dirs:
+  - /var/lib/gitea/data
