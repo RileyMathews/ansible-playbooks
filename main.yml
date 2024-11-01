@@ -91,3 +91,7 @@
   roles:
     - heimdall
     - gatus
+
+- hosts: mealie.local
+  roles:
+    - mealie

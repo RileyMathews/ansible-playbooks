@@ -6,7 +6,6 @@ ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
 mealie.local
 searxng.local
 debian-testing.local
-whoami.local
 pi-hole.local
 db1.local
 
@@ -14,7 +13,6 @@ db1.local
 mealie.local
 searxng.local
 debian-testing.local
-whoami.local
 pi-hole.local
 homeassistant.local
 vaultwarden.local
@@ -28,7 +26,6 @@ enterprise.local
 debian-testing.local
 mealie.local
 searxng.local
-whoami.local
 homeassistant.local
 searxng.local
 vaultwarden.local
@@ -51,6 +48,7 @@ pi-hole.local
 vikunja.local
 gitea.local
 enterprise.local
+mealie.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -65,6 +63,7 @@ pi-hole.local
 vikunja.local
 gitea.local
 enterprise.local
+mealie.local
 
 [k8s]
 k8s-ctrlr.local
