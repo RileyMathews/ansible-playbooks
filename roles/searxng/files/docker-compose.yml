@@ -1,18 +1,4 @@
 services:
-  redis:
-    container_name: redis
-    image: docker.io/valkey/valkey:8-alpine
-    command: valkey-server --save 30 1 --loglevel warning
-    restart: unless-stopped
-    volumes:
-      - valkey-data2:/data
-    cap_drop:
-      - ALL
-    cap_add:
-      - SETGID
-      - SETUID
-      - DAC_OVERRIDE
-
   searxng:
     container_name: searxng
     image: docker.io/searxng/searxng:2024.11.1-56e3d72a7
@@ -31,11 +17,4 @@ services:
       - CHOWN
       - SETGID
       - SETUID
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.mealie.rule=Host(`search.rileymathews.com`)
-      - traefik.http.routers.mealie.tls.certresolver=cf
 
-
-volumes:
-  valkey-data2:

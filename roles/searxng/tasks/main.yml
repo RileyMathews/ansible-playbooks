@@ -15,6 +15,14 @@
     owner: riley
     group: riley
 
+- name: Copy searxng config file
+  ansible.builtin.copy:
+    src: settings.yml
+    dest: /opt/searxng/searxng/settings.yml
+    owner: riley
+    group: riley
+  notify: restart_searxng
+
 - name: Copy docker compose file
   ansible.builtin.copy:
     src: docker-compose.yml
