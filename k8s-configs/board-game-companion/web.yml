@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: board-game-companion
-          image: registry.gitlab.com/rileymathews/board-game-companion:latest
+          image: gitea.rileymathews.com/riley/board-game-companion:latest
           env:
             - name: RAILS_MASTER_KEY
               valueFrom:
@@ -36,4 +36,4 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 5
       imagePullSecrets:
-        - name: gitlab-registry
+        - name: gitea-registry
