@@ -1,5 +1,7 @@
 ---
-- name: restart_ollama
-  ansible.builtin.shell:
-    chdir: /opt/ollama
-    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm
+- name: reload_systemd
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: yes
+    state: restarted
+    name: ollama.service

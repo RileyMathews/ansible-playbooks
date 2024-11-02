@@ -8,7 +8,7 @@ services:
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
-      - 'OLLAMA_BASE_URL=http://data.local:11434'
+      - 'OLLAMA_BASE_URL=https://ollama.rileymathews.com'
       - ENABLE_RAG_WEB_SEARCH=True
       - RAG_WEB_SEARCH_ENGINE=searxng
       - RAG_WEB_SEARCH_RESULT_COUNT=3

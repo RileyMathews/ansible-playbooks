@@ -10,3 +10,20 @@
   ansible.builtin.command:
     cmd: "curl -fsSL https://ollama.com/install.sh | sh"
     creates: /usr/local/bin/ollama
+
+- name: Create systemd override directory for ollama service
+  become: true
+  file:
+    path: /etc/systemd/system/ollama.service.d
+    state: directory
+    mode: '0755'
+
+- name: Create override.conf for ollama service
+  become: true
+  copy:
+    dest: /etc/systemd/system/ollama.service.d/override.conf
+    content: |
+      [Service]
+      Environment="OLLAMA_HOST=0.0.0.0"
+    mode: '0644'
+  notify: reload_systemd

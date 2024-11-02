@@ -1,0 +1,7 @@
+---
+available_sites:
+  - name: ollama
+    listen_host: ollama.rileymathews.com
+    backend_host: "http://127.0.0.1:11434"
+
+accept_tcp_proxy: false
