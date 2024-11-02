@@ -21,7 +21,6 @@ db1.local
 vikunja.local
 gitea.local
 enterprise.local
-data.local
 
 [docker]
 debian-testing.local
@@ -32,7 +31,6 @@ searxng.local
 vaultwarden.local
 vikunja.local
 enterprise.local
-data.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'

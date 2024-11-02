@@ -96,7 +96,3 @@
   roles:
     - mealie
 
-- hosts: data.local
-  roles:
-    - nvidia_docker
-    - ollama
