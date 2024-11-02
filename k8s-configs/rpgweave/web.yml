@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: rpgweave
-          image: registry.gitlab.com/rpgweave/rpg_weave:latest
+          image: gitea.rileymathews.com/riley/rpg_weave:latest
           env:
             - name: DJANGO_SETTINGS_MODULE
               value: config.settings.prod
@@ -38,4 +38,4 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 5
       imagePullSecrets:
-        - name: gitlab-registry
+        - name: gitea-registry

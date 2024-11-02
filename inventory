@@ -22,6 +22,12 @@ vikunja.local
 gitea.local
 enterprise.local
 data.local
+k8s-ctrlr.local
+k8s1.local
+k8s2.local
+k8s3.local
+k8s4.local
+k8s5.local
 
 [docker]
 debian-testing.local
