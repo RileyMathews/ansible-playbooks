@@ -1,0 +1,11 @@
+---
+- name: install cuda-toolkit
+  become: true
+  ansible.builtin.apt:
+    name: nvidia-cuda-toolkit
+    state: present
+    update_cache: yes
+
+- name: install ollama
+  ansible.builtin.command:
+    cmd: "curl -fsSL https://ollama.com/install.sh | sh"

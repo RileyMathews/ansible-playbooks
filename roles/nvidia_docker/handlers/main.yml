@@ -1,0 +1,16 @@
+---
+- name: update_apt_cache
+  apt:
+    update_cache: yes
+
+- name: restart_docker
+  service:
+    name: docker
+    state: restarted
+
+- name: reboot_system
+  reboot:
+    msg: "Reboot initiated by Ansible for NVIDIA driver installation"
+  when: nvidia_driver_install.changed
+
+

@@ -1,0 +1,70 @@
+---
+- name: Ensure 'contrib' and 'non-free' components are enabled in apt sources
+  become: true
+  lineinfile:
+    path: /etc/apt/sources.list
+    regexp: '^deb .* {{ ansible_distribution_release }} main'
+    line: 'deb http://deb.debian.org/debian {{ ansible_distribution_release }} main contrib non-free non-free-firmware'
+  notify: update_apt_cache
+
+- name: Ensure 'contrib' and 'non-free' are enabled in security updates
+  become: true
+  lineinfile:
+    path: /etc/apt/sources.list
+    regexp: '^deb .*security.debian.org.* {{ ansible_distribution_release }}-security main'
+    line: 'deb http://security.debian.org/debian-security {{ ansible_distribution_release }}-security main contrib non-free'
+  notify: update_apt_cache
+
+- name: Install NVIDIA driver
+  become: true
+  apt:
+    name: nvidia-driver
+    state: present
+    update_cache: true
+  register: nvidia_driver_install
+  notify: reboot_system
+
+- name: Ensure required packages are installed
+  become: true
+  apt:
+    name:
+      - gnupg2
+      - curl
+    state: present
+
+- name: Download and dearmor NVIDIA GPG key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://nvidia.github.io/libnvidia-container/gpgkey
+    state: present
+
+- name: Add NVIDIA container toolkit repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH) /"
+    state: present
+
+- name: Install container toolkit
+  become: true
+  apt:
+    name: nvidia-container-toolkit
+    state: present
+    update_cache: true
+  notify: restart_docker
+
+- name: Configure Docker daemon to use NVIDIA runtime
+  become: true
+  copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "default-runtime": "nvidia",
+        "runtimes": {
+          "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+          }
+        }
+      }
+  notify: restart_docker
+
