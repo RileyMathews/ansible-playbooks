@@ -91,8 +91,13 @@
   roles:
     - heimdall
     - gatus
+    - open_web_ui
 
 - hosts: mealie.local
   roles:
     - mealie
 
+- hosts: data.local
+  roles:
+    - nvidia_docker
+    - ollama

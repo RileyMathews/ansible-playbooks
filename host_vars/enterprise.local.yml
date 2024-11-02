@@ -8,4 +8,8 @@ available_sites:
     listen_host: gatus.rileymathews.com
     backend_host: "http://127.0.0.1:8081"
 
+  - name: open-web-ui
+    listen_host: chat.rileymathews.com
+    backend_host: "http://127.0.0.1:8082"
+
 accept_tcp_proxy: false

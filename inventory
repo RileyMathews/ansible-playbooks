@@ -21,6 +21,7 @@ db1.local
 vikunja.local
 gitea.local
 enterprise.local
+data.local
 
 [docker]
 debian-testing.local

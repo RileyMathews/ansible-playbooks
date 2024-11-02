@@ -9,3 +9,4 @@
 - name: install ollama
   ansible.builtin.command:
     cmd: "curl -fsSL https://ollama.com/install.sh | sh"
+    creates: /usr/local/bin/ollama
