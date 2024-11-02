@@ -12,4 +12,8 @@ available_sites:
     listen_host: "bgc.rileymathews.com"
     backend_host: "http://10.0.0.202:80"
 
+  - name: k8s-dashboard
+    listen_host: "k8s.rileymathews.com"
+    backend_host: "http://10.0.0.202:80"
+
 accept_tcp_proxy: true
