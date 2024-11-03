@@ -50,6 +50,8 @@ echo "starting postgres backup"
 backup_database "riley"
 backup_database "rpgweave"
 backup_database "rpgweave-staging"
+backup_database "board-game-companion"
+backup_database "immich"
 
 rm -rf /tmp/db_backups
 exit 0

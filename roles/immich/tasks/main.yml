@@ -1,0 +1,35 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/immich
+    state: directory
+    owner: riley
+    group: riley
+
+- name: copy environment file
+  ansible.builtin.template:
+    src: env.j2
+    dest: /opt/immich/.env
+    owner: riley
+    group: riley
+  notify: restart_immich
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/immich/data
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/immich/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_immich
+
+

@@ -5,3 +5,4 @@
 1 - rpgweave staging
 2 - board game companion
 3 - searxng
+4 - immich

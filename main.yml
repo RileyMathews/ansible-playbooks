@@ -101,3 +101,7 @@
   roles:
     - nvidia_docker
     - ollama
+
+- hosts: storage.local
+  roles:
+    - immich
