@@ -79,10 +79,6 @@
   roles:
     - restic
 
-- hosts: vikunja.local
-  roles:
-    - vikunja
-
 - hosts: gitea.local
   roles:
     - gitea
@@ -92,6 +88,7 @@
     - heimdall
     - gatus
     - open_web_ui
+    - vikunja
 
 - hosts: mealie.local
   roles:
