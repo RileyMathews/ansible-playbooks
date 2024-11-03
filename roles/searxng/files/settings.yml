@@ -9,3 +9,8 @@ ui:
   static_use_hash: true
 redis:
   url: redis://redis.local.rileymathews.com:6379/3
+
+search:
+  formats:
+    - html
+    - json
