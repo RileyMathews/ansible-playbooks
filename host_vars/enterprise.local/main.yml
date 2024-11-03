@@ -16,6 +16,14 @@ available_sites:
     listen_host: "vikunja.rileymathews.com"
     backend_host: "http://127.0.0.1:8003"
 
+  - name: ntfy
+    listen_host: "ntfy.rileymathews.com"
+    backend_host: "http://127.0.0.1:8004"
+
+  - name: searxng
+    listen_host: "search.rileymathews.com"
+    backend_host: "http://127.0.0.1:8005"
+
 accept_tcp_proxy: false
 restic_backup_dirs:
   - /opt/vikunja/files

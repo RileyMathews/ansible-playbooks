@@ -37,14 +37,6 @@
   roles:
     - homeassistant
 
-- hosts: searxng.local
-  roles:
-    - searxng
-
-- hosts: ntfy.local
-  roles:
-    - ntfy
-
 - hosts: k8s
   roles:
     - k8s-common
@@ -89,6 +81,8 @@
     - gatus
     - open_web_ui
     - vikunja
+    - ntfy
+    - searxng
 
 - hosts: mealie.local
   roles:

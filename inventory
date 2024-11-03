@@ -4,14 +4,12 @@ ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
 
 [targets]
 mealie.local
-searxng.local
 debian-testing.local
 pi-hole.local
 db1.local
 
 [tailscale]
 mealie.local
-searxng.local
 debian-testing.local
 pi-hole.local
 homeassistant.local
@@ -32,9 +30,7 @@ storage.local
 [docker]
 debian-testing.local
 mealie.local
-searxng.local
 homeassistant.local
-searxng.local
 vaultwarden.local
 enterprise.local
 storage.local
@@ -49,7 +45,6 @@ public-proxy.local
 debian-testing.local
 homeassistant.local
 ntfy.local
-searxng.local
 vaultwarden.local
 pi-hole.local
 gitea.local
@@ -65,7 +60,6 @@ public-proxy.local
 debian-testing.local
 homeassistant.local
 ntfy.local
-searxng.local
 vaultwarden.local
 pi-hole.local
 gitea.local

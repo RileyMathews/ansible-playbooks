@@ -3,8 +3,9 @@ services:
     container_name: searxng
     image: docker.io/searxng/searxng:2024.11.1-56e3d72a7
     restart: unless-stopped
+    user: 1000:1000
     ports:
-      - "8080:8080"
+      - "8005:8080"
     volumes:
       - ./searxng:/etc/searxng:rw
     environment:

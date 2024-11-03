@@ -1,48 +1,24 @@
 ---
-- name: install apt dependencies
-  become: true
-  apt:
-    name:
-      - curl
-      - debian-archive-keyring
-      - gnupg2
-      - apt-transport-https
-    state: present
-    update_cache: yes
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/ntfy
+    state: directory
+    owner: riley
+    group: riley
 
-- name: add ntfy signing key
-  become: true
-  ansible.builtin.apt_key:
-    url: https://archive.heckel.io/apt/pubkey.txt
-    state: present
-
-- name: add ntfy repository
-  become: true
-  ansible.builtin.apt_repository:
-    repo: "deb https://archive.heckel.io/apt debian main"
-    state: present
-
-- name: Update apt cache
-  become: true
-  ansible.builtin.apt:
-    update_cache: yes
-
-- name: install ntfy
-  become: true
-  ansible.builtin.apt:
-    name: ntfy
-    state: present
-
-- name: copy server.yml file
-  become: true
+- name: copy server file
   ansible.builtin.copy:
     src: server.yml
-    dest: /etc/ntfy/server.yml
+    dest: /opt/ntfy/server.yml
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/ntfy/docker-compose.yml
+    owner: riley
+    group: riley
   notify: restart_ntfy
 
-- name: start ntfy
-  become: true
-  ansible.builtin.systemd:
-    name: ntfy
-    state: started
-    enabled: true
