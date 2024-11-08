@@ -20,7 +20,7 @@ spec:
           command: ["./bin/celery"]
           env:
             - name: DJANGO_SETTINGS_MODULE
-              value: config.settings.staging
+              value: config.settings.prod
             - name: ENCRYPTION_PASSWORD
               valueFrom:
                 secretKeyRef:

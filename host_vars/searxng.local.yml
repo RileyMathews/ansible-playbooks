@@ -1,7 +1,0 @@
----
-available_sites:
-  - name: searxng
-    listen_host: "search.rileymathews.com"
-    backend_host: "http://127.0.0.1:8080"
-
-accept_tcp_proxy: false

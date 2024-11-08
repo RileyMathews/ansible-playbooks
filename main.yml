@@ -24,7 +24,7 @@
   roles:
     - certbot
 
-- hosts: pi-hole.local
+- hosts: hoshi.local
   roles:
     - pihole
 
@@ -49,19 +49,19 @@
   roles:
     - k8s_worker
 
-- hosts: redis
+- hosts: bynar.local
   roles:
     - redis
 
-- hosts: vaultwarden.local
+- hosts: worf.local
   roles:
    - vaultwarden
 
-- hosts: rabbitmq.local
+- hosts: uhura.local
   roles:
    - rabbitmq
 
-- hosts: db1.local
+- hosts: memory-alpha.local
   roles:
     - pg_install
     - pg_backup
@@ -71,7 +71,7 @@
   roles:
     - restic
 
-- hosts: gitea.local
+- hosts: barclay.local
   roles:
     - gitea
 
@@ -84,7 +84,7 @@
     - ntfy
     - searxng
 
-- hosts: mealie.local
+- hosts: neelix.local
   roles:
     - mealie
 
@@ -93,6 +93,3 @@
     - nvidia_docker
     - ollama
 
-- hosts: storage.local
-  roles:
-    - immich

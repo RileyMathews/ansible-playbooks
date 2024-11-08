@@ -3,20 +3,18 @@ ansible_user=riley
 ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
 
 [targets]
-mealie.local
-debian-testing.local
-pi-hole.local
-db1.local
+neelix.local
+hoshi.local
+memory-alpha.local
 
 [tailscale]
-mealie.local
-debian-testing.local
-pi-hole.local
+neelix.local
+hoshi.local
 homeassistant.local
-vaultwarden.local
-rabbitmq.local
-db1.local
-gitea.local
+worf.local
+uhura.local
+memory-alpha.local
+barclay.local
 enterprise.local
 data.local
 k8s-ctrlr.local
@@ -25,15 +23,12 @@ k8s2.local
 k8s3.local
 k8s4.local
 k8s5.local
-storage.local
 
 [docker]
-debian-testing.local
-mealie.local
+neelix.local
 homeassistant.local
-vaultwarden.local
+worf.local
 enterprise.local
-storage.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -42,31 +37,25 @@ proxy.rileymathews.com
 
 [certbot]
 public-proxy.local
-debian-testing.local
 homeassistant.local
-ntfy.local
-vaultwarden.local
-pi-hole.local
-gitea.local
+worf.local
+hoshi.local
+barclay.local
 enterprise.local
-mealie.local
+neelix.local
 data.local
-storage.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
 [proxy]
 public-proxy.local
-debian-testing.local
 homeassistant.local
-ntfy.local
-vaultwarden.local
-pi-hole.local
-gitea.local
+worf.local
+hoshi.local
+barclay.local
 enterprise.local
-mealie.local
+neelix.local
 data.local
-storage.local
 
 [k8s]
 k8s-ctrlr.local
@@ -86,14 +75,10 @@ k8s3.local
 k8s4.local
 k8s5.local
 
-[redis]
-redis.local
-
 [awscli]
-db1.local
+memory-alpha.local
 
 [restic]
-vaultwarden.local
+worf.local
 enterprise.local
-gitea.local
-storage.local
+barclay.local

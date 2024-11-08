@@ -38,8 +38,6 @@
       password: "{{ gatus_database_password }}"
     - name: board-game-companion
       password: "{{ board_game_companion_database_password }}"
-    - name: immich
-      password: "{{ immich_database_password }}"
 
 - name: create databases
   become: true
@@ -53,7 +51,6 @@
     - riley
     - gatus
     - board-game-companion
-    - immich
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true
@@ -82,25 +79,4 @@
     name: postgresql@16-main
     state: started
     enabled: true
-
-- name: download vector rs exntension packages
-  become: true
-  ansible.builtin.get_url:
-    url: "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.3.0/{{ item }}"
-    dest: "/tmp/{{ item }}"
-  loop:
-    - vectors-pg16_0.3.0_amd64.deb
-    - vectors-pg16_0.3.0_amd64_extensions.deb 
-    - vectors-pg16_0.3.0_amd64_public.deb 
-    - vectors-pg16_0.3.0_amd64_vectors.deb 
-
-- name: install vector rs extension packages
-  become: true
-  ansible.builtin.apt:
-    deb: "/tmp/{{ item }}"
-  loop:
-    - vectors-pg16_0.3.0_amd64.deb
-    - vectors-pg16_0.3.0_amd64_extensions.deb 
-    - vectors-pg16_0.3.0_amd64_public.deb 
-    - vectors-pg16_0.3.0_amd64_vectors.deb
 
