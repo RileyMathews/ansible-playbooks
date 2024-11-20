@@ -24,6 +24,7 @@ k8s2.local
 k8s3.local
 k8s4.local
 k8s5.local
+sisko.local
 
 [docker]
 neelix.local
@@ -45,6 +46,7 @@ barclay.local
 enterprise.local
 neelix.local
 data.local
+sisko.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -57,6 +59,7 @@ barclay.local
 enterprise.local
 neelix.local
 data.local
+sisko.local
 
 [k8s]
 k8s-ctrlr.local

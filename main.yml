@@ -83,6 +83,7 @@
     - vikunja
     - ntfy
     - searxng
+    - whoami
 
 - hosts: neelix.local
   roles:

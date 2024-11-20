@@ -1,0 +1,6 @@
+services:
+  whoami:
+    image: containous/whoami
+    restart: unless-stopped
+    ports:
+      - "8006:80"
