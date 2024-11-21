@@ -16,4 +16,8 @@ available_sites:
     listen_host: "k8s.rileymathews.com"
     backend_host: "http://10.0.0.202:80"
 
+  - name: whoami-vg
+    listen_host: "whoami-vg.rileymathews.com"
+    backend_host: "http://enterprise:8006"
+
 accept_tcp_proxy: true

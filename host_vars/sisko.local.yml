@@ -1,7 +1,11 @@
 ---
 available_sites:
   - name: whoami
-    listen_host: "whoami.rpgweave.com"
+    listen_host: "whoami.rileymathews.com"
+    backend_host: "http://enterprise:8006"
+
+  - name: whoami-internal
+    listen_host: "whoami-ts.rileymathews.com"
     backend_host: "http://enterprise:8006"
 
 accept_tcp_proxy: false
