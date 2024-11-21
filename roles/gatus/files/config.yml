@@ -40,3 +40,7 @@ endpoints:
   - name: gitea
     <<: *defaults
     url: "https://gitea.rileymathews.com"
+
+  - name: whoami
+    <<: *defaults
+    url: "https://whoami.rileymathews.com"
