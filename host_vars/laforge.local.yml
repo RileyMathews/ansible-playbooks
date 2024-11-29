@@ -1,0 +1,7 @@
+---
+available_sites:
+  - name: grafana
+    listen_host: "grafana.rileymathews.com"
+    backend_host: "http://127.0.0.1:3000"
+
+accept_tcp_proxy: false

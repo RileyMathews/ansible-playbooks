@@ -1,0 +1,27 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/grafana
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/grafana/data
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/grafana/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_grafana
+
+

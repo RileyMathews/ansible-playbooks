@@ -94,3 +94,6 @@
     - nvidia_docker
     - ollama
 
+- hosts: laforge.local
+  roles:
+    - grafana

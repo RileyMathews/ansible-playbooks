@@ -25,12 +25,14 @@ k8s3.local
 k8s4.local
 k8s5.local
 sisko.local
+laforge.local
 
 [docker]
 neelix.local
 homeassistant.local
 worf.local
 enterprise.local
+laforge.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -47,6 +49,7 @@ enterprise.local
 neelix.local
 data.local
 sisko.local
+laforge.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -60,6 +63,7 @@ enterprise.local
 neelix.local
 data.local
 sisko.local
+laforge.local
 
 [k8s]
 k8s-ctrlr.local
