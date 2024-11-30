@@ -1,0 +1,42 @@
+---
+- name: download gitea-runner binary
+  become: true
+  ansible.builtin.get_url:
+    url: "https://gitea.com/gitea/act_runner/releases/download/v0.2.11/act_runner-0.2.11-linux-amd64"
+    dest: "/usr/local/bin/act_runner"
+    mode: '0755'
+    owner: root
+    group: root
+  notify: restart_gitea_runner
+
+- name: create act_runner user
+  become: true
+  ansible.builtin.user:
+    name: "act_runner"
+    system: true
+    password: "!"
+    state: "present"
+    shell: "/bin/bash"
+    create_home: true
+
+- name: create working dir
+  become: true
+  ansible.builtin.file:
+    name: /var/lib/act_runner
+    state: directory
+    group: act_runner
+    owner: act_runner
+
+- name: copy service file
+  become: true
+  ansible.builtin.copy:
+    src: gitea-runner.service
+    dest: /etc/systemd/system/gitea-runner.service
+  notify: reload_systemd
+
+- name: start gitea-runner
+  become: true
+  ansible.builtin.service:
+    name: gitea-runner
+    state: started
+    enabled: true
