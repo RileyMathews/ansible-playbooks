@@ -27,12 +27,41 @@
     group: act_runner
     owner: act_runner
 
+- name: create config dir
+  become: true
+  ansible.builtin.file:
+    name: /etc/act_runner
+    state: directory
+    group: act_runner
+    owner: act_runner
+
+- name: copy config file
+  become: true
+  ansible.builtin.copy:
+    src: config.yml
+    dest: /etc/act_runner/config.yml
+    owner: act_runner
+    group: act_runner
+  notify: 
+    - reload_systemd
+    - restart_gitea_runner
+
+- name: add act_runner to docker group
+  become: true
+  ansible.builtin.user:
+    name: act_runner
+    groups: docker
+    append: yes
+  notify: restart_gitea_runner
+
 - name: copy service file
   become: true
   ansible.builtin.copy:
     src: gitea-runner.service
     dest: /etc/systemd/system/gitea-runner.service
-  notify: reload_systemd
+  notify: 
+    - reload_systemd
+    - restart_gitea_runner
 
 - name: start gitea-runner
   become: true
