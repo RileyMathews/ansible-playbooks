@@ -1,0 +1,25 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/diun
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/diun/data
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/diun/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_diun

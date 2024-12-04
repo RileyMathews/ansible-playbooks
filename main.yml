@@ -8,6 +8,7 @@
   become: yes
   roles:
     - install_docker
+    - diun
 
 - hosts: awscli
   become: true
@@ -101,3 +102,14 @@
 - hosts: obrien.local
   roles:
     - gitea-runner
+
+- hosts: zfs-testing.local
+  roles:
+    - role: zfs
+      vars:
+        zfs_devices:
+          - /dev/sdb
+          - /dev/sdc
+          - /dev/sdd
+          - /dev/sde
+
