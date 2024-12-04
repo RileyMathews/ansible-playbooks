@@ -103,13 +103,3 @@
   roles:
     - gitea-runner
 
-- hosts: zfs-testing.local
-  roles:
-    - role: zfs
-      vars:
-        zfs_devices:
-          - /dev/sdb
-          - /dev/sdc
-          - /dev/sdd
-          - /dev/sde
-
