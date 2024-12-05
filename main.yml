@@ -1,14 +1,22 @@
 ---
+- hosts: all
+  become: yes
+  roles:
+    - prometheus.prometheus.node_exporter
+
 - hosts: tailscale
   become: yes
   roles:
     - tailscale
 
+- hosts: engineering.local
+  roles:
+    - prometheus
+
 - hosts: docker
   become: yes
   roles:
     - install_docker
-    - diun
 
 - hosts: awscli
   become: true
@@ -85,6 +93,7 @@
     - ntfy
     - searxng
     - whoami
+    - lubelogger
 
 - hosts: neelix.local
   roles:
@@ -97,7 +106,12 @@
 
 - hosts: laforge.local
   roles:
-    - grafana
+    - role: grafana.grafana.grafana
+      vars:
+        grafana_ini:
+          security:
+            admin_user: admin
+            admin_password: "{{ grafana_admin_password }}"
 
 - hosts: obrien.local
   roles:

@@ -24,8 +24,6 @@
     mode: '0755'
     owner: root
     group: root
-    use_etag: true
-    use_last_modified: true
   notify: restart_gitea
 
 - name: copy service file

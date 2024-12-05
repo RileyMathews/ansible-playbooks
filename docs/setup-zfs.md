@@ -49,3 +49,11 @@ sudo zpool status
 ```bash
 sudo zfs create mypool/data
 ```
+
+# NFS
+## Install kernel server
+```bash
+sudo apt install nfs-kernel-server
+sudo systemctl enable --now nfs-server
+sudo zfs set sharenfs="rw=@10.0.0.1/24" mypool/dataset
+```

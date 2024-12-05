@@ -24,6 +24,10 @@ available_sites:
     listen_host: "search.rileymathews.com"
     backend_host: "http://127.0.0.1:8005"
 
+  - name: lubelogger
+    listen_host: "lubelogger.rileymathews.com"
+    backend_host: "http://enterprise:8007"
+
 accept_tcp_proxy: false
 restic_backup_dirs:
   - /opt/vikunja/files

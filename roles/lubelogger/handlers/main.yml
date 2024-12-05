@@ -1,5 +1,5 @@
 ---
-- name: restart_diun
+- name: restart_lubelogger
   ansible.builtin.shell:
-    chdir: /opt/diun
+    chdir: /opt/lubelogger
     cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

@@ -1,0 +1,42 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/lubelogger
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/lubelogger/data
+    - /opt/lubelogger/config
+    - /opt/lubelogger/translations
+    - /opt/lubelogger/documents
+    - /opt/lubelogger/images
+    - /opt/lubelogger/temp
+    - /opt/lubelogger/log
+    - /opt/lubelogger/keys
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/lubelogger/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_lubelogger
+
+- name: copy env template
+  ansible.builtin.template:
+    src: .env.j2
+    dest: /opt/lubelogger/.env
+    owner: riley
+    group: riley
+
+
+

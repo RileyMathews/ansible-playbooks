@@ -7,7 +7,6 @@ neelix.local
 hoshi.local
 memory-alpha.local
 bynar.local
-zfs-testing.local
 
 [tailscale]
 neelix.local
@@ -28,13 +27,13 @@ k8s5.local
 sisko.local
 laforge.local
 obrien.local
+engineering.local
 
 [docker]
 neelix.local
 homeassistant.local
 worf.local
 enterprise.local
-laforge.local
 obrien.local
 
 # the server that acts as a public gateway into the tailnet

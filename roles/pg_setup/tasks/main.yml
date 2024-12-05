@@ -38,6 +38,8 @@
       password: "{{ gatus_database_password }}"
     - name: board-game-companion
       password: "{{ board_game_companion_database_password }}"
+    - name: lubelogger
+      password: "{{ lubelogger_database_password }}"
 
 - name: create databases
   become: true
@@ -51,6 +53,7 @@
     - riley
     - gatus
     - board-game-companion
+    - lubelogger
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true
