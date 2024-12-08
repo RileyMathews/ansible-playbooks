@@ -94,6 +94,7 @@
     - searxng
     - whoami
     - lubelogger
+    - paperless
 
 - hosts: neelix.local
   roles:

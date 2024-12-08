@@ -1,0 +1,36 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/paperless
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/paperless/data
+    - /opt/paperless/media
+    - /opt/paperless/export
+    - /opt/paperless/consume
+
+- name: copy env file
+  ansible.builtin.template:
+    src: .env.j2
+    dest: /opt/paperless/.env
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/paperless/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_paperless
+

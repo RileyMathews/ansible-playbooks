@@ -1,0 +1,5 @@
+---
+- name: restart_paperless
+  ansible.builtin.shell:
+    chdir: /opt/paperless
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

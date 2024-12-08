@@ -6,3 +6,4 @@
 2 - board game companion
 3 - searxng
 4 - immich
+5 - paperless
