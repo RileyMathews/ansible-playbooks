@@ -1,0 +1,45 @@
+---
+- name: install dependency packages
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+    name:
+      - build-essential
+      - python3-dev
+      - libffi-dev
+      - python3-pip
+      - python3-setuptools
+      - sqlite3
+      - libssl-dev
+      - virtualenv
+      - libjpg-dev
+      - libscltl-dev
+      - libicu-dev
+      - libpq5
+      - apt-transport-https
+
+- name: add gpg key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://packages.matrix.org/debian/matrix-org-archive-keyring.gpg
+    state: present
+
+- name: add repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: deb https://packages.matrix.org/debian/ {{ ansible_distribution_release }} main
+    state: present
+
+- name: install matrix-synapse
+  become: true
+  ansible.builtin.apt:
+    name: matrix-synapse-py3
+    state: present
+    update_cache: yes
+
+- name: make config dir
+  become: true
+  ansible.builtin.file:
+    path: /etc/matrix-synapse/conf.d
+    state: directory
+
