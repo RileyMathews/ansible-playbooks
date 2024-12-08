@@ -1,0 +1,14 @@
+database:
+  name: psycopg2
+  args:
+    user: synapse
+    password: "{{ synapse_database_password }}"
+    dbname: synapse
+    host: db1.local.rileymathews.com
+    cp_min: 5
+    cp_max: 10
+
+enable_registration: true
+enable_registration_without_verification: true
+user_directory:
+  search_all_users: true

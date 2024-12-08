@@ -40,6 +40,9 @@
       password: "{{ board_game_companion_database_password }}"
     - name: lubelogger
       password: "{{ lubelogger_database_password }}"
+    - name: synapse
+      password: "{{ synapse_database_password }}"
+
 
 - name: create databases
   become: true
@@ -54,6 +57,17 @@
     - gatus
     - board-game-companion
     - lubelogger
+
+- name: create synapse database (requires specific locale)
+  become: true
+  become_user: postgres
+  ansible.builtin.postgresql_db:
+    name: synapse
+    owner: synapse
+    lc_collate: C
+    lc_ctype: C
+    encoding: UTF8
+    template: template0
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true

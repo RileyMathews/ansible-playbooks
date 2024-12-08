@@ -117,3 +117,6 @@
   roles:
     - gitea-runner
 
+- hosts: section31.local
+  roles:
+    - synapse

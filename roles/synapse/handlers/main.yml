@@ -1,0 +1,7 @@
+---
+- name: restart_synapse
+  become: true
+  ansible.builtin.systemd:
+    name: matrix-synapse
+    state: restarted
+    enabled: yes

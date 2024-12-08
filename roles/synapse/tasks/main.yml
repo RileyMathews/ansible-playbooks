@@ -12,8 +12,8 @@
       - sqlite3
       - libssl-dev
       - virtualenv
-      - libjpg-dev
-      - libscltl-dev
+      - libjpeg-dev
+      - libxslt1-dev
       - libicu-dev
       - libpq5
       - apt-transport-https
@@ -43,3 +43,16 @@
     path: /etc/matrix-synapse/conf.d
     state: directory
 
+- name: copy config file
+  become: true
+  ansible.builtin.template:
+    src: config.yml
+    dest: /etc/matrix-synapse/conf.d/config.yaml
+  notify: restart_synapse
+
+- name: copy server name file
+  become: true
+  ansible.builtin.copy:
+    src: server_name.yaml
+    dest: /etc/matrix-synapse/conf.d/server_name.yaml
+  notify: restart_synapse
