@@ -1,7 +1,7 @@
 ---
 - name: install git
   become: true
-  ansible.builtin.apt:
+  pacman:
     name: git
     state: present
     update_cache: true
@@ -16,38 +16,29 @@
     shell: "/bin/bash"
     create_home: true
 
-- name: download gitea binary
+- name: install gitea
   become: true
-  ansible.builtin.get_url:
-    url: "https://dl.gitea.com/gitea/1.22.4/gitea-1.22.4-linux-amd64"
-    dest: "/usr/local/bin/gitea"
-    mode: '0755'
-    owner: root
-    group: root
+  pacman:
+    name: gitea
+    state: present
+    update_cache: true
+
+- name: create custom config dir
+  become: true
+  ansible.builtin.file:
+    name: /var/lib/gitea/custom/conf
+    state: directory
+    owner: gitea
+    group: gitea
+
+- name: copy custom config file
+  become: true
+  ansible.builtin.template:
+    src: app.ini.j2
+    dest: /var/lib/gitea/custom/conf/app.ini
+    owner: gitea
+    group: gitea
   notify: restart_gitea
-
-- name: copy service file
-  become: true
-  ansible.builtin.copy:
-    src: gitea.service
-    dest: /etc/systemd/system/gitea.service
-  notify: reload_systemd
-
-- name: create working directory
-  become: true
-  ansible.builtin.file:
-    name: /var/lib/gitea
-    state: directory
-    group: git
-    owner: git
-
-- name: create etc config dir
-  become: true
-  ansible.builtin.file:
-    name: /etc/gitea
-    state: directory
-    owner: git
-    group: git
 
 - name: start gitea
   become: true

@@ -1,10 +1,18 @@
 ---
-- name: install restic
+- name: Install restic on Debian-based systems
   become: true
   ansible.builtin.apt:
     name: restic
     state: present
     update_cache: true
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Install restic on Arch Linux systems
+  become: true
+  ansible.builtin.pacman:
+    name: restic
+    state: present
+  when: ansible_facts['os_family'] == 'Archlinux'
 
 - name: create conf dir
   become: true

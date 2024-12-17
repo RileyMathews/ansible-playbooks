@@ -100,11 +100,6 @@
   roles:
     - mealie
 
-- hosts: data.local
-  roles:
-    - nvidia_docker
-    - ollama
-
 - hosts: laforge.local
   roles:
     - role: grafana.grafana.grafana

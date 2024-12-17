@@ -1,0 +1,7 @@
+---
+available_sites:
+  - name: holotest
+    listen_host: "holotest.rileymathews.com"
+    backend_host: "http://127.0.0.1:3000"
+
+accept_tcp_proxy: false

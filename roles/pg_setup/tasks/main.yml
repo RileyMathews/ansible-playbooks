@@ -44,6 +44,8 @@
       password: "{{ synapse_database_password }}"
     - name: paperless
       password: "{{ paperless_database_password }}"
+    - name: gitea
+      password: "{{ gitea_database_password }}"
 
 
 - name: create databases
@@ -60,6 +62,7 @@
     - board-game-companion
     - lubelogger
     - paperless
+    - gitea
 
 - name: create synapse database (requires specific locale)
   become: true

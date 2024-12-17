@@ -1,0 +1,31 @@
+---
+- name: Synchronize package databases and upgrade the system
+  become: true
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+
+- name: Update archlinux-keyring package
+  become: true
+  community.general.pacman:
+    name: 
+      - archlinux-keyring
+      - avahi
+      - qemu-guest-agent
+    state: latest
+
+- name: start avahi daemon
+  become: true
+  ansible.builtin.systemd:
+    name: avahi-daemon
+    state: started
+    enabled: true
+
+- name: reboot
+  become: true
+  reboot:
+    reboot_timeout: 300
+    msg: "Rebooting the system to apply updates"
+    post_reboot_delay: 30
+
+

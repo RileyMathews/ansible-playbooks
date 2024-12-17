@@ -15,9 +15,7 @@ homeassistant.local
 worf.local
 uhura.local
 memory-alpha.local
-barclay.local
 enterprise.local
-data.local
 k8s-ctrlr.local
 k8s1.local
 k8s2.local
@@ -29,6 +27,7 @@ laforge.local
 obrien.local
 engineering.local
 section31.local
+barclay.local
 
 [docker]
 neelix.local
@@ -47,13 +46,12 @@ public-proxy.local
 homeassistant.local
 worf.local
 hoshi.local
-barclay.local
 enterprise.local
 neelix.local
-data.local
 sisko.local
 laforge.local
 section31.local
+barclay.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -62,13 +60,12 @@ public-proxy.local
 homeassistant.local
 worf.local
 hoshi.local
-barclay.local
 enterprise.local
 neelix.local
-data.local
 sisko.local
 laforge.local
 section31.local
+barclay.local
 
 [k8s]
 k8s-ctrlr.local
@@ -94,4 +91,3 @@ memory-alpha.local
 [restic]
 worf.local
 enterprise.local
-barclay.local

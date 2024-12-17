@@ -1,0 +1,8 @@
+---
+- name: update debian
+  include_tasks: update_debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: update arch
+  include_tasks: update_arch.yml
+  when: ansible_os_family == 'Archlinux'

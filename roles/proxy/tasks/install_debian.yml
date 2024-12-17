@@ -1,0 +1,26 @@
+---
+- name: install nginx/certbot dependencies
+  apt:
+    name:
+      - curl
+      - gnupg2
+      - debian-archive-keyring
+    state: present
+    update_cache: yes
+
+- name: Add the official Nginx repository key
+  apt_key:
+    url: https://nginx.org/keys/nginx_signing.key
+    state: present
+
+- name: Add the official Nginx repository to sources list
+  apt_repository:
+    repo: "deb https://nginx.org/packages/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} nginx"
+    state: present
+
+- name: Install Nginx from the official repository
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+

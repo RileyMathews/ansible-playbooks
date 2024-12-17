@@ -9,6 +9,16 @@
       - python3-certbot-dns-cloudflare
     state: present
     update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+- name: install certbot [arch]
+  pacman:
+    name:
+      - certbot
+      - certbot-dns-cloudflare
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Archlinux'
 
 - name: Create Cloudflare credentials file
   template:

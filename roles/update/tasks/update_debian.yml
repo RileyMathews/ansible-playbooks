@@ -1,0 +1,21 @@
+---
+- name: Update APT package cache
+  become: true
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600  # Cache is valid for 1 hour
+
+- name: Upgrade all packages
+  become: true
+  apt:
+    upgrade: dist
+
+- name: Autoremove unnecessary packages
+  become: true
+  apt:
+    autoremove: yes
+
+- name: Clean up the APT cache
+  become: true
+  apt:
+    autoclean: yes

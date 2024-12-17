@@ -1,0 +1,7 @@
+---
+- name: install nginx on arch
+  become: true
+  pacman:
+    name: nginx
+    state: present
+    update_cache: yes
