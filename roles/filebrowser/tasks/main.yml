@@ -1,0 +1,38 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/filebrowser
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create data directories
+  become: true
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/filebrowser/files
+    - /opt/filebrowser/data
+
+- name: create empty database
+  become: true
+  ansible.builtin.file:
+    name: "/opt/filebrowser/data/database.db"
+    state: touch
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  become: true
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/filebrowser/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_filebrowser
+
+

@@ -1,11 +1,16 @@
 ---
 available_sites:
-  - name: whoami
-    listen_host: "whoami.rileymathews.com"
-    backend_host: "http://enterprise:8006"
-
   - name: whoami-internal
     listen_host: "whoami-ts.rileymathews.com"
+    cert_host: "whoami-ts.rileymathews.com"
     backend_host: "http://enterprise:8006"
+
+certbot_domains:
+  - "whoami.rileymathews.com"
+  - "whoami-ts.rileymathews.com"
+default_cert_host: "whoami.rileymathews.com"
+
+dns_records:
+  - "whoami-ts.rileymathews.com"
 
 accept_tcp_proxy: false

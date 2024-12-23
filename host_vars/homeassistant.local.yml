@@ -4,4 +4,11 @@ available_sites:
     listen_host: "home.rileymathews.com"
     backend_host: "http://127.0.0.1:8123"
 
+certbot_domains: 
+  - "home.rileymathews.com"
+default_cert_host: "home.rileymathews.com"
+
 accept_tcp_proxy: false
+
+dns_records:
+  - home

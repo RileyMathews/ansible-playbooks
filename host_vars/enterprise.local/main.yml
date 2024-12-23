@@ -2,37 +2,66 @@
 available_sites:
   - name: heimdall
     listen_host: start.rileymathews.com
+    cert_host: start.rileymathews.com
     backend_host: "http://127.0.0.1:8080"
 
   - name: gatus
     listen_host: gatus.rileymathews.com
+    cert_host: gatus.rileymathews.com
     backend_host: "http://127.0.0.1:8081"
 
   - name: open-web-ui
     listen_host: chat.rileymathews.com
+    cert_host: chat.rileymathews.com
     backend_host: "http://127.0.0.1:8082"
 
   - name: vikunja
     listen_host: "vikunja.rileymathews.com"
+    cert_host: "vikunja.rileymathews.com"
     backend_host: "http://127.0.0.1:8003"
 
   - name: ntfy
     listen_host: "ntfy.rileymathews.com"
+    cert_host: "ntfy.rileymathews.com"
     backend_host: "http://127.0.0.1:8004"
 
   - name: searxng
     listen_host: "search.rileymathews.com"
+    cert_host: "search.rileymathews.com"
     backend_host: "http://127.0.0.1:8005"
 
   - name: lubelogger
     listen_host: "lubelogger.rileymathews.com"
+    cert_host: "lubelogger.rileymathews.com"
     backend_host: "http://enterprise:8007"
 
   - name: paperless
     listen_host: "paperless.rileymathews.com"
+    cert_host: "paperless.rileymathews.com"
     backend_host: "http://127.0.0.1:8008"
+
+default_cert_host: "rileymathews.com"
+certbot_domains: 
+  - "start.rileymathews.com"
+  - "gatus.rileymathews.com"
+  - "chat.rileymathews.com"
+  - "vikunja.rileymathews.com"
+  - "ntfy.rileymathews.com"
+  - "search.rileymathews.com"
+  - "lubelogger.rileymathews.com"
+  - "paperless.rileymathews.com"
 
 accept_tcp_proxy: false
 restic_backup_dirs:
   - /opt/vikunja/files
   - /opt/vikunja/db
+
+dns_records:
+  - gatus
+  - start
+  - chat
+  - vikunja
+  - ntfy
+  - search
+  - lubelogger
+  - paperless

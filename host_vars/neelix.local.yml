@@ -4,6 +4,13 @@ available_sites:
     listen_host: "mealie.rileymathews.com"
     backend_host: "http://127.0.0.1:9000"
 
+certbot_domains: 
+  - "mealie.rileymathews.com"
+default_cert_host: "mealie.rileymathews.com"
+
 accept_tcp_proxy: false
 restic_backup_dirs:
   - /opt/mealie/data
+
+dns_records:
+  - mealie

@@ -19,14 +19,6 @@
     shell: "/bin/bash"
     create_home: true
 
-- name: create working dir
-  become: true
-  ansible.builtin.file:
-    name: /var/lib/act_runner
-    state: directory
-    group: act_runner
-    owner: act_runner
-
 - name: create config dir
   become: true
   ansible.builtin.file:

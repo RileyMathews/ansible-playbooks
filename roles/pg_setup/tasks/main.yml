@@ -46,6 +46,10 @@
       password: "{{ paperless_database_password }}"
     - name: gitea
       password: "{{ gitea_database_password }}"
+    - name: nextcloud
+      password: "{{ nextcloud_database_password }}"
+    - name: personal_site
+      password: "{{ personal_site_database_password }}"
 
 
 - name: create databases
@@ -63,6 +67,8 @@
     - lubelogger
     - paperless
     - gitea
+    - nextcloud
+    - personal_site
 
 - name: create synapse database (requires specific locale)
   become: true

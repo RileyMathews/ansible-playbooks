@@ -1,0 +1,5 @@
+---
+- name: Conditionally execute the update_cloudflare_dns role
+  include_tasks: setup_dns_records.yml
+  when: dns_records is defined
+

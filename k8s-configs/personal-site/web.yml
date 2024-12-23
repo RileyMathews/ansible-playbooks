@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-site
+  namespace: personal-site
+  labels:
+    app: personal-site
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: personal-site
+  template:
+    metadata:
+      labels:
+        app: personal-site
+    spec:
+      containers:
+        - name: personal-site
+          image: gitea.rileymathews.com/riley/personal_site:latest
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: config.settings.production
+            - name: ENCRYPTION_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: personal-site-encryption-password
+                  key: ENCRYPTION_PASSWORD
+          ports:
+            - containerPort: 8000
+              name: "personal-http"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+              httpHeaders:
+                - name: Host
+                  value: rileymathews.com
+            initialDelaySeconds: 10
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: gitea-registry

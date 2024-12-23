@@ -4,4 +4,10 @@ available_sites:
     listen_host: "pihole.rileymathews.com"
     backend_host: "http://localhost:1080"
 
+certbot_domains: 
+  - "pihole.rileymathews.com"
+default_cert_host: "pihole.rileymathews.com"
 accept_tcp_proxy: false
+
+dns_records:
+  - pihole

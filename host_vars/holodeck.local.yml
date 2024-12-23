@@ -1,7 +1,23 @@
 ---
 available_sites:
-  - name: holotest
-    listen_host: "holotest.rileymathews.com"
-    backend_host: "http://127.0.0.1:3000"
+  - name: whoami
+    listen_host: "whoami.holodeck.rileymathews.com"
+    backend_host: "http://127.0.0.1:8006"
+
+  - name: nextcloud
+    listen_host: "nextcloud.holodeck.rileymathews.com"
+    backend_host: "http://127.0.0.1:8000"
+
+  - name: filebrowser
+    listen_host: "filebrowser.holodeck.rileymathews.com"
+    backend_host: "http://127.0.0.1:8004"
+
+
+certbot_domains: 
+  - "holodeck.rileymathews.com"
+default_cert_host: "holodeck.rileymathews.com"
 
 accept_tcp_proxy: false
+
+dns_records:
+  - "*.holodeck"

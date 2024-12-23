@@ -53,6 +53,10 @@
   vars:
     listen_host: "{{ item.listen_host }}"
     backend_host: "{{ item.backend_host }}"
+    # first see if the specific item in the list defined its own cert_host
+    # if not, see if the VM defined a global cert_host
+    # if not, default to rileymathews.com
+    cert_host: "{{ item.cert_host | default(default_cert_host) | default('rileymathews.com') }}"
 
 - name: Start nginx
   ansible.builtin.systemd:

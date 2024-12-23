@@ -2,22 +2,40 @@
 available_sites:
   - name: rpgweave-staging
     listen_host: "staging.rpgweave.com"
+    cert_host: "staging.rpgweave.com"
     backend_host: "http://10.0.0.202:80"
 
   - name: rpgweave
     listen_host: "rpgweave.com"
+    cert_host: "rpgweave.com"
     backend_host: "http://10.0.0.202:80"
 
   - name: board-game-companion
     listen_host: "bgc.rileymathews.com"
+    cert_host: "bgc.rileymathews.com"
     backend_host: "http://10.0.0.202:80"
 
   - name: k8s-dashboard
     listen_host: "k8s.rileymathews.com"
+    cert_host: "k8s.rileymathews.com"
     backend_host: "http://10.0.0.202:80"
 
   - name: whoami-vg
     listen_host: "whoami-vg.rileymathews.com"
+    cert_host: "whoami-vg.rileymathews.com"
     backend_host: "http://enterprise:8006"
+
+  - name: personal-site
+    listen_host: "rileymathews.com"
+    cert_host: "rileymathews.com"
+    backend_host: "http://10.0.0.202:80"
+
+certbot_domains:
+  - rpgweave.com
+  - staging.rpgweave.com
+  - bgc.rileymathews.com
+  - k8s.rileymathews.com
+  - whoami-vg.rileymathews.com
+  - rileymathews.com
 
 accept_tcp_proxy: true

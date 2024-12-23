@@ -4,4 +4,11 @@ available_sites:
     listen_host: "synapse.rileymathews.com"
     backend_host: "http://127.0.0.1:8008"
 
+certbot_domains:
+  - "synapse.rileymathews.com"
+default_cert_host: "synapse.rileymathews.com"
+
 accept_tcp_proxy: false
+
+dns_records:
+  - synapse

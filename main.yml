@@ -96,6 +96,12 @@
     - lubelogger
     - paperless
 
+- hosts: holodeck.local
+  roles:
+    - whoami
+    - nextcloud
+    - filebrowser
+
 - hosts: neelix.local
   roles:
     - mealie
@@ -116,3 +122,7 @@
 - hosts: section31.local
   roles:
     - synapse
+
+- hosts: all
+  roles:
+    - dns_records
