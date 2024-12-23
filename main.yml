@@ -1,5 +1,9 @@
 ---
 - hosts: all
+  roles:
+    - setup-shell
+
+- hosts: all
   become: yes
   roles:
     - prometheus.prometheus.node_exporter

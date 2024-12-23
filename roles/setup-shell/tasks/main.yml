@@ -1,0 +1,24 @@
+---
+- name: Install on debian systems
+  include_tasks: install_debian.yml
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Install on arch systems
+  include_tasks: install_arch.yml
+  when: ansible_facts['os_family'] == 'Archlinux'
+
+- name: set zsh as default shell for riley
+  become: true
+  ansible.builtin.user:
+    name: riley
+    shell: /bin/zsh
+
+- name: clone dotfiles repo
+  ansible.builtin.git:
+    repo: https://github.com/rileymathews/dotfiles
+    dest: /home/riley/dotfiles
+
+- name: stow dotfiles
+  ansible.builtin.shell:
+    chdir: /home/riley/dotfiles
+    cmd: "stow ."

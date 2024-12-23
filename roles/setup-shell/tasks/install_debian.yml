@@ -1,0 +1,22 @@
+---
+- name: install zsh/starship
+  become: true
+  ansible.builtin.apt:
+    name: 
+      - zsh
+      - stow
+      - git
+    state: present
+    update_cache: yes
+
+- name: download install script for starship
+  ansible.builtin.get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship_install.sh
+
+- name: run starship install script
+  become: true
+  ansible.builtin.shell:
+    cmd: "sh /tmp/starship_install.sh --yes"
+    creates: /usr/local/bin/starship
+
