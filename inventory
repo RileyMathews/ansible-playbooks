@@ -29,6 +29,7 @@ engineering.local
 section31.local
 barclay.local
 holodeck.local
+nas.local
 
 [docker]
 neelix.local

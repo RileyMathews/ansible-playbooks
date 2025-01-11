@@ -3,10 +3,10 @@
   roles:
     - setup-shell
 
-- hosts: all
-  become: yes
-  roles:
-    - prometheus.prometheus.node_exporter
+# - hosts: all
+#   become: yes
+#   roles:
+#     - prometheus.prometheus.node_exporter
 
 - hosts: tailscale
   become: yes
@@ -130,3 +130,7 @@
 - hosts: all
   roles:
     - dns_records
+
+- hosts: nas.local
+  roles:
+    - zfs

@@ -1,0 +1,16 @@
+---
+- name: enable lz4 compression on main pool
+  become: true
+  community.general.zfs:
+    name: main
+    state: present
+    extra_zfs_properties:
+      compression: lz4
+
+- name: create main dataset
+  become: true
+  community.general.zfs:
+    name: main/data
+    state: present
+    extra_zfs_properties:
+      compression: lz4
