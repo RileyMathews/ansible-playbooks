@@ -10,7 +10,10 @@
 - name: create main dataset
   become: true
   community.general.zfs:
-    name: main/data
+    name: main/{{ item }}
     state: present
     extra_zfs_properties:
       compression: lz4
+  loop:
+    - data
+    - testing
