@@ -134,3 +134,4 @@
 - hosts: nas.local
   roles:
     - zfs
+    - nas-nfs

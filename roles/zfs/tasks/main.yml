@@ -7,7 +7,7 @@
     extra_zfs_properties:
       compression: lz4
 
-- name: create main dataset
+- name: create datasets
   become: true
   community.general.zfs:
     name: main/{{ item }}
@@ -17,3 +17,15 @@
   loop:
     - data
     - testing
+
+- name: ensure user 1000 owns the datasets dirs
+  become: true
+  file:
+    path: /main/{{ item }}
+    owner: 1000
+    group: 1000
+    mode: '0755'
+  loop:
+    - data
+    - testing
+
