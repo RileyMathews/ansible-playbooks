@@ -1,4 +1,11 @@
 ---
+- name: nfs mounts
+  include_role:
+    name: mount-nfs
+  vars:
+    nfs_mounts:
+      - main/jellyfin
+
 - name: create directories
   become: true
   ansible.builtin.file:

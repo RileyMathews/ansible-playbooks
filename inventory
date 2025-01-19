@@ -30,6 +30,7 @@ section31.local
 barclay.local
 holodeck.local
 nas.local
+pinchflat.local
 
 [docker]
 neelix.local
@@ -38,6 +39,7 @@ worf.local
 enterprise.local
 obrien.local
 holodeck.local
+pinchflat.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
@@ -56,6 +58,7 @@ laforge.local
 section31.local
 barclay.local
 holodeck.local
+pinchflat.local
 
 # the server that accepts tcp traffic from the public_tcp_proxy
 # and forwards it to other servers that need to be publically accessible
@@ -71,6 +74,7 @@ laforge.local
 section31.local
 barclay.local
 holodeck.local
+pinchflat.local
 
 [k8s]
 k8s-ctrlr.local

@@ -1,0 +1,10 @@
+---
+available_sites:
+  - name: pinchflat
+    listen_host: "pinchflat.rileymathews.com"
+    backend_host: "http://127.0.0.1:8945"
+
+accept_tcp_proxy: false
+
+dns_records:
+  - "pinchflat"

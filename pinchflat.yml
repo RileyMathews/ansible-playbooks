@@ -1,4 +1,4 @@
 ---
-- hosts: holodeck.local
+- hosts: pinchflat.local
   roles:
     - pinchflat
