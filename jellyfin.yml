@@ -1,0 +1,4 @@
+---
+- hosts: holodeck.local
+  roles:
+    - jellyfin

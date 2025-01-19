@@ -30,9 +30,9 @@
 
 - name: Check if certificate already exists
   stat:
-    path: "{{ certbot_cert_dir }}/{{ site }}/fullchain.pem"
+    path: "{{ certbot_cert_dir }}/{{ site.listen_host }}/fullchain.pem"
   register: cert_stats
-  loop: "{{ certbot_domains }}"
+  loop: "{{ available_sites }}"
   loop_control:
     loop_var: site
 
@@ -47,10 +47,9 @@
     {% if certbot_use_staging %}
     --staging
     {% endif %}
-    -d {{ item.site }}
-    -d *.{{ item.site }}
+    -d {{ item.site.listen_host }}
   args:
-    creates: "{{ certbot_cert_dir }}/{{ item.site }}/fullchain.pem"
+    creates: "{{ certbot_cert_dir }}/{{ item.site.listen_host }}/fullchain.pem"
   loop: "{{ cert_stats.results }}"
   when: not item.stat.exists
 

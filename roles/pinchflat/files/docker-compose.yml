@@ -1,0 +1,13 @@
+services:
+  pinchflat:
+    image: ghcr.io/kieraneglin/pinchflat:latest
+    container_name: pinchflat
+    user: 1000:1000
+    ports:
+      - 8945:8945
+    volumes:
+      - /opt/pinchflat/config:/config
+      - /mnt/main/jellyfin/youtube:/downloads
+    environment:
+      TZ: America/Chicago
+

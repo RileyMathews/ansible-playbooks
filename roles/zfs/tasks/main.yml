@@ -17,6 +17,7 @@
   loop:
     - data
     - testing
+    - jellyfin
 
 - name: ensure user 1000 owns the datasets dirs
   become: true
@@ -28,4 +29,5 @@
   loop:
     - data
     - testing
+    - jellyfin
 

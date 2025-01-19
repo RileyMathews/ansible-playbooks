@@ -104,7 +104,6 @@
   roles:
     - whoami
     - nextcloud
-    - filebrowser
 
 - hosts: neelix.local
   roles:

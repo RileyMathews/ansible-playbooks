@@ -8,16 +8,17 @@ available_sites:
     listen_host: "nextcloud.holodeck.rileymathews.com"
     backend_host: "http://127.0.0.1:8000"
 
-  - name: filebrowser
-    listen_host: "filebrowser.holodeck.rileymathews.com"
-    backend_host: "http://127.0.0.1:8004"
+  - name: jellyfin
+    listen_host: "jellyfin.rileymathews.com"
+    backend_host: "http://127.0.0.1:8096"
 
-
-certbot_domains: 
-  - "holodeck.rileymathews.com"
-default_cert_host: "holodeck.rileymathews.com"
+  - name: pinchflat
+    listen_host: "pinchflat.rileymathews.com"
+    backend_host: "http://127.0.0.1:8945"
 
 accept_tcp_proxy: false
 
 dns_records:
   - "*.holodeck"
+  - "jellyfin"
+  - "pinchflat"
