@@ -12,8 +12,13 @@ available_sites:
     listen_host: "jellyfin.rileymathews.com"
     backend_host: "http://127.0.0.1:8096"
 
+  - name: beszel-hub
+    listen_host: "beszel.rileymathews.com"
+    backend_host: "http://127.0.0.1:8090"
+
 accept_tcp_proxy: false
 
 dns_records:
   - "*.holodeck"
   - "jellyfin"
+  - "beszel"

@@ -26,7 +26,6 @@ sisko.local
 laforge.local
 obrien.local
 engineering.local
-section31.local
 barclay.local
 holodeck.local
 nas.local
@@ -46,22 +45,6 @@ pinchflat.local
 [public_tcp_proxy]
 proxy.rileymathews.com
 
-[certbot]
-public-proxy.local
-homeassistant.local
-worf.local
-hoshi.local
-enterprise.local
-neelix.local
-sisko.local
-laforge.local
-section31.local
-barclay.local
-holodeck.local
-pinchflat.local
-
-# the server that accepts tcp traffic from the public_tcp_proxy
-# and forwards it to other servers that need to be publically accessible
 [proxy]
 public-proxy.local
 homeassistant.local
@@ -69,9 +52,6 @@ worf.local
 hoshi.local
 enterprise.local
 neelix.local
-sisko.local
-laforge.local
-section31.local
 barclay.local
 holodeck.local
 pinchflat.local

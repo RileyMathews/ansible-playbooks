@@ -41,10 +41,3 @@ endpoints:
     <<: *defaults
     url: "https://gitea.rileymathews.com"
 
-  - name: whoami-ts
-    <<: *defaults
-    url: "https://whoami-ts.rileymathews.com"
-
-  - name: whoami-vg
-    <<: *defaults
-    url: "https://whoami-vg.rileymathews.com"

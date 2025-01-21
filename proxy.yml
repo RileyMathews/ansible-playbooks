@@ -1,0 +1,7 @@
+---
+- hosts: proxy
+  become: yes
+  roles:
+    - certbot
+    - proxy
+    - dns_records

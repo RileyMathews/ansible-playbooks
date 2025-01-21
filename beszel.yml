@@ -1,0 +1,8 @@
+---
+- hosts: holodeck.local
+  roles:
+    - beszel-hub
+
+- hosts: docker
+  roles:
+    - beszel-agent

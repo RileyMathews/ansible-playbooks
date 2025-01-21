@@ -3,19 +3,10 @@
   roles:
     - setup-shell
 
-# - hosts: all
-#   become: yes
-#   roles:
-#     - prometheus.prometheus.node_exporter
-
 - hosts: tailscale
   become: yes
   roles:
     - tailscale
-
-- hosts: engineering.local
-  roles:
-    - prometheus
 
 - hosts: docker
   become: yes
@@ -32,19 +23,9 @@
   roles:
     - setup-ha-proxy
 
-- hosts: certbot
-  become: yes
-  roles:
-    - certbot
-
 - hosts: hoshi.local
   roles:
     - pihole
-
-- hosts: proxy
-  become: yes
-  roles:
-    - proxy
 
 - hosts: homeassistant.local
   roles:
@@ -109,15 +90,6 @@
   roles:
     - mealie
 
-- hosts: laforge.local
-  roles:
-    - role: grafana.grafana.grafana
-      vars:
-        grafana_ini:
-          security:
-            admin_user: admin
-            admin_password: "{{ grafana_admin_password }}"
-
 - hosts: obrien.local
   roles:
     - gitea-runner
@@ -125,10 +97,6 @@
 - hosts: section31.local
   roles:
     - synapse
-
-- hosts: all
-  roles:
-    - dns_records
 
 - hosts: nas.local
   roles:
