@@ -8,7 +8,7 @@ available_sites:
   - name: rpgweave
     listen_host: "rpgweave.com"
     cert_host: "rpgweave.com"
-    backend_host: "http://10.0.0.202:80"
+    backend_host: "http://enterprise:8056"
 
   - name: board-game-companion
     listen_host: "bgc.rileymathews.com"

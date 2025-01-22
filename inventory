@@ -1,6 +1,5 @@
 [all:vars]
 ansible_user=riley
-ansible_ssh_common_args="-o ProxyJump=riley@wormhole"
 
 [targets]
 neelix.local
@@ -13,7 +12,7 @@ neelix.local
 hoshi.local
 homeassistant.local
 worf.local
-uhura.local
+rabbitmq
 memory-alpha.local
 enterprise.local
 k8s-ctrlr.local
@@ -43,7 +42,7 @@ pinchflat.local
 proxy.rileymathews.com
 
 [proxy]
-public-proxy.local
+public-proxy
 homeassistant.local
 worf.local
 hoshi.local
