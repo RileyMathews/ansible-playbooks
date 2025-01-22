@@ -16,9 +16,14 @@ available_sites:
     listen_host: "beszel.rileymathews.com"
     backend_host: "http://127.0.0.1:8090"
 
+  - name: stump
+    listen_host: "stump.rileymathews.com"
+    backend_host: "http://127.0.0.1:10801"
+
 accept_tcp_proxy: false
 
 dns_records:
   - "*.holodeck"
   - "jellyfin"
   - "beszel"
+  - "stump"

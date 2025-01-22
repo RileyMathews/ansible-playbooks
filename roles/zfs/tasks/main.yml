@@ -18,6 +18,7 @@
     - data
     - testing
     - jellyfin
+    - stump
 
 - name: ensure user 1000 owns the datasets dirs
   become: true
@@ -30,4 +31,5 @@
     - data
     - testing
     - jellyfin
+    - stump
 

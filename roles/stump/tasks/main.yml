@@ -1,0 +1,28 @@
+---
+- name: nfs mounts
+  include_role:
+    name: mount-nfs
+  vars:
+    nfs_mounts:
+      - main/stump
+
+- name: create directories
+  become: true
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: 1000
+    group: 1000
+    mode: '0755'
+  loop:
+    - /opt/stump
+    - /opt/stump/data
+
+- name: copy docker-compose file
+  become: true
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/stump/docker-compose.yml
+    owner: 1000
+    group: 1000
+  notify: restart_stump

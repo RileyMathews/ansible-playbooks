@@ -11,3 +11,4 @@
 
 /main/testing              *(rw,sync,no_subtree_check)
 /main/jellyfin             *(rw,sync,no_subtree_check)
+/main/stump                *(rw,sync,no_subtree_check)

@@ -23,10 +23,20 @@
     mode: '0755'
   with_items: "{{ nfs_mounts }}"
 
+- name: add mounts to fstab
+  become: true
+  ansible.posix.mount:
+    src: nas.local.rileymathews.com:{{ item }}
+    path: /mnt/{{ item }}
+    fstype: nfs
+    opts: defaults
+    state: present
+  with_items: "{{ nfs_mounts }}"
+
 - name: mount nfs shares
   become: true
   ansible.posix.mount:
-    src: nas:{{ item }}
+    src: nas.local.rileymathews.com:{{ item }}
     path: /mnt/{{ item }}
     fstype: nfs
     state: mounted
