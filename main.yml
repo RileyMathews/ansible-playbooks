@@ -3,11 +3,6 @@
   roles:
     - setup-shell
 
-- hosts: tailscale
-  become: yes
-  roles:
-    - tailscale
-
 - hosts: docker
   become: yes
   roles:

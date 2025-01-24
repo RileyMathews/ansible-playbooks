@@ -1,0 +1,5 @@
+---
+- hosts: tailscale
+  become: yes
+  roles:
+    - tailscale
