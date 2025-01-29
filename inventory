@@ -4,7 +4,6 @@ ansible_user=riley
 [targets]
 neelix.local
 memory-alpha.local
-bynar.local
 
 [tailscale]
 neelix.local
@@ -21,6 +20,8 @@ pinchflat.local
 rpgweave-staging.local
 rpgweave.local
 redis.local
+mealie.local
+vaultwarden.local
 
 [docker]
 neelix.local
@@ -32,6 +33,8 @@ holodeck.local
 pinchflat.local
 rpgweave-staging.local
 rpgweave.local
+mealie.local
+vaultwarden.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'
