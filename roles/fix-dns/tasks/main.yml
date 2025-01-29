@@ -1,0 +1,8 @@
+---
+- name: sym link systemd resolved resolv.conf to etc file
+  become: true
+  ansible.builtin.file:
+    src: /run/systemd/resolve/resolv.conf
+    dest: /etc/resolv.conf
+    state: link
+    force: yes

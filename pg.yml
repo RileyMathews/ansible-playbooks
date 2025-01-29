@@ -1,0 +1,6 @@
+---
+- hosts: memory-alpha.local
+  roles:
+    - pg_install
+    - pg_backup
+    - pg_setup

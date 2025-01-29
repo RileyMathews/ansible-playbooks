@@ -3,12 +3,12 @@ available_sites:
   - name: rpgweave-staging
     listen_host: "staging.rpgweave.com"
     cert_host: "staging.rpgweave.com"
-    backend_host: "http://10.0.0.202:80"
+    backend_host: "http://rpgweave-staging:80"
 
   - name: rpgweave
     listen_host: "rpgweave.com"
     cert_host: "rpgweave.com"
-    backend_host: "http://enterprise:8056"
+    backend_host: "http://rpgweave:80"
 
   - name: board-game-companion
     listen_host: "bgc.rileymathews.com"
