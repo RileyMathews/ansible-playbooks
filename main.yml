@@ -50,19 +50,9 @@
   roles:
    - rabbitmq
 
-- hosts: memory-alpha.local
-  roles:
-    - pg_install
-    - pg_backup
-    - pg_setup
-
 - hosts: restic
   roles:
     - restic
-
-- hosts: barclay.local
-  roles:
-    - gitea
 
 - hosts: enterprise.local
   roles:

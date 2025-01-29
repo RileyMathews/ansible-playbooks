@@ -1,0 +1,4 @@
+---
+- hosts: barclay.local
+  roles:
+    - gitea

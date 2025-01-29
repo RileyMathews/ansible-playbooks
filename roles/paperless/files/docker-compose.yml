@@ -11,6 +11,6 @@ services:
       - ./consume:/usr/src/paperless/consume
     env_file: .env
     environment:
-      PAPERLESS_REDIS: redis://redis.local.rileymathews.com:6379/5
+      PAPERLESS_REDIS: redis://redis.tailscale.rileymathews.com:6379/5
       PAPERLESS_DBHOST: db1.local.rileymathews.com
 

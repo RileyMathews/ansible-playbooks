@@ -1,6 +1,6 @@
 storage:
   type: postgres
-  path: "postgres://gatus:${POSTGRES_PASSWORD}@db1.local.rileymathews.com:5432/gatus"
+  path: "postgres://gatus:${POSTGRES_PASSWORD}@db1.tailscale.rileymathews.com:5432/gatus"
 
 
 endpoint-defaults: &defaults
