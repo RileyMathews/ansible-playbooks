@@ -11,4 +11,7 @@ services:
       - /mnt/main/jellyfin/youtube:/downloads
     environment:
       TZ: America/Chicago
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M

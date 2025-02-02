@@ -19,6 +19,7 @@
     - testing
     - jellyfin
     - stump
+    - mealie
 
 - name: ensure user 1000 owns the datasets dirs
   become: true
@@ -32,4 +33,5 @@
     - testing
     - jellyfin
     - stump
+    - mealie
 

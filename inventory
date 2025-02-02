@@ -9,14 +9,13 @@ memory-alpha.local
 neelix.local
 homeassistant.local
 worf.local
-rabbitmq
+rabbitmq.local
 memory-alpha.local
-enterprise
+enterprise.local
 obrien.local
 barclay.local
 holodeck.local
 nas.local
-pinchflat.local
 rpgweave-staging.local
 rpgweave.local
 redis.local
@@ -27,10 +26,9 @@ vaultwarden.local
 neelix.local
 homeassistant.local
 worf.local
-enterprise
+enterprise.local
 obrien.local
 holodeck.local
-pinchflat.local
 rpgweave-staging.local
 rpgweave.local
 mealie.local
@@ -42,18 +40,18 @@ vaultwarden.local
 proxy.rileymathews.com
 
 [proxy]
-public-proxy
+public-proxy.local
 homeassistant.local
 worf.local
-enterprise
+enterprise.local
 neelix.local
 barclay.local
 holodeck.local
-pinchflat.local
+mealie.local
 
 [awscli]
 memory-alpha.local
 
 [restic]
 worf.local
-enterprise
+enterprise.local

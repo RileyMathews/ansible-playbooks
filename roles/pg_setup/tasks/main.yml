@@ -50,6 +50,8 @@
       password: "{{ nextcloud_database_password }}"
     - name: personal_site
       password: "{{ personal_site_database_password }}"
+    - name: mealie
+      password: "{{ mealie_database_password }}"
 
 
 - name: create databases
@@ -69,17 +71,7 @@
     - gitea
     - nextcloud
     - personal_site
-
-- name: create synapse database (requires specific locale)
-  become: true
-  become_user: postgres
-  ansible.builtin.postgresql_db:
-    name: synapse
-    owner: synapse
-    lc_collate: C
-    lc_ctype: C
-    encoding: UTF8
-    template: template0
+    - mealie
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true

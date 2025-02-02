@@ -1,4 +1,11 @@
 ---
+- name: nfs mounts
+  include_role:
+    name: mount-nfs
+  vars:
+    nfs_mounts:
+      - main/mealie
+
 - name: create install directory
   become: yes
   ansible.builtin.file:
@@ -14,10 +21,10 @@
     owner: riley
     group: riley
   loop:
-    - /opt/mealie/data
+    - /mnt/main/mealie/app/data
 
 - name: Copy docker compose file
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: docker-compose.yml
     dest: /opt/mealie/docker-compose.yml
     owner: riley

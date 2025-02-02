@@ -1,29 +1,20 @@
 ---
 available_sites:
-  - name: whoami
-    listen_host: "whoami.holodeck.rileymathews.com"
-    backend_host: "http://127.0.0.1:8006"
-
-  - name: nextcloud
-    listen_host: "nextcloud.holodeck.rileymathews.com"
-    backend_host: "http://127.0.0.1:8000"
-
   - name: jellyfin
     listen_host: "jellyfin.rileymathews.com"
     backend_host: "http://127.0.0.1:8096"
 
-  - name: beszel-hub
-    listen_host: "beszel.rileymathews.com"
-    backend_host: "http://127.0.0.1:8090"
-
   - name: stump
     listen_host: "stump.rileymathews.com"
     backend_host: "http://127.0.0.1:10801"
+    
+  - name: pinchflat 
+    listen_host: "pinchflat.rileymathews.com"
+    backend_host: "http://127.0.0.1:8945"
 
 accept_tcp_proxy: false
 
 dns_records:
-  - "*.holodeck"
   - "jellyfin"
-  - "beszel"
   - "stump"
+  - "pinchflat"

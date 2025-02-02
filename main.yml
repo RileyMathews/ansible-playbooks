@@ -66,11 +66,6 @@
     - lubelogger
     - paperless
 
-- hosts: holodeck.local
-  roles:
-    - whoami
-    - nextcloud
-
 - hosts: neelix.local
   roles:
     - mealie
