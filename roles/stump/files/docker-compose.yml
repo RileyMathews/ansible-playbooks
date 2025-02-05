@@ -1,6 +1,6 @@
 services:
   stump:
-    image: aaronleopold/stump
+    image: aaronleopold/stump:latest
     container_name: stump
     restart: unless-stopped
     # Replace my paths (prior to the colons) with your own
