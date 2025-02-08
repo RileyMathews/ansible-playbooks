@@ -66,10 +66,6 @@
     - lubelogger
     - paperless
 
-- hosts: neelix.local
-  roles:
-    - mealie
-
 - hosts: obrien.local
   roles:
     - gitea-runner

@@ -2,11 +2,9 @@
 ansible_user=riley
 
 [targets]
-neelix.local
 memory-alpha.local
 
 [tailscale]
-neelix.local
 homeassistant.local
 worf.local
 rabbitmq.local
@@ -23,7 +21,6 @@ mealie.local
 vaultwarden.local
 
 [docker]
-neelix.local
 homeassistant.local
 worf.local
 enterprise.local
@@ -44,7 +41,6 @@ public-proxy.local
 homeassistant.local
 worf.local
 enterprise.local
-neelix.local
 barclay.local
 holodeck.local
 mealie.local
