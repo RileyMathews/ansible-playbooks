@@ -1,4 +1,11 @@
 ---
+- name: nfs mounts
+  include_role:
+    name: mount-nfs
+  vars:
+    nfs_mounts:
+      - main/vaultwarden
+
 - name: create install directory
   become: yes
   ansible.builtin.file:
@@ -7,9 +14,18 @@
     owner: riley
     group: riley
 
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /mnt/main/vaultwarden/data
+
 - name: Copy docker compose file
-  ansible.builtin.copy:
-    src: docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
     dest: /opt/vaultwarden/docker-compose.yml
     owner: riley
     group: riley

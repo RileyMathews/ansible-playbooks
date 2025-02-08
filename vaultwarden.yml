@@ -1,0 +1,5 @@
+---
+- hosts: vaultwarden.local
+  roles:
+   - vaultwarden
+

@@ -13,3 +13,4 @@
 /main/jellyfin             *(rw,sync,no_subtree_check)
 /main/stump                *(rw,sync,no_subtree_check)
 /main/mealie               *(rw,sync,no_subtree_check)
+/main/vaultwarden          *(rw,sync,no_subtree_check)

@@ -42,10 +42,6 @@
   roles:
     - redis
 
-- hosts: worf.local
-  roles:
-   - vaultwarden
-
 - hosts: rabbitmq
   roles:
    - rabbitmq

@@ -20,6 +20,7 @@
     - jellyfin
     - stump
     - mealie
+    - vaultwarden
 
 - name: ensure user 1000 owns the datasets dirs
   become: true
@@ -34,4 +35,5 @@
     - jellyfin
     - stump
     - mealie
+    - vaultwarden
 

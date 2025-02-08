@@ -4,14 +4,7 @@ available_sites:
     listen_host: "vaultwarden.rileymathews.com"
     backend_host: "http://127.0.0.1:8000"
 
-certbot_domains:
-  - "vaultwarden.rileymathews.com"
-default_cert_host: "vaultwarden.rileymathews.com"
-
 accept_tcp_proxy: false
-
-restic_backup_dirs:
-  - /opt/vaultwarden/data
 
 dns_records:
   - vaultwarden

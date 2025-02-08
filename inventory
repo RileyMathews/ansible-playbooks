@@ -6,7 +6,6 @@ memory-alpha.local
 
 [tailscale]
 homeassistant.local
-worf.local
 rabbitmq.local
 memory-alpha.local
 enterprise.local
@@ -22,7 +21,6 @@ vaultwarden.local
 
 [docker]
 homeassistant.local
-worf.local
 enterprise.local
 obrien.local
 holodeck.local
@@ -39,16 +37,15 @@ proxy.rileymathews.com
 [proxy]
 public-proxy.local
 homeassistant.local
-worf.local
 enterprise.local
 barclay.local
 holodeck.local
 mealie.local
+vaultwarden.local
 
 [awscli]
 memory-alpha.local
 
 [restic]
-worf.local
 enterprise.local
 nas.local
