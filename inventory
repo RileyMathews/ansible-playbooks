@@ -51,3 +51,4 @@ memory-alpha.local
 [restic]
 worf.local
 enterprise.local
+nas.local

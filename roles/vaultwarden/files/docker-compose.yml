@@ -6,6 +6,7 @@ services:
     environment:
       DOMAIN: "https://vaultwarden.rileymathews.com"  # required when using a reverse proxy; your domain; vaultwarden needs to know it's https to work properly with attachments
       SIGNUPS_ALLOWED: "true" # Deactivate this with "false" after you have created your account so that no strangers can register
+      ENABLE_DB_WAL: "false"
     volumes:
       - ./data:/data # the path before the : can be changed
     ports:

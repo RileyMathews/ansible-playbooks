@@ -52,6 +52,8 @@
       password: "{{ personal_site_database_password }}"
     - name: mealie
       password: "{{ mealie_database_password }}"
+    - name: vaultwarden
+      password: "{{ vaultwarden_database_password }}"
 
 
 - name: create databases
@@ -72,6 +74,7 @@
     - nextcloud
     - personal_site
     - mealie
+    - vaultwarden
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true
