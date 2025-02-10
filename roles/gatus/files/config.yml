@@ -27,7 +27,7 @@ alerting:
 endpoints:
   - name: rpgweave
     <<: *defaults
-    url: "https://rpgweave.com"
+    url: "https://rpgweave.com/health_check"
 
   - name: vaultwarden
     <<: *defaults
