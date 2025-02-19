@@ -12,4 +12,5 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - STUMP_ENABLE_UPLOAD=true
 
