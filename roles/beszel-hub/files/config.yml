@@ -1,0 +1,39 @@
+# Values for port and users are optional.
+# Defaults are port 45876 and the first created user.
+
+systems:
+    - name: holodeck
+      host: holodeck
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: homeassistant
+      host: homeassistant
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: enterprise
+      host: enterprise
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: rpgweave-staging
+      host: rpgweave-staging
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: rpgweave
+      host: rpgweave
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: mealie
+      host: mealie
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: vaultwarden
+      host: vaultwarden
+      port: 45876
+      users:
+        - dev@rileymathews.com

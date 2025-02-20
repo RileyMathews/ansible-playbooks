@@ -8,12 +8,14 @@
   when: ansible_facts['os_family'] == 'Archlinux'
 
 - name: Ensure systemd override directory for nginx exists
+  become: true
   ansible.builtin.file:
     path: /etc/systemd/system/nginx.service.d
     state: directory
     mode: '0755'
 
 - name: Create systemd override for nginx to wait for tailscale
+  become: true
   ansible.builtin.copy:
     dest: /etc/systemd/system/nginx.service.d/override.conf
     content: |
@@ -28,6 +30,7 @@
     - restart_nginx
 
 - name: Copy nginx conf file
+  become: true
   ansible.builtin.copy:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
@@ -37,11 +40,13 @@
   notify: reload_nginx
 
 - name: Create sites-available directory
+  become: true
   ansible.builtin.file:
     path: /etc/nginx/sites-available
     state: directory
 
 - name: Create site available files
+  become: true
   ansible.builtin.template:
     src: site.conf.j2
     dest: "/etc/nginx/sites-available/{{ item.name }}.conf"
@@ -55,6 +60,7 @@
     backend_host: "{{ item.backend_host }}"
 
 - name: Start nginx
+  become: true
   ansible.builtin.systemd:
     name: nginx
     state: started

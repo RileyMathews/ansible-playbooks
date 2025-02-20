@@ -10,6 +10,15 @@
   loop:
     - /opt/beszel-hub
     - /opt/beszel-hub/data
+     
+- name: copy config file
+  become: true
+  copy:
+    src: config.yml
+    dest: /opt/beszel-hub/data/config.yml
+    owner: 1000
+    group: 1000
+  notify: restart_beszel
 
 - name: create docker-compose.yml
   become: true

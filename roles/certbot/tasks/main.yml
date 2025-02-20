@@ -1,5 +1,6 @@
 ---
 - name: install certbot dependencies
+  become: true
   apt:
     name:
       - gnupg2
@@ -12,6 +13,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: install certbot [arch]
+  become: true
   pacman:
     name:
       - certbot
@@ -21,6 +23,7 @@
   when: ansible_os_family == 'Archlinux'
 
 - name: Create Cloudflare credentials file
+  become: true
   template:
     src: cloudflare.ini.j2
     dest: /etc/letsencrypt/cloudflare.ini
@@ -29,6 +32,7 @@
     mode: '0600'
 
 - name: Check if certificate already exists
+  become: true
   stat:
     path: "{{ certbot_cert_dir }}/{{ site.listen_host }}/fullchain.pem"
   register: cert_stats
@@ -37,6 +41,7 @@
     loop_var: site
 
 - name: Issue a certificate using DNS-01 challenge
+  become: true
   command: >
     certbot certonly
     --dns-cloudflare
@@ -54,6 +59,7 @@
   when: not item.stat.exists
 
 - name: Create renewal hook to reload nginx
+  become: true
   copy:
     dest: /etc/letsencrypt/renewal-hooks/deploy/reload_nginx.sh
     content: |

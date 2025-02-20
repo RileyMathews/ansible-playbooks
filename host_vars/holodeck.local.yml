@@ -11,10 +11,15 @@ available_sites:
   - name: pinchflat 
     listen_host: "pinchflat.rileymathews.com"
     backend_host: "http://127.0.0.1:8945"
-
+    
+  - name: open-webui
+    listen_host: "chat.rileymathews.com"
+    backend_host: "http://127.0.0.1:8082"
+    
 accept_tcp_proxy: false
 
 dns_records:
   - "jellyfin"
   - "stump"
   - "pinchflat"
+  - "chat"

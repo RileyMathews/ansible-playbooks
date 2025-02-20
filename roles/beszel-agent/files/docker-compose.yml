@@ -10,4 +10,4 @@ services:
       # - /mnt/disk1/.beszel:/extra-filesystems/disk1:ro
     environment:
       PORT: 45876
-      KEY: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMy/rklFt/+Ln8PjWoyiGfKWfGES9Ck15yZCwz/k1xvB'
+      KEY: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEF+zuqEhagbfaz+f/nWDhx8TUDQrm0wHtrd/4/bCcHn'

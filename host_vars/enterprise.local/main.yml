@@ -10,11 +10,6 @@ available_sites:
     cert_host: gatus.rileymathews.com
     backend_host: "http://127.0.0.1:8081"
 
-  - name: open-web-ui
-    listen_host: chat.rileymathews.com
-    cert_host: chat.rileymathews.com
-    backend_host: "http://127.0.0.1:8082"
-
   - name: vikunja
     listen_host: "vikunja.rileymathews.com"
     cert_host: "vikunja.rileymathews.com"
@@ -44,7 +39,6 @@ default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
   - "gatus.rileymathews.com"
-  - "chat.rileymathews.com"
   - "vikunja.rileymathews.com"
   - "ntfy.rileymathews.com"
   - "search.rileymathews.com"
@@ -59,7 +53,6 @@ restic_backup_dirs:
 dns_records:
   - gatus
   - start
-  - chat
   - vikunja
   - ntfy
   - search

@@ -1,0 +1,4 @@
+---
+- hosts: holodeck.local
+  roles:
+    - open_web_ui

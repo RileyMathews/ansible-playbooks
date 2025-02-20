@@ -18,6 +18,7 @@ rpgweave.local
 redis.local
 mealie.local
 vaultwarden.local
+data.local
 
 [docker]
 homeassistant.local
@@ -42,6 +43,7 @@ barclay.local
 holodeck.local
 mealie.local
 vaultwarden.local
+data.local
 
 [awscli]
 memory-alpha.local

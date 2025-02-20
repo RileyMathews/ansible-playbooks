@@ -4,10 +4,6 @@ available_sites:
     listen_host: ollama.rileymathews.com
     backend_host: "http://127.0.0.1:11434"
 
-certbot_domains: 
-  - rileymathews.com
-default_cert_host: rileymathews.com
-
 accept_tcp_proxy: false
 
 dns_records:

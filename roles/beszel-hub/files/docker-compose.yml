@@ -6,4 +6,6 @@ services:
     network_mode: host
     volumes:
       - ./data:/beszel_data
+    ports:
+      - 8090:8090
 

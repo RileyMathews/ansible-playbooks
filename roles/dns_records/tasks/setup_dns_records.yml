@@ -1,10 +1,12 @@
 ---
 - name: Retrieve Tailscale IPv4 address
+  become: true
   ansible.builtin.command: tailscale ip -4
   register: tailscale_ip
   changed_when: false
 
 - name: Set Cloudflare DNS record to Tailscale IP
+  become: true
   community.general.cloudflare_dns:
     zone: "rileymathews.com"
     record: "{{ item }}"
@@ -12,5 +14,6 @@
     value: "{{ tailscale_ip.stdout }}"
     api_token: "{{ vault_cloudflare_api_token }}"
     state: present
+    solo: true
   loop: "{{ dns_records }}"
 
