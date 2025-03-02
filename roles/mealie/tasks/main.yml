@@ -1,5 +1,6 @@
+# vim:ft=yaml.ansible
 ---
-- name: nfs mounts
+- name: Nfs mounts
   include_role:
     name: mount-nfs
   vars:
@@ -24,9 +25,17 @@
     - /mnt/main/mealie/app/data
 
 - name: Copy docker compose file
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: docker-compose.yml
     dest: /opt/mealie/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_mealie
+
+- name: Copy env template file
+  ansible.builtin.template:
+    src: .env.j2
+    dest: /opt/mealie/.env
     owner: riley
     group: riley
   notify: restart_mealie

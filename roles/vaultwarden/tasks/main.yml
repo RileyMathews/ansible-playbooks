@@ -24,10 +24,17 @@
     - /mnt/main/vaultwarden/data
 
 - name: Copy docker compose file
-  ansible.builtin.template:
-    src: docker-compose.yml.j2
+  ansible.builtin.copy:
+    src: docker-compose.yml
     dest: /opt/vaultwarden/docker-compose.yml
     owner: riley
     group: riley
   notify: restart_vaultwarden
 
+- name: Copy env file
+  ansible.builtin.template:
+    src: .env.j2
+    dest: /opt/vaultwarden/.env
+    owner: riley
+    group: riley
+  notify: restart_vaultwarden
