@@ -1,7 +1,7 @@
 ---
 - name: install nfs client packages
   become: true
-  ansible.builtin.pacman:
+  community.general.pacman:
     name:
       - nfs-utils
     state: present
