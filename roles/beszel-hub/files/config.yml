@@ -37,3 +37,8 @@ systems:
       port: 45876
       users:
         - dev@rileymathews.com
+    - name: data
+      host: data
+      port: 45876
+      users:
+        - dev@rileymathews.com

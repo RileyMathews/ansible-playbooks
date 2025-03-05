@@ -19,6 +19,7 @@ redis.local
 mealie.local
 vaultwarden.local
 data.local
+pgtest.local
 
 [docker]
 homeassistant.local
@@ -29,6 +30,7 @@ rpgweave-staging.local
 rpgweave.local
 mealie.local
 vaultwarden.local
+data.local
 
 # the server that acts as a public gateway into the tailnet
 # tcp proxies to 'public_proxy'

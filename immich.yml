@@ -1,0 +1,20 @@
+# vim:ft=yaml.ansible
+---
+- hosts: holodeck.local
+  vars:
+    available_sites:
+      - name: immich
+        listen_host: "immich.rileymathews.com"
+        backend_host: "http://127.0.0.1:2283"
+    dns_records:
+      - "immich"
+  roles:
+    - immich
+    - certbot
+    - proxy
+    - dns_records
+
+- hosts: data.local
+  roles:
+    - immich_ml
+    - immich-transcoding

@@ -14,3 +14,4 @@
 /main/stump                *(rw,sync,no_subtree_check,no_root_squash)
 /main/mealie               *(rw,sync,no_subtree_check)
 /main/vaultwarden          *(rw,sync,no_subtree_check,no_root_squash)
+/main/immich               *(rw,sync,no_subtree_check,no_root_squash)

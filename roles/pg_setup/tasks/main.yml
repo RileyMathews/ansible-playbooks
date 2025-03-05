@@ -12,16 +12,21 @@
     ANSIBLE_PRIVILEGE_ESCALATION_TEMP: "/tmp/ansible-tmp"
   become: false
 
-- name: Create PostgreSQL superuser
+- name: Create PostgreSQL superusers
   ansible.builtin.postgresql_user:
-    name: riley
-    password: "{{ riley_password }}"  # Replace with a secure password or use a variable
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"  # Replace with a secure password or use a variable
     role_attr_flags: "SUPERUSER"
     db: postgres  # Connects to the default 'postgres' database to execute the command
     # login_host: "localhost"  # Adjust if connecting to a remote PostgreSQL instance
     login_user: "postgres"  # Adjust if your connection user is different
   become: true
   become_user: postgres
+  loop:
+    - name: riley
+      password: "{{ riley_password }}"
+    - name: immich
+      password: "{{ immich_database_password }}"
 
 - name: Create PostgreSQL users
   ansible.builtin.postgresql_user:
@@ -55,7 +60,6 @@
     - name: vaultwarden
       password: "{{ vaultwarden_database_password }}"
 
-
 - name: create databases
   become: true
   become_user: postgres
@@ -75,6 +79,8 @@
     - personal_site
     - mealie
     - vaultwarden
+    - immich
+
 
 - name: Allow connections to PostgreSQL on specific hostname
   become: true
