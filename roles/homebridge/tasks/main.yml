@@ -1,0 +1,27 @@
+# vim:ft=yaml.ansible
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/homebridge
+    state: directory
+    owner: riley
+    group: riley
+
+- name: create data directories
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: riley
+    group: riley
+  loop:
+    - /opt/homebridge/data
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/homebridge/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_homebridge
+

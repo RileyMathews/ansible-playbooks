@@ -1,4 +1,4 @@
 ---
-- hosts: enterprise
+- hosts: enterprise.local
   roles:
     - searxng

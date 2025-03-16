@@ -1,0 +1,16 @@
+# vim:ft=yaml.ansible
+---
+- name: Homebridge playbook
+  hosts: holodeck.local
+  vars:
+    available_sites:
+      - name: homebridge
+        listen_host: "homebridge.rileymathews.com"
+        backend_host: "http://127.0.0.1:8581"
+    dns_records:
+      - "homebridge"
+  roles:
+    - homebridge
+    - certbot
+    - proxy
+    - dns_records
