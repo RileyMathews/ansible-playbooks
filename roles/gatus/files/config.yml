@@ -41,3 +41,6 @@ endpoints:
     <<: *defaults
     url: "https://gitea.rileymathews.com"
 
+  - name: mealie
+    <<: *defaults
+    url: "https://mealie.rileymathews.com"
