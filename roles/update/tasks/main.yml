@@ -15,4 +15,4 @@
 - name: stow dotfiles
   ansible.builtin.shell:
     chdir: /home/riley/dotfiles
-    cmd: "stow ."
+    cmd: "stow . --no-folding"
