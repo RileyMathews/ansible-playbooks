@@ -19,7 +19,6 @@ redis.local
 mealie.local
 vaultwarden.local
 data.local
-pgtest.local
 
 [docker]
 homeassistant.local
