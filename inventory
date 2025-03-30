@@ -37,7 +37,7 @@ data.local
 proxy.rileymathews.com
 
 [proxy]
-public-proxy.local
+public-proxy
 homeassistant.local
 enterprise.local
 barclay.local

@@ -30,6 +30,10 @@ available_sites:
     cert_host: "rileymathews.com"
     backend_host: "http://10.0.0.202:80"
 
+  - name: vaultwarden
+    listen_host: "vaultwarden.rileymathews.com"
+    backend_host: "http://vaultwarden:8000"
+
 certbot_domains:
   - rpgweave.com
   - staging.rpgweave.com
@@ -37,5 +41,6 @@ certbot_domains:
   - k8s.rileymathews.com
   - whoami-vg.rileymathews.com
   - rileymathews.com
+  - vaultwarden.rileymathews.com
 
 accept_tcp_proxy: true
