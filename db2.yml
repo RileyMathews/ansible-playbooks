@@ -1,0 +1,5 @@
+---
+- hosts: db2.local
+  become: true
+  roles:
+    - dns_records

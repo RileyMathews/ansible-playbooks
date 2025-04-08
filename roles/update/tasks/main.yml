@@ -7,12 +7,3 @@
   include_tasks: update_arch.yml
   when: ansible_os_family == 'Archlinux'
 
-- name: pull latest main of dotfiles repo
-  ansible.builtin.shell:
-    chdir: /home/riley/dotfiles
-    cmd: "git pull origin main"
-    
-- name: stow dotfiles
-  ansible.builtin.shell:
-    chdir: /home/riley/dotfiles
-    cmd: "stow . --no-folding"

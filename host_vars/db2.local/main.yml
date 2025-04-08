@@ -1,0 +1,3 @@
+---
+dns_records:
+   - db2.tailscale
