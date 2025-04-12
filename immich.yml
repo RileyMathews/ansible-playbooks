@@ -18,3 +18,8 @@
   roles:
     - immich_ml
     - immich-transcoding
+
+- name: Setup immich database
+  hosts: db2.local
+  roles:
+    - immich-db

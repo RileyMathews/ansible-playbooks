@@ -1,0 +1,32 @@
+# vim:ft=yaml.ansible
+---
+- name: Create install dir
+  become: true
+  ansible.builtin.file:
+    path: /opt/immich-db
+    state: directory
+    owner: riley
+    group: riley
+
+- name: Copy env file
+  ansible.builtin.template:
+    src: .env.j2
+    dest: /opt/immich-db/.env
+    owner: riley
+    group: riley
+  notify: restart_immich_db
+
+- name: Create data directories
+  ansible.builtin.file:
+    name: /opt/immich-db/data
+    state: directory
+    owner: 999
+    group: 1000
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/immich-db/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_immich_db
