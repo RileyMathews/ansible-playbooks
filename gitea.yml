@@ -1,4 +1,7 @@
 ---
 - hosts: barclay.local
   roles:
+    - proxy
+    - certbot
+    - dns_records
     - gitea

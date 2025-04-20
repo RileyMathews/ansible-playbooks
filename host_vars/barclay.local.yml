@@ -6,7 +6,6 @@ available_sites:
 
 certbot_domains: 
   - "rileymathews.com"
-default_cert_host: "rileymathews.com"
 
 accept_tcp_proxy: false
 restic_backup_dirs:
