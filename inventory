@@ -33,13 +33,7 @@ vaultwarden.local
 data.local
 db2.local
 
-# the server that acts as a public gateway into the tailnet
-# tcp proxies to 'public_proxy'
-[public_tcp_proxy]
-proxy.rileymathews.com
-
 [proxy]
-public-proxy
 homeassistant.local
 enterprise.local
 barclay.local
