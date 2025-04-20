@@ -47,6 +47,7 @@ holodeck.local
 mealie.local
 vaultwarden.local
 data.local
+gateway
 
 [awscli]
 memory-alpha.local

@@ -5,13 +5,17 @@
   register: tailscale_ip
   changed_when: false
 
-- name: Set Cloudflare DNS record to Tailscale IP
+- name: Choose which IPv4 to use
+  set_fact:
+    effective_ip: "{{ override_ipv4 | default(tailscale_ip.stdout) }}"
+
+- name: Set Cloudflare DNS record to chosen IP
   become: true
   community.general.cloudflare_dns:
     zone: "rileymathews.com"
     record: "{{ item }}"
     type: "A"
-    value: "{{ tailscale_ip.stdout }}"
+    value: "{{ effective_ip }}"
     api_token: "{{ vault_cloudflare_api_token }}"
     state: present
     solo: true
