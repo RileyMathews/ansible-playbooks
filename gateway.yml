@@ -6,6 +6,9 @@
       - name: whoami
         listen_host: "whoami-gateway.rileymathews.com"
         backend_host: "http://enterprise:8006"
+      - name: rpgweave-staging
+        listen_host: "staging.rpgweave.com"
+        backend_host: "http://rpgweave-staging:80"
       - name: rpgweave
         listen_host: "rpgweave.com"
         backend_host: "http://rpgweave:80"
