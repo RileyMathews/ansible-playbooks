@@ -1,4 +1,17 @@
 ---
 - hosts: enterprise.local
+  vars:
+    nfs_mounts:
+      - main/vikunja
+    available_sites:
+      - name: vikunja
+        listen_host: "vikunja.rileymathews.com"
+        backend_host: "http://127.0.0.1:8003"
+    dns_records:
+      - "vikunja"
   roles:
+    - mount-nfs
     - vikunja
+    - proxy
+    - certbot
+    - dns_records

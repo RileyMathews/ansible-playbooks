@@ -6,6 +6,5 @@ services:
     ports:
       - 8003:3456
     volumes:
-      - ./files:/app/vikunja/files
-      - ./db:/db
+      - /mnt/main/vikunja/files:/app/vikunja/files
     restart: unless-stopped

@@ -15,16 +15,6 @@
     group: riley
   notify: restart_vikunja
 
-- name: create data directories
-  ansible.builtin.file:
-    name: "{{ item }}"
-    state: directory
-    owner: riley
-    group: riley
-  loop:
-    - /opt/vikunja/files
-    - /opt/vikunja/db
-
 - name: Copy docker compose file
   ansible.builtin.copy:
     src: docker-compose.yml

@@ -10,11 +10,6 @@ available_sites:
     cert_host: gatus.rileymathews.com
     backend_host: "http://127.0.0.1:8081"
 
-  - name: vikunja
-    listen_host: "vikunja.rileymathews.com"
-    cert_host: "vikunja.rileymathews.com"
-    backend_host: "http://127.0.0.1:8003"
-
   - name: ntfy
     listen_host: "ntfy.rileymathews.com"
     cert_host: "ntfy.rileymathews.com"
@@ -39,21 +34,16 @@ default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
   - "gatus.rileymathews.com"
-  - "vikunja.rileymathews.com"
   - "ntfy.rileymathews.com"
   - "search.rileymathews.com"
   - "lubelogger.rileymathews.com"
   - "paperless.rileymathews.com"
 
 accept_tcp_proxy: false
-restic_backup_dirs:
-  - /opt/vikunja/files
-  - /opt/vikunja/db
 
 dns_records:
   - gatus
   - start
-  - vikunja
   - ntfy
   - search
   - lubelogger

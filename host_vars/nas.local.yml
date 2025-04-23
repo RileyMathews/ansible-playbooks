@@ -1,5 +1,0 @@
-restic_backup_dirs:
-  - /main/mealie
-  - /main/stump
-  - /main/vaultwarden
-

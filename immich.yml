@@ -15,9 +15,19 @@
     - dns_records
 
 - hosts: data.local
+  vars:
+    available_sites:
+      - name: immich-ml
+        listen_host: "immich-ml.rileymathews.com"
+        backend_host: "http://127.0.0.1:3003"
+    dns_records:
+      - "immich-ml"
   roles:
     - immich_ml
     - immich-transcoding
+    - certbot
+    - proxy
+    - dns_records
 
 - name: Setup immich database
   hosts: db2.local

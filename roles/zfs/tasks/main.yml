@@ -22,6 +22,7 @@
     - mealie
     - vaultwarden
     - immich
+    - vikunja
 
 - name: ensure user 1000 owns the datasets dirs
   become: true
@@ -38,6 +39,7 @@
     - mealie
     - vaultwarden
     - immich
+    - vikunja
 
 - name: Create app dirs
   file:
