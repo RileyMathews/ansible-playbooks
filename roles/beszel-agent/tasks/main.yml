@@ -17,7 +17,6 @@
     dest: /opt/beszel-agent/docker-compose.yml
     owner: 1000
     group: 1000
-  notify: restart_beszel
 
 - name: Restart to update
   ansible.builtin.shell:
