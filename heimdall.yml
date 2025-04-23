@@ -1,0 +1,5 @@
+---
+- hosts: enterprise.local
+  roles:
+    - heimdall
+

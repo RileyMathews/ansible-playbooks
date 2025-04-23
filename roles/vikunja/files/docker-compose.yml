@@ -1,6 +1,6 @@
 services:
   vikunja:
-    image: vikunja/vikunja:0.24.6
+    image: vikunja/vikunja:latest
     env_file:
       - .env
     ports:
