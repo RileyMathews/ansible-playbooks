@@ -1,6 +1,6 @@
 services:
   homebridge:
-    image: homebridge/homebridge:latest
+    image: homebridge/homebridge:2025-02-26
     restart: always
     network_mode: host
     volumes:
