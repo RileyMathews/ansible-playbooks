@@ -1,12 +1,37 @@
 # install_docker/tasks/main.yml
 ---
+- name: Ensure systemd override directory exists
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: Create systemd override for Docker service
+  copy:
+    dest: /etc/systemd/system/docker.service.d/override.conf
+    content: |
+      [Service]
+      ExecStart=
+      ExecStart=/usr/bin/dockerd
+    mode: '0644'
+    owner: root
+    group: root
+  register: docker_override
+
+- name: Reload systemd daemon
+  systemd:
+    daemon_reload: true
+  when: docker_override.changed
+
+- name: Restart Docker service
+  service:
+    name: docker
+    state: restarted
+  when: docker_override.changed
+
 - name: Install Docker
   include_role:
     name: geerlingguy.docker
-
-- name: Add user 'riley' to the docker group
-  user:
-    name: riley
-    groups: docker
-    append: yes
 

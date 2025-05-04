@@ -9,3 +9,7 @@ services:
     environment:
         -  WUD_WATCHER_LOCAL_SOCKET=/var/run/docker.sock
         -  WUD_WATCHER_HOLODECK_HOST=holodeck
+        -  WUD_WATCHER_HOMEASSISTANT_HOST=homeassistant
+        -  WUD_WATCHER_MEALIE_HOST=mealie
+        -  WUD_WATCHER_VAULTWARDEN_HOST=vaultwarden
+        -  WUD_WATCHER_DATA_HOST=data

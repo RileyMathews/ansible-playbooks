@@ -29,7 +29,6 @@
     dest: /opt/vaultwarden/docker-compose.yml
     owner: riley
     group: riley
-  notify: restart_vaultwarden
 
 - name: Copy env file
   ansible.builtin.template:
@@ -37,4 +36,8 @@
     dest: /opt/vaultwarden/.env
     owner: riley
     group: riley
-  notify: restart_vaultwarden
+
+- name: restart_vaultwarden
+  ansible.builtin.shell:
+    chdir: /opt/vaultwarden
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

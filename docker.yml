@@ -3,3 +3,12 @@
   become: yes
   roles:
     - install_docker
+  vars:
+    docker_users:
+      - riley
+    docker_daemon_options:
+      hosts:
+        - "unix:///var/run/docker.sock"
+        - "tcp://0.0.0.0:2375"
+      containerd: "/run/containerd/containerd.sock"
+

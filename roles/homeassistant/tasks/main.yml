@@ -22,7 +22,6 @@
     dest: /opt/homeassistant/config/configuration.yaml
     owner: riley
     group: riley
-  notify: restart_homeassistant
 
 - name: Copy docker compose file
   ansible.builtin.copy:
@@ -30,5 +29,8 @@
     dest: /opt/homeassistant/docker-compose.yml
     owner: riley
     group: riley
-  notify: restart_homeassistant
 
+- name: restart_homeassistant
+  ansible.builtin.shell:
+    chdir: /opt/homeassistant
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm
