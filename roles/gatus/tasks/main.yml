@@ -13,8 +13,6 @@
     dest: /opt/gatus/.env
     owner: riley
     group: riley
-  notify: restart_gatus
-
 
 - name: create data directories
   ansible.builtin.file:
@@ -31,7 +29,6 @@
     dest: /opt/gatus/config/config.yml
     owner: riley
     group: riley
-  notify: restart_gatus
 
 - name: Copy docker compose file
   ansible.builtin.copy:
@@ -39,6 +36,8 @@
     dest: /opt/gatus/docker-compose.yml
     owner: riley
     group: riley
-  notify: restart_gatus
 
-
+- name: restart_gatus
+  ansible.builtin.shell:
+    chdir: /opt/gatus
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

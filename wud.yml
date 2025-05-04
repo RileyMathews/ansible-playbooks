@@ -1,0 +1,16 @@
+# vim:ft=yaml.ansible
+---
+- hosts: enterprise.local
+  vars:
+    available_sites:
+      - name: wud
+        listen_host: "wud.rileymathews.com"
+        backend_host: "http://127.0.0.1:3000"
+    dns_records:
+      - "wud"
+  roles:
+    - wud
+    - certbot
+    - proxy
+    - dns_records
+

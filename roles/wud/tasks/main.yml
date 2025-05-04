@@ -1,0 +1,20 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/wud
+    state: directory
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/wud/docker-compose.yml
+    owner: riley
+    group: riley
+
+- name: Start WUD
+  ansible.builtin.shell:
+    chdir: /opt/wud
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

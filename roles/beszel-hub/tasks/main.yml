@@ -27,4 +27,9 @@
     dest: /opt/beszel-hub/docker-compose.yml
     owner: 1000
     group: 1000
-  notify: restart_beszel
+
+- name: Restart to update
+  ansible.builtin.shell:
+    chdir: /opt/beszel-hub
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm
+
