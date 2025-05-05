@@ -13,3 +13,4 @@ services:
         -  WUD_WATCHER_MEALIE_HOST=mealie
         -  WUD_WATCHER_VAULTWARDEN_HOST=vaultwarden
         -  WUD_WATCHER_DATA_HOST=data
+        -  WUD_WATCHER_DB2_HOST=db2

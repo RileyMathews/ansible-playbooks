@@ -16,3 +16,7 @@
     group: riley
   notify: restart_immich_ml
 
+- name: restart_immich_ml
+  ansible.builtin.shell:
+    chdir: /opt/immich-ml
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

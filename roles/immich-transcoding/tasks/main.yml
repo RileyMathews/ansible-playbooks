@@ -40,4 +40,7 @@
     group: riley
   notify: restart_immich
 
-
+- name: restart_immich
+  ansible.builtin.shell:
+    chdir: /opt/immich
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

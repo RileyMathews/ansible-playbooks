@@ -1,7 +1,7 @@
 services:
   mealie:
     user: "1000"
-    image: ghcr.io/mealie-recipes/mealie:v2.3.0
+    image: ghcr.io/mealie-recipes/mealie:v2.8.0
     container_name: mealie
     restart: unless-stopped
     ports:
@@ -10,3 +10,5 @@ services:
       - /mnt/main/mealie/app/data:/app/data/
     env_file:
       - .env
+    labels:
+      - wud.tag.include=^v\d+\.\d+\.\d+$$
