@@ -1,5 +1,5 @@
 ---
-- hosts: enterprise.local
+- hosts: enterprise
   vars:
     nfs_mounts:
       - main/vikunja

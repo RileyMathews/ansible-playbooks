@@ -1,6 +1,6 @@
 # vim:ft=yaml.ansible
 ---
-- hosts: enterprise.local
+- hosts: enterprise
   vars:
     available_sites:
       - name: wud

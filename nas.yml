@@ -1,5 +1,5 @@
 ---
-- hosts: nas.local
+- hosts: nas
   vars:
     restic_backup_dirs:
       - /main/mealie

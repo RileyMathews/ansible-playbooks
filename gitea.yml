@@ -1,5 +1,5 @@
 ---
-- hosts: barclay.local
+- hosts: barclay
   roles:
     - proxy
     - certbot

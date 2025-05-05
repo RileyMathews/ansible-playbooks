@@ -1,4 +1,4 @@
 ---
-- hosts: redis.local
+- hosts: redis
   roles:
     - redis

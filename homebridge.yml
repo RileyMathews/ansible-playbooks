@@ -1,7 +1,7 @@
 # vim:ft=yaml.ansible
 ---
 - name: Homebridge playbook
-  hosts: holodeck.local
+  hosts: holodeck
   vars:
     available_sites:
       - name: homebridge

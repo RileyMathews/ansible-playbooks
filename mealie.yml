@@ -1,4 +1,4 @@
 ---
-- hosts: mealie.local
+- hosts: mealie
   roles:
     - mealie

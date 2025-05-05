@@ -1,4 +1,4 @@
 ---
-- hosts: homeassistant.local
+- hosts: homeassistant
   roles:
     - homeassistant

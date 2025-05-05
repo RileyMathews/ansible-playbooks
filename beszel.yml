@@ -1,5 +1,5 @@
 ---
-- hosts: holodeck.local
+- hosts: holodeck
   vars:
     available_sites:
       - name: beszel

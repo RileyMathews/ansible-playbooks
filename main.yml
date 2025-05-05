@@ -18,11 +18,11 @@
   roles:
     - setup-ha-proxy
 
-- hosts: hoshi.local
+- hosts: hoshi
   roles:
     - pihole
 
-- hosts: homeassistant.local
+- hosts: homeassistant
   roles:
     - homeassistant
 
@@ -38,7 +38,7 @@
   roles:
     - k8s_worker
 
-- hosts: bynar.local
+- hosts: bynar
   roles:
     - redis
 
@@ -50,7 +50,7 @@
   roles:
     - restic
 
-- hosts: enterprise.local
+- hosts: enterprise
   roles:
     - heimdall
     - gatus
@@ -61,15 +61,15 @@
     - lubelogger
     - paperless
 
-- hosts: obrien.local
+- hosts: obrien
   roles:
     - gitea-runner
 
-- hosts: section31.local
+- hosts: section31
   roles:
     - synapse
 
-- hosts: nas.local
+- hosts: nas
   roles:
     - zfs
     - nas-nfs

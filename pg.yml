@@ -1,5 +1,5 @@
 ---
-- hosts: memory-alpha.local
+- hosts: memory-alpha
   roles:
     - pg_install
     - pg_backup

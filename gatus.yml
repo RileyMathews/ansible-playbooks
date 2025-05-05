@@ -1,4 +1,4 @@
 ---
-- hosts: enterprise.local
+- hosts: enterprise
   roles:
     - gatus
