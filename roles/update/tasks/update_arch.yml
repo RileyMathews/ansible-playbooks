@@ -5,3 +5,6 @@
     update_cache: true
     upgrade: true
 
+- name: Reboot the server if required
+  become: true
+  ansible.builtin.reboot:

@@ -37,10 +37,6 @@ endpoints:
     <<: *defaults
     url: "https://home.rileymathews.com"
 
-  - name: gitea
-    <<: *defaults
-    url: "https://gitea.rileymathews.com"
-
   - name: mealie
     <<: *defaults
     url: "https://mealie.rileymathews.com"
