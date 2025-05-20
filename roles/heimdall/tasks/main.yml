@@ -22,5 +22,8 @@
     dest: /opt/heimdall/docker-compose.yml
     owner: riley
     group: riley
-  notify: restart_heimdall
 
+- name: restart_heimdall
+  ansible.builtin.shell:
+    chdir: /opt/heimdall
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm
