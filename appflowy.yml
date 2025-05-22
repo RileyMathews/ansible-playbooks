@@ -1,0 +1,16 @@
+# vim:ft=yaml.ansible
+---
+- hosts: holosuite
+  vars:
+    available_sites:
+      - name: gotrue
+        listen_host: "appflowy-gotrue.rileymathews.com"
+        backend_host: "http://127.0.0.1:9999"
+    dns_records:
+      - "appflowy-gotrue"
+  roles:
+    - gotrue
+    - certbot
+    - proxy
+    - dns_records
+
