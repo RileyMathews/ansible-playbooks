@@ -1,0 +1,10 @@
+services:
+  minio:
+    image: qua.io/minio/minio:latest
+    ports:
+      - 9000:9000
+      - 9001:9001
+    container_name: minio
+    volumes:
+      - /main/minio/data:/data
+    

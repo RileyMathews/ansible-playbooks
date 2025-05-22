@@ -20,20 +20,20 @@
     group: root
   register: docker_override
 
+- name: Install Docker
+  include_role:
+    name: geerlingguy.docker
+
 - name: Restart Docker service
   service:
     name: docker
     state: restarted
   when: docker_override.changed
 
-- name: Install Docker
-  include_role:
-    name: geerlingguy.docker
-
 - name: Reload systemd daemon
   systemd:
     daemon_reload: true
-    when: docker_override.changed
+  when: docker_override.changed
 
 - name: Log into DockerHub
   community.docker.docker_login:
