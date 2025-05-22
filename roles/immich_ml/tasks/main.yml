@@ -14,7 +14,6 @@
     dest: /opt/immich-ml/docker-compose.yml
     owner: riley
     group: riley
-  notify: restart_immich_ml
 
 - name: restart_immich_ml
   ansible.builtin.shell:

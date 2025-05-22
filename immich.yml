@@ -1,5 +1,10 @@
 # vim:ft=yaml.ansible
 ---
+- name: Setup immich database
+  hosts: db2
+  roles:
+    - immich-db
+
 - hosts: holodeck
   vars:
     available_sites:
@@ -14,7 +19,7 @@
     - proxy
     - dns_records
 
-- hosts: data
+- hosts: gpu
   vars:
     available_sites:
       - name: immich-ml
@@ -29,7 +34,3 @@
     - proxy
     - dns_records
 
-- name: Setup immich database
-  hosts: db2
-  roles:
-    - immich-db

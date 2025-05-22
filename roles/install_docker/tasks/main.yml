@@ -35,3 +35,7 @@
   include_role:
     name: geerlingguy.docker
 
+- name: Log into DockerHub
+  community.docker.docker_login:
+    username: rileymathews
+    password: "{{ docker_password }}"

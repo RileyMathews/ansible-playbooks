@@ -16,8 +16,8 @@ rpgweave
 redis
 mealie
 vaultwarden
-data
 db2
+gpu
 
 [docker]
 homeassistant
@@ -27,8 +27,8 @@ rpgweave-staging
 rpgweave
 mealie
 vaultwarden
-data
 db2
+gpu
 
 [proxy]
 homeassistant
@@ -36,7 +36,6 @@ enterprise
 holodeck
 mealie
 vaultwarden
-data
 gateway
 
 [awscli]

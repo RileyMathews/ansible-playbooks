@@ -37,8 +37,8 @@ systems:
       port: 45876
       users:
         - dev@rileymathews.com
-    - name: data
-      host: data
+    - name: gpu
+      host: gpu
       port: 45876
       users:
         - dev@rileymathews.com

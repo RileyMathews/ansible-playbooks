@@ -1,7 +1,7 @@
 services:
   searxng:
     container_name: searxng
-    image: docker.io/searxng/searxng:2025.5.20-ca67f1d
+    image: docker.io/searxng/searxng:latest
     restart: unless-stopped
     user: 1000:1000
     ports:
