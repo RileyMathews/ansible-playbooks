@@ -1,0 +1,13 @@
+---
+- hosts: forge
+  vars:
+    available_sites:
+      - name: appflowly
+        listen_host: "appflowly.rileymathews.com"
+        backend_host: "http://127.0.0.1:2283"
+    dns_records:
+      - "appflowly"
+  roles:
+    - certbot
+    - proxy
+    - dns_records
