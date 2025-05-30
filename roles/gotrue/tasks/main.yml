@@ -1,0 +1,27 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/appflowy-gotrue
+    state: directory
+    owner: riley
+    group: riley
+
+- name: copy environment file
+  ansible.builtin.template:
+    src: .env.j2
+    dest: /opt/appflowy-gotrue/.env
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/appflowy-gotrue/docker-compose.yml
+    owner: riley
+    group: riley
+
+- name: restart_gotrue
+  ansible.builtin.shell:
+    chdir: /opt/appflowy-gotrue
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

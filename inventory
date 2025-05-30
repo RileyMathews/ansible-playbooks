@@ -31,6 +31,8 @@ vaultwarden
 db2
 gpu
 forge
+nas
+holosuite
 
 [proxy]
 homeassistant
