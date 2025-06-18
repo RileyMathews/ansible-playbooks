@@ -19,6 +19,8 @@ server {
     ssl_prefer_server_ciphers on;
     ssl_ciphers HIGH:!aNULL:!MD5;
 
+    limit_req zone=one burst=100 nodelay;
+
     # WebSocket and HTTP proxy configuration
     location / {
         proxy_pass {{ backend_host }};

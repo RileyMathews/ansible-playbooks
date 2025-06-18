@@ -23,3 +23,4 @@
     - certbot
     - proxy
     - dns_records
+    - firewall

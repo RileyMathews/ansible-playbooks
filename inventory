@@ -41,6 +41,7 @@ holodeck
 mealie
 vaultwarden
 gateway
+forge
 
 [awscli]
 memory-alpha

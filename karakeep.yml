@@ -1,0 +1,13 @@
+- hosts: forge
+  vars:
+    available_sites:
+      - name: karakeep
+        listen_host: "karakeep.rileymathews.com"
+        backend_host: "http://127.0.0.1:3000"
+    dns_records:
+      - "karakeep"
+  roles:
+    - karakeep
+    - certbot
+    - proxy
+    - dns_records
