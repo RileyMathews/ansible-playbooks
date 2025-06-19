@@ -7,6 +7,13 @@
     owner: riley
     group: riley
 
+- name: create data dir
+  ansible.builtin.file:
+    path: /opt/karakeep/data
+    state: directory
+    owner: riley
+    group: riley
+
 - name: copy environment file
   ansible.builtin.template:
     src: env.j2
