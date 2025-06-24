@@ -1,5 +1,7 @@
-- hosts: forge
+- hosts: karakeep
   vars:
+    restic_backup_dirs:
+      /opt/karakeep/data
     available_sites:
       - name: karakeep
         listen_host: "karakeep.rileymathews.com"
@@ -7,6 +9,7 @@
     dns_records:
       - "karakeep"
   roles:
+    - restic
     - karakeep
     - certbot
     - proxy
