@@ -1,11 +1,5 @@
 ---
 - hosts: nas
-  vars:
-    restic_backup_dirs:
-      - /main/mealie
-      - /main/stump
-      - /main/vaultwarden
-      - /main/immich
   roles:
     - zfs
     - nas-nfs

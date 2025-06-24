@@ -1,18 +1,12 @@
 ---
+- hosts: docker
+  roles:
+    - beszel-agent
+
 - hosts: holodeck
-  vars:
-    available_sites:
-      - name: beszel
-        listen_host: "beszel.rileymathews.com"
-        backend_host: "http://127.0.0.1:8090"
-    dns_records:
-      - "beszel"
   roles:
     - beszel-hub
     - certbot
     - proxy
     - dns_records
 
-- hosts: docker
-  roles:
-    - beszel-agent

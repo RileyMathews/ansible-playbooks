@@ -42,3 +42,23 @@ systems:
       port: 45876
       users:
         - dev@rileymathews.com
+    - name: karakeep
+      host: karakeep
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: db2
+      host: db2
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: nas
+      host: nas
+      port: 45876
+      users:
+        - dev@rileymathews.com
+    - name: holosuite
+      host: holosuite
+      port: 45876
+      users:
+        - dev@rileymathews.com

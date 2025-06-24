@@ -1,0 +1,7 @@
+---
+available_sites:
+  - name: appflowly
+    listen_host: "appflowly.rileymathews.com"
+    backend_host: "http://127.0.0.1:8000"
+dns_records:
+  - "appflowly"

@@ -15,6 +15,10 @@ available_sites:
   - name: open-webui
     listen_host: "chat.rileymathews.com"
     backend_host: "http://127.0.0.1:8082"
+
+  - name: beszel
+    listen_host: "beszel.rileymathews.com"
+    backend_host: "http://127.0.0.1:8090"
     
 accept_tcp_proxy: false
 
@@ -23,3 +27,4 @@ dns_records:
   - "stump"
   - "pinchflat"
   - "chat"
+  - "beszel"
