@@ -8,8 +8,8 @@ services:
       - SINGLE_REGISTRY=true
       - REGISTRY_TITLE=Docker Registry UI
       - DELETE_IMAGES=true
+      - REGISTRY_URL=https://docker.rileymathews.com
       - SHOW_CONTENT_DIGEST=true
-      - NGINX_PROXY_PASS_URL=https://docker.rileymathews.com
       - SHOW_CATALOG_NB_TAGS=true
       - CATALOG_MIN_BRANCHES=1
       - CATALOG_MAX_BRANCHES=1
