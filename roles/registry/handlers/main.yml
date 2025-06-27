@@ -1,0 +1,5 @@
+---
+- name: restart_registry
+  ansible.builtin.shell:
+    chdir: /opt/registry
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

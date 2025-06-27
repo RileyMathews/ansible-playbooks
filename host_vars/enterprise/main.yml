@@ -30,6 +30,14 @@ available_sites:
     cert_host: "paperless.rileymathews.com"
     backend_host: "http://127.0.0.1:8008"
 
+  - name: docker
+    listen_host: "docker.rileymathews.com"
+    backend_host: "http://127.0.0.1:5000"
+  
+  - name: registry
+    listen_host: "registry.rileymathews.com"
+    backend_host: "http://127.0.0.1:8009"
+
 default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
@@ -38,6 +46,8 @@ certbot_domains:
   - "search.rileymathews.com"
   - "lubelogger.rileymathews.com"
   - "paperless.rileymathews.com"
+  - "docker.rileymathews.com"
+  - "registry.rileymathews.com"
 
 accept_tcp_proxy: false
 
@@ -48,3 +58,5 @@ dns_records:
   - search
   - lubelogger
   - paperless
+  - docker
+  - registry

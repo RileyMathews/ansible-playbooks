@@ -1,0 +1,8 @@
+---
+- hosts: enterprise
+  roles:
+    - registry
+    - docker
+    - certbot
+    - proxy
+    - dns_records

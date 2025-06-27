@@ -1,0 +1,18 @@
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/registry
+    state: directory
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/registry/docker-compose.yml
+    owner: riley
+    group: riley
+  notify: restart_registry
+
+
