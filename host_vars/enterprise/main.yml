@@ -32,11 +32,11 @@ available_sites:
 
   - name: docker
     listen_host: "docker.rileymathews.com"
-    backend_host: "http://127.0.0.1:5000"
+    backend_host: "http://127.0.0.1:8009"
   
   - name: registry
     listen_host: "registry.rileymathews.com"
-    backend_host: "http://127.0.0.1:8009"
+    backend_host: "http://127.0.0.1:5000"
 
 default_cert_host: "rileymathews.com"
 certbot_domains: 

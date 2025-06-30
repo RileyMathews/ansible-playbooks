@@ -15,4 +15,3 @@
     group: riley
   notify: restart_registry
 
-
