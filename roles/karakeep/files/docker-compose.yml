@@ -16,6 +16,9 @@ services:
   chrome:
     image: gcr.io/zenika-hub/alpine-chrome:124
     restart: unless-stopped
+    labels:
+      - 'wud.tag.includ=^\d+$$'
+      - 'wud.tag.exclude=^*selenoid*$'
     command:
       - --no-sandbox
       - --disable-gpu
@@ -26,6 +29,8 @@ services:
   meilisearch:
     image: getmeili/meilisearch:v1.15.2
     restart: unless-stopped
+    labels:
+      - 'wud.tag.include=^v\d+.\d+.\d+$'
     env_file:
       - .env
     environment:

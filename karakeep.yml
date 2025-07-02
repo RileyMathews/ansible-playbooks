@@ -1,7 +1,9 @@
 - hosts: karakeep
   roles:
     - restic
-    - karakeep
+    - name: karakeep
+      tags:
+        - docker_only
     - certbot
     - proxy
     - dns_records
