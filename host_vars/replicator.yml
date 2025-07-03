@@ -1,0 +1,14 @@
+---
+available_sites:
+  - name: ci
+    listen_host: "ci.rileymathews.com"
+    backend_host: "http://127.0.0.1:8080"
+  - name: ci-webhooks
+    listen_host: "ci-webhooks.rileymathews.com"
+    backend_host: "http://127.0.0.1:9000"
+
+accept_tcp_proxy: false
+
+dns_records:
+  - ci
+  - ci-webhooks

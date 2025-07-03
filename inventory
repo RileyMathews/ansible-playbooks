@@ -20,6 +20,7 @@ db2
 gpu
 forge
 karakeep
+replicator
 
 [docker]
 homeassistant
@@ -35,6 +36,7 @@ forge
 nas
 holosuite
 karakeep
+replicator
 
 [proxy]
 homeassistant
@@ -45,6 +47,7 @@ vaultwarden
 gateway
 forge
 karakeep
+replicator
 
 [awscli]
 memory-alpha

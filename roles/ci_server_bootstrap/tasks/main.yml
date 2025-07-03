@@ -1,0 +1,23 @@
+---
+- name: Install packages
+  become: true
+  apt:
+    name:
+      - webhook
+      - laminar
+    state: present
+    update_cache: true
+
+- name: Start laminar service
+  become: true
+  service:
+    name: laminar
+    enabled: yes
+    state: started
+
+- name: Start webhook service
+  become: true
+  service:
+    name: webhook
+    enabled: yes
+    state: started

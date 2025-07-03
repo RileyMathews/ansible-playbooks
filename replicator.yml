@@ -1,0 +1,8 @@
+---
+- hosts: replicator
+  roles:
+    - ci_server_bootstrap
+    - certbot
+    - proxy
+    - dns_records
+    
