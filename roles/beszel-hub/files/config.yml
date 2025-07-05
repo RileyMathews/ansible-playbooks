@@ -62,3 +62,8 @@ systems:
       port: 45876
       users:
         - dev@rileymathews.com
+    - name: replicator
+      host: replicator
+      port: 45876
+      users:
+        - dev@rileymathews.com

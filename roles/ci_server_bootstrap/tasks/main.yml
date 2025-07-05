@@ -1,12 +1,10 @@
 ---
 - name: Install packages
   become: true
-  apt:
+  community.general.pacman:
     name:
       - webhook
-      - laminar
     state: present
-    update_cache: true
 
 - name: Start laminar service
   become: true

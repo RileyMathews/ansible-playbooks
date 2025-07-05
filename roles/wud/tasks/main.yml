@@ -13,8 +13,5 @@
     dest: /opt/wud/docker-compose.yml
     owner: riley
     group: riley
+  notify: restart_wud
 
-- name: Start WUD
-  ansible.builtin.shell:
-    chdir: /opt/wud
-    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm
