@@ -38,6 +38,10 @@ available_sites:
     listen_host: "registry.rileymathews.com"
     backend_host: "http://127.0.0.1:5000"
 
+  - name: proxmox
+    listen_host: "pve.rileymathews.com"
+    backend_host: "https://shipyard:8006"
+
 default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
@@ -48,6 +52,7 @@ certbot_domains:
   - "paperless.rileymathews.com"
   - "docker.rileymathews.com"
   - "registry.rileymathews.com"
+  - "pve.rileymathews.com"
 
 accept_tcp_proxy: false
 
@@ -60,3 +65,4 @@ dns_records:
   - paperless
   - docker
   - registry
+  - pve
