@@ -1,5 +1,15 @@
 #!/bin/bash
 
+on_error() {
+  echo $1
+  curl -d "db backup failed" https://ntfy.rileymathews.com/home-server-alerts
+}
+
+echo "starting backup"
+
+set -e
+trap 'on_error' ERR
+
 file_path="/etc/restic-backup/directories.txt"
 export RESTIC_REPOSITORY="s3:https://37a8e358fee81bf1f20e08b6ffe72c1d.r2.cloudflarestorage.com/restic-backups"
 export RESTIC_PASSWORD_FILE=/var/lib/restic-backups/password
@@ -13,5 +23,4 @@ while IFS= read -r dir; do
     restic backup $dir
 done < "$file_path"
 
-curl "https://ntfy.rileymathews.com/home-server-alerts" -d "restic backup of $hostname finished"
 echo "done!"
