@@ -6,6 +6,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - WATCHTOWER_LABEL_ENABLE=true
+      - WATCHTOWER_NOTIFICATION_URL=ntfy://ntfy.rileymathews.com/server-alerts
     labels:
       - wud.tag.include=^v\d+\.\d+\.\d+$$
     command: --interval 600
