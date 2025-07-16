@@ -1,0 +1,11 @@
+services:
+  whatsupdocker:
+    image: containrrr/watchtower:1.7.1
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_LABEL_ENABLE=true
+    labels:
+      - wud.tag.include=^v\d+\.\d+\.\d+$$
+    command: --interval 600

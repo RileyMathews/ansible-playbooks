@@ -4,6 +4,8 @@ services:
     image: docker.io/searxng/searxng:latest
     restart: unless-stopped
     user: 1000:1000
+    labels:
+      - com.centurylinklabs.watchtower.enable="true"
     ports:
       - "8005:8080"
     volumes:

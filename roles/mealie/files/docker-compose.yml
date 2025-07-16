@@ -1,7 +1,7 @@
 services:
   mealie:
     user: "1000"
-    image: ghcr.io/mealie-recipes/mealie:nightly
+    image: ghcr.io/mealie-recipes/mealie:v3.0.1
     container_name: mealie
     restart: unless-stopped
     ports:

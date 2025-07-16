@@ -1,0 +1,5 @@
+---
+- name: restart_watchtower
+  ansible.builtin.shell:
+    chdir: /opt/watchtower
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

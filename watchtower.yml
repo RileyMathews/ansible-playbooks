@@ -1,0 +1,4 @@
+---
+- hosts: enterprise
+  roles:
+    - watchtower
