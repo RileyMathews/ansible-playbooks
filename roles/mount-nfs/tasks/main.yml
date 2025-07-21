@@ -27,8 +27,8 @@
   ansible.builtin.file:
     path: /mnt/{{ item }}
     state: directory
-    owner: 1000
-    group: 1000
+    owner: "{{ owning_user_id | default(1000) }}"
+    group: "{{ owning_user_id | default(1000) }}"
     mode: '0755'
   with_items: "{{ nfs_mounts }}"
 

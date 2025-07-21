@@ -1,0 +1,15 @@
+---
+available_sites:
+  - name: forgejo
+    listen_host: "forgejo.rileymathews.com"
+    backend_host: "http://127.0.0.1:3000"
+
+certbot_domains: 
+  - "rileymathews.com"
+
+accept_tcp_proxy: false
+restic_backup_dirs:
+  - /var/lib/forgejo/data
+
+dns_records:
+  - forgejo

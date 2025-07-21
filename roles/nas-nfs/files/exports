@@ -16,3 +16,4 @@
 /main/vaultwarden          *(rw,sync,no_subtree_check,no_root_squash)
 /main/immich               *(rw,sync,no_subtree_check,no_root_squash)
 /main/vikunja              *(rw,sync,no_subtree_check)
+/main/forgejo              *(rw,sync,no_subtree_check,all_squash,anonuid=972,anongid=972)

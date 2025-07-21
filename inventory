@@ -50,6 +50,7 @@ gateway
 forge
 karakeep
 replicator
+forgejo
 
 [awscli]
 memory-alpha
@@ -57,3 +58,4 @@ memory-alpha
 [restic]
 nas
 karakeep
+forgejo

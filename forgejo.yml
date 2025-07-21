@@ -1,0 +1,9 @@
+---
+- hosts: forgejo
+  vars:
+  roles:
+    - restic
+    - certbot
+    - dns_records
+    - proxy
+    - forgejo

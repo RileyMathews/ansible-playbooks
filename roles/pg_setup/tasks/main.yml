@@ -61,6 +61,8 @@
       password: "{{ vikunja_database_password }}"
     - name: appflowy
       password: "{{ appflowy_database_password }}"
+    - name: forgejo
+      password: "{{ forgejo_database_password }}"
 
 - name: create databases
   become: true
@@ -83,6 +85,7 @@
     - vaultwarden
     - vikunja
     - appflowy
+    - forgejo
 
 
 - name: Allow connections to PostgreSQL on specific hostname

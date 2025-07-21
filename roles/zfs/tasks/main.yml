@@ -7,6 +7,21 @@
     extra_zfs_properties:
       compression: lz4
 
+- name: create forgejo group
+  become: true
+  ansible.builtin.group:
+    name: forgejo
+    gid: 972
+    state: present
+
+- name: create forgejo user
+  become: true
+  ansible.builtin.user:
+    name: forgejo
+    uid: 972
+    group: forgejo
+    state: present
+
 - name: create datasets
   become: true
   community.general.zfs:
@@ -25,6 +40,7 @@
     - vikunja
     - minio
     - docker_images
+    - forgejo
 
 - name: ensure user 1000 owns the datasets dirs
   become: true
@@ -44,6 +60,14 @@
     - vikunja
     - minio
     - docker_images
+
+- name: ensure forgejo user owns the forgejo dataset
+  become: true
+  file:
+    path: /main/forgejo
+    owner: 972
+    group: 972
+    mode: '0755'
 
 - name: Create app dirs
   file:

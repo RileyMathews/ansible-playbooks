@@ -1,0 +1,49 @@
+---
+- name: install git
+  become: true
+  pacman:
+    name: git
+    state: present
+    update_cache: true
+
+- name: create git user
+  become: true
+  ansible.builtin.user:
+    name: "git"
+    system: true
+    password: "!"
+    state: "present"
+    shell: "/bin/bash"
+    create_home: true
+
+- name: install forgejo
+  become: true
+  pacman:
+    name: forgejo
+    state: present
+    update_cache: true
+
+- name: create custom config dir
+  become: true
+  ansible.builtin.file:
+    name: /var/lib/forgejo/custom/conf
+    state: directory
+    owner: forgejo
+    group: forgejo
+    recurse: true
+
+- name: copy custom config file
+  become: true
+  ansible.builtin.template:
+    src: app.ini.j2
+    dest: /var/lib/forgejo/custom/conf/app.ini
+    owner: forgejo
+    group: forgejo
+  notify: restart_forgejo
+
+- name: start forgejo
+  become: true
+  ansible.builtin.service:
+    name: forgejo
+    state: started
+    enabled: true
