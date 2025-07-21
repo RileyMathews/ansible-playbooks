@@ -21,6 +21,8 @@ gpu
 forge
 karakeep
 replicator
+forgejo
+command
 
 [docker]
 homeassistant
