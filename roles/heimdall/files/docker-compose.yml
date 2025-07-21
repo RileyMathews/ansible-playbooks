@@ -1,7 +1,7 @@
 ---
 services:
   heimdall:
-    image: linuxserver/heimdall:2.6.3
+    image: linuxserver/heimdall:2.7.1
     container_name: heimdall
     environment:
       - PUID=1000
@@ -13,4 +13,5 @@ services:
       - 8080:80
     restart: unless-stopped
     labels:
-      - 'wud.tag.include=^\d+\d+.\d+$'
+      - 'wud.tag.include=^\d+.\d+.\d+$'
+      - 'wud.tag.exclude=2021'

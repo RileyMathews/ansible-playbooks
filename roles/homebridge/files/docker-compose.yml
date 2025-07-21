@@ -1,10 +1,10 @@
 services:
   homebridge:
-    image: homebridge/homebridge:2025-07-04
+    image: homebridge/homebridge:2025-07-21
     restart: always
     network_mode: host
     labels:
-      - 'wud.tag.include=^v\d+.\d+.\d+$'
+      - 'wud.tag.include=^\d+-\d+-\d+$'
     volumes:
       - ./data/homebridge:/homebridge
     logging:

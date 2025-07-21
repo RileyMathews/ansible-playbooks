@@ -9,3 +9,5 @@ services:
       - /mnt/main/vaultwarden/data:/data # the path before the : can be changed
     ports:
       - 8000:80 
+    labels:
+      - wud.tag.include=^\d+\.\d+\.\d+$$

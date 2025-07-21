@@ -1,6 +1,6 @@
 services:
   web:
-    image: ghcr.io/karakeep-app/karakeep:0.25.0
+    image: ghcr.io/karakeep-app/karakeep:0.26.0
     restart: unless-stopped
     user: "1000"
     volumes:
@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     labels:
       - 'wud.tag.includ=^\d+$$'
-      - 'wud.tag.exclude=^*selenoid*$'
+      - 'wud.tag.exclude=with'
     command:
       - --no-sandbox
       - --disable-gpu
