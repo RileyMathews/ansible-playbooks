@@ -1,9 +1,12 @@
 ---
 - hosts: forgejo
   vars:
+    nfs_mounts:
+      - main/forgejo
+    owning_user_id: 972
   roles:
-    - restic
-    - certbot
-    - dns_records
-    - proxy
+    # - mount-nfs
+    # - certbot
+    # - dns_records
+    # - proxy
     - forgejo
