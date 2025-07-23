@@ -1,0 +1,11 @@
+[
+{% for db in pg_backup_databases %}
+  {
+    "name": "{{ db.name }}",
+    "host": "{{ db.host | default('localhost') }}",
+    "port": {{ db.port | default(5432) }},
+    "user": "{{ db.user | default(db.name) }}",
+    "password": "{{ db.password }}"
+  }{% if not loop.last %},{% endif %}
+{% endfor %}
+]

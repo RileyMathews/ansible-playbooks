@@ -1,0 +1,35 @@
+---
+# Configuration for database backup server
+pg_backup_databases:
+  # Local databases on db1
+  - name: rpgweave
+    host: db1.tailscale.rileymathews.com
+    user: rpgweave
+    password: "{{ rpgweave_production_database_password }}"
+  
+  - name: rpgweave-staging
+    host: db1.tailscale.rileymathews.com
+    user: rpgweave-staging
+    password: "{{ rpgweave_staging_database_password }}"
+  
+  - name: mealie
+    host: db1.tailscale.rileymathews.com
+    user: mealie
+    password: "{{ mealie_database_password }}"
+  
+  - name: gitea
+    host: db1.tailscale.rileymathews.com
+    user: gitea
+    password: "{{ gitea_database_password }}"
+  
+  - name: vaultwarden
+    host: db1.tailscale.rileymathews.com
+    user: vaultwarden
+    password: "{{ vaultwarden_database_password }}"
+  
+  # Remote database on db2 (containerized immich)
+  - name: immich
+    host: db2.tailscale.rileymathews.com
+    port: 5432
+    user: immich
+    password: "{{ immich_database_password }}"

@@ -23,6 +23,7 @@ karakeep
 replicator
 forgejo
 command
+database-backup
 
 [docker]
 homeassistant

@@ -1,0 +1,6 @@
+# vim:ft=yaml.ansible
+---
+- name: Setup database backup server
+  hosts: database-backup
+  roles:
+    - pg_backup_beta
