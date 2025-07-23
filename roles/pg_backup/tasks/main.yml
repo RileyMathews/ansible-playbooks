@@ -43,6 +43,15 @@
     group: root
     mode: '0644'
 
+- name: copy databases config file
+  become: true
+  ansible.builtin.template:
+    src: databases.j2
+    dest: /var/lib/backup/databases
+    owner: root
+    group: root
+    mode: '0644'
+
 - name: Enable and start backup timer
   become: true
   ansible.builtin.systemd:

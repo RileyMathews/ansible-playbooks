@@ -45,12 +45,13 @@ backup_database() {
 }
 
 echo "starting postgres backup"
-backup_database "riley"
-backup_database "rpgweave"
-backup_database "rpgweave-staging"
-backup_database "mealie"
-backup_database "gitea"
-backup_database "vaultwarden"
+
+# Read database names from config file
+while IFS= read -r database_name; do
+    if [[ -n "$database_name" && ! "$database_name" =~ ^[[:space:]]*# ]]; then
+        backup_database "$database_name"
+    fi
+done < /var/lib/backup/databases
 
 rm -rf /tmp/db_backups
 exit 0

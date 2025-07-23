@@ -1,0 +1,8 @@
+---
+pg_backup_databases:
+  - riley
+  - rpgweave
+  - rpgweave-staging
+  - mealie
+  - gitea
+  - vaultwarden
