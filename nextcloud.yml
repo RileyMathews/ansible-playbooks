@@ -1,0 +1,8 @@
+---
+- hosts: enterprise
+  roles:
+    - mount-nfs
+    - nextcloud
+    - proxy
+    - certbot
+    - dns_records

@@ -17,3 +17,5 @@
 /main/immich               *(rw,sync,no_subtree_check,no_root_squash)
 /main/vikunja              *(rw,sync,no_subtree_check)
 /main/forgejo              *(rw,sync,no_subtree_check)
+/main/nextcloud            *(rw,sync,no_subtree_check,no_root_squash)
+/main/radicale             *(rw,sync,no_subtree_check,no_root_squash)

@@ -24,6 +24,7 @@ server {
     # WebSocket and HTTP proxy configuration
     location / {
         proxy_pass {{ backend_host }};
+        proxy_ssl_verify off;
 
         # WebSocket support
         proxy_set_header Upgrade $http_upgrade;

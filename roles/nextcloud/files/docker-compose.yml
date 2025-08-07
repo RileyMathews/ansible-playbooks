@@ -1,14 +1,14 @@
 services:
   nextcloud:
-    image: lscr.io/linuxserver/nextcloud:latest
+    image: lscr.io/linuxserver/nextcloud:31.0.8-develop
     container_name: nextcloud
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=America/Chicago
     volumes:
-      - ./config:/config
-      - ./data:/data
+      - /mnt/main/nextcloud/config:/config
+      - /mnt/main/nextcloud/data:/data
     restart: always
     ports:
-      - 8000:80
+      - 8010:443

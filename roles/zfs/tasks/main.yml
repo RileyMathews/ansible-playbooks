@@ -41,6 +41,8 @@
     - minio
     - docker_images
     - forgejo
+    - nextcloud
+    - radicale
 
 - name: ensure user 1000 owns the datasets dirs
   become: true
@@ -60,6 +62,8 @@
     - vikunja
     - minio
     - docker_images
+    - nextcloud
+    - radicale
 
 - name: ensure forgejo user owns the forgejo dataset
   become: true

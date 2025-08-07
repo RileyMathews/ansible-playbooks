@@ -2,7 +2,7 @@
 - name: create install directory
   become: yes
   ansible.builtin.file:
-    path: /opt/nextcloud
+    path: /opt/radicale
     state: directory
     owner: riley
     group: riley
@@ -10,9 +10,8 @@
 - name: Copy docker compose file
   ansible.builtin.copy:
     src: docker-compose.yml
-    dest: /opt/nextcloud/docker-compose.yml
+    dest: /opt/radicale/docker-compose.yml
     owner: riley
     group: riley
-  notify: restart_nextcloud
-
+  notify: restart_radicale
 

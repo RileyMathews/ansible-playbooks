@@ -1,0 +1,8 @@
+---
+- hosts: enterprise
+  roles:
+    - mount-nfs
+    - radicale
+    - proxy
+    - certbot
+    - dns_records

@@ -42,6 +42,14 @@ available_sites:
     listen_host: "pve.rileymathews.com"
     backend_host: "https://shipyard:8006"
 
+  - name: nextcloud
+    listen_host: "nextcloud.rileymathews.com"
+    backend_host: "https://127.0.0.1:8010"
+
+  - name: radicale
+    listen_host: "radicale.rileymathews.com"
+    backend_host: "http://127.0.0.1:5232"
+
 default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
@@ -53,6 +61,8 @@ certbot_domains:
   - "docker.rileymathews.com"
   - "registry.rileymathews.com"
   - "pve.rileymathews.com"
+  - "nextcloud.rileymathews.com"
+  - "radicale.rileymathews.com"
 
 accept_tcp_proxy: false
 
@@ -66,3 +76,9 @@ dns_records:
   - docker
   - registry
   - pve
+  - nextcloud
+  - radicale
+
+nfs_mounts:
+  - main/nextcloud
+  - main/radicale

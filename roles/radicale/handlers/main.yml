@@ -1,0 +1,5 @@
+---
+- name: restart_radicale
+  ansible.builtin.shell:
+    chdir: /opt/radicale
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

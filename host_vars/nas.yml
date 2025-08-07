@@ -5,3 +5,5 @@ restic_backup_dirs:
   - /main/vaultwarden
   - /main/immich
   - /main/forgejo
+  - /main/nextcloud
+  - /main/radicale
