@@ -1,0 +1,25 @@
+---
+- name: Purge Unused Docker Resources
+  hosts: docker # This targets hosts with the tag 'docker'
+  become: true # Required to run docker commands with sufficient privileges
+  tasks:
+    - name: Prune stopped containers older than 24 hours
+      community.docker.docker_prune:
+        containers: true
+        containers_filters:
+          until: "24h"
+
+    - name: Prune unused volumes
+      community.docker.docker_prune:
+        volumes: true
+
+    - name: Prune unused networks
+      community.docker.docker_prune:
+        networks: true
+
+    - name: Prune images
+      community.docker.docker_prune:
+        images: true
+        images_filters:
+          dangling: false
+

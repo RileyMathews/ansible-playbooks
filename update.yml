@@ -1,5 +1,6 @@
 ---
 - name: Update and Upgrade Debian Servers
+  strategy: free
   hosts: all
   roles:
     - update
