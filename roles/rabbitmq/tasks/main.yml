@@ -64,6 +64,7 @@
   loop:
     - rpgweave-staging
     - rpgweave
+    - radicale
 
 - name: add users
   become: true
@@ -83,3 +84,6 @@
     - username: rpgweave
       password: "{{ rpgweave_rabbitmq_password }}"
       vhost: rpgweave
+    - username: radicale
+      password: "{{ radicale_rabbitmq_password }}"
+      vhost: radicale
