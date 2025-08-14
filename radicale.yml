@@ -2,7 +2,9 @@
 - hosts: enterprise
   roles:
     - mount-nfs
-    - radicale
+    - name: radicale
+      tags:
+        - docker_only
     - proxy
     - certbot
     - dns_records

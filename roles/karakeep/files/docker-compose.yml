@@ -27,7 +27,7 @@ services:
       - --remote-debugging-port=9222
       - --hide-scrollbars
   meilisearch:
-    image: getmeili/meilisearch:v1.15.2
+    image: getmeili/meilisearch:v1.17.1
     restart: unless-stopped
     labels:
       - 'wud.tag.include=^v\d+.\d+.\d+$'
