@@ -63,6 +63,8 @@
       password: "{{ appflowy_database_password }}"
     - name: forgejo
       password: "{{ forgejo_database_password }}"
+    - name: miniflux
+      password: "{{ miniflux_database_password }}"
 
 - name: create databases
   become: true
@@ -86,6 +88,7 @@
     - vikunja
     - appflowy
     - forgejo
+    - miniflux
 
 
 - name: Allow connections to PostgreSQL on specific hostname

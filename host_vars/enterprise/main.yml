@@ -50,6 +50,10 @@ available_sites:
     listen_host: "radicale.rileymathews.com"
     backend_host: "http://127.0.0.1:5232"
 
+  - name: miniflux
+    listen_host: "miniflux.rileymathews.com"
+    backend_host: "http://127.0.0.1:8111"
+
 default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
@@ -63,6 +67,7 @@ certbot_domains:
   - "pve.rileymathews.com"
   - "nextcloud.rileymathews.com"
   - "radicale.rileymathews.com"
+  - "miniflux.rileymathews.com"
 
 accept_tcp_proxy: false
 
@@ -78,6 +83,7 @@ dns_records:
   - pve
   - nextcloud
   - radicale
+  - miniflux
 
 nfs_mounts:
   - main/nextcloud

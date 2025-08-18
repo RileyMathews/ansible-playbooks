@@ -1,0 +1,28 @@
+# vim:ft=yaml.ansible
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/miniflux
+    state: directory
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/miniflux/docker-compose.yml
+    owner: riley
+    group: riley
+
+- name: Copy env template file
+  ansible.builtin.template:
+    src: .env.j2
+    dest: /opt/miniflux/.env
+    owner: riley
+    group: riley
+
+- name: restart_miniflux
+  ansible.builtin.shell:
+    chdir: /opt/miniflux
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm
