@@ -1,5 +1,0 @@
----
-- hosts: db2
-  become: true
-  roles:
-    - dns_records

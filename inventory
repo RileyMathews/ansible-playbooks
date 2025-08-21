@@ -18,7 +18,6 @@ mealie
 vaultwarden
 db2
 gpu
-forge
 karakeep
 replicator
 forgejo
@@ -35,7 +34,6 @@ mealie
 vaultwarden
 db2
 gpu
-forge
 nas
 holosuite
 karakeep
@@ -48,7 +46,6 @@ holodeck
 mealie
 vaultwarden
 gateway
-forge
 karakeep
 replicator
 forgejo

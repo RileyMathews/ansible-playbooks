@@ -1,7 +1,0 @@
----
-- hosts: barclay
-  roles:
-    - proxy
-    - certbot
-    - dns_records
-    - gitea

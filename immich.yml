@@ -4,6 +4,7 @@
   hosts: db2
   roles:
     - immich-db
+    - dns_records
 
 - hosts: holodeck
   vars:

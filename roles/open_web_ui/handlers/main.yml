@@ -1,5 +1,0 @@
----
-- name: restart_open_web_ui
-  ansible.builtin.shell:
-    chdir: /opt/open-web-ui
-    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm
