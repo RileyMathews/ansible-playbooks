@@ -1,6 +1,6 @@
 services:
   web:
-    image: ghcr.io/karakeep-app/karakeep:0.26.0
+    image: ghcr.io/karakeep-app/karakeep:latest
     restart: unless-stopped
     user: "1000"
     volumes:
@@ -9,6 +9,8 @@ services:
       - 3000:3000
     env_file:
       - .env
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     environment:
       MEILI_ADDR: http://meilisearch:7700
       BROWSER_WEB_URL: http://chrome:9222
@@ -27,9 +29,10 @@ services:
       - --remote-debugging-port=9222
       - --hide-scrollbars
   meilisearch:
-    image: getmeili/meilisearch:v1.15.2
+    image: getmeili/meilisearch:latest
     restart: unless-stopped
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - 'wud.tag.include=^v\d+.\d+.\d+$'
     env_file:
       - .env

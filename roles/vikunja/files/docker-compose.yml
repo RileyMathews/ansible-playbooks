@@ -3,6 +3,8 @@ services:
     image: vikunja/vikunja:latest
     env_file:
       - .env
+    labels:
+    - "com.centurylinklabs.watchtower.enable=true"
     ports:
       - 8003:3456
     volumes:

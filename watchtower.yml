@@ -1,4 +1,4 @@
 ---
-- hosts: enterprise
+- hosts: docker
   roles:
     - watchtower

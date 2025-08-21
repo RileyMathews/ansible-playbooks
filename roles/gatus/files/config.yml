@@ -40,3 +40,35 @@ endpoints:
   - name: mealie
     <<: *defaults
     url: "https://mealie.rileymathews.com"
+
+  - name: forgejo
+    <<: *defaults
+    url: "https://forgejo.rileymathews.com"
+
+  - name: karakeep
+    <<: *defaults
+    url: "https://karakeep.rileymathews.com"
+
+  - name: immich
+    <<: *defaults
+    url: "https://immich.rileymathews.com"
+
+  - name: miniflux
+    <<: *defaults
+    url: "https://miniflux.rileymathews.com"
+
+  - name: vikunja
+    <<: *defaults
+    url: "https://vikunja.rileymathews.com"
+
+  - name: searxng
+    <<: *defaults
+    url: "https://search.rileymathews.com"
+
+  - name: radicale
+    <<: *defaults
+    url: "https://radicale.rileymathews.com"
+
+  - name: nextcloud
+    <<: *defaults
+    url: "https://nextcloud.rileymathews.com"
