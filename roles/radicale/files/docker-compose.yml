@@ -8,3 +8,5 @@ services:
       - /mnt/main/radicale/config:/etc/radicale:ro
       - /mnt/main/radicale/data:/var/lib/radicale
     restart: unless-stopped
+    labels:
+      - wud.tag.include=^\d+\.\d+\.\d+$$

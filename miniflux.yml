@@ -1,0 +1,7 @@
+---
+- hosts: enterprise
+  roles:
+    - certbot
+    - dns_records
+    - proxy
+    - miniflux

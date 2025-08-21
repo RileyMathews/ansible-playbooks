@@ -1,0 +1,11 @@
+services:
+  miniflux:
+    image: miniflux/miniflux:latest
+    ports:
+      - "8111:8080"
+    env_file:
+      - .env
+    environment:
+      - RUN_MIGRATIONS=1
+      - CREATE_ADMIN=1
+      - ADMIN_USERNAME=riley
