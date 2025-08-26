@@ -1,0 +1,21 @@
+# vim:ft=yaml.ansible
+---
+- name: create install directory
+  become: yes
+  ansible.builtin.file:
+    path: /opt/audiobookshelf
+    state: directory
+    owner: riley
+    group: riley
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /opt/audiobookshelf/docker-compose.yml
+    owner: riley
+    group: riley
+
+- name: restart_container
+  ansible.builtin.shell:
+    chdir: /opt/audiobookshelf
+    cmd: docker compose pull && docker compose down --remove-orphans && docker compose up -d && docker compose rm

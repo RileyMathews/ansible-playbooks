@@ -1,0 +1,8 @@
+---
+- hosts: enterprise
+  roles:
+    - mount-nfs
+    - certbot
+    - dns_records
+    - audiobookshelf
+    - proxy

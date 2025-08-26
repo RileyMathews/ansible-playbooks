@@ -1,0 +1,87 @@
+---
+- name: enable lz4 compression on main pool
+  become: true
+  community.general.zfs:
+    name: main
+    state: present
+    extra_zfs_properties:
+      compression: lz4
+
+- name: create forgejo group
+  become: true
+  ansible.builtin.group:
+    name: forgejo
+    gid: 972
+    state: present
+
+- name: create forgejo user
+  become: true
+  ansible.builtin.user:
+    name: forgejo
+    uid: 972
+    group: forgejo
+    state: present
+
+- name: create datasets
+  become: true
+  community.general.zfs:
+    name: main/{{ item }}
+    state: present
+    extra_zfs_properties:
+      compression: lz4
+  loop:
+    - data
+    - testing
+    - jellyfin
+    - stump
+    - mealie
+    - vaultwarden
+    - immich
+    - vikunja
+    - minio
+    - docker_images
+    - forgejo
+    - nextcloud
+    - radicale
+    - audiobookshelf
+
+- name: ensure user 1000 owns the datasets dirs
+  become: true
+  file:
+    path: /main/{{ item }}
+    owner: 1000
+    group: 1000
+    mode: '0755'
+  loop:
+    - data
+    - testing
+    - jellyfin
+    - stump
+    - mealie
+    - vaultwarden
+    - immich
+    - vikunja
+    - minio
+    - docker_images
+    - nextcloud
+    - radicale
+    - audiobookshelf
+
+- name: ensure forgejo user owns the forgejo dataset
+  become: true
+  file:
+    path: /main/forgejo
+    owner: 972
+    group: 972
+    mode: '0755'
+
+- name: Create app dirs
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: 1000
+    group: 1000
+    mode: '0755'
+  loop:
+    - /main/immich/uploads
+

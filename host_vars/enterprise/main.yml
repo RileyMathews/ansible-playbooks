@@ -54,6 +54,10 @@ available_sites:
     listen_host: "miniflux.rileymathews.com"
     backend_host: "http://127.0.0.1:8111"
 
+  - name: audiobookshelf
+    listen_host: "audiobookshelf.rileymathews.com"
+    backend_host: "http://127.0.0.1:13378"
+
 default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
@@ -68,6 +72,7 @@ certbot_domains:
   - "nextcloud.rileymathews.com"
   - "radicale.rileymathews.com"
   - "miniflux.rileymathews.com"
+  - "audiobookshelf.rileymathews.com"
 
 accept_tcp_proxy: false
 
@@ -84,7 +89,9 @@ dns_records:
   - nextcloud
   - radicale
   - miniflux
+  - audiobookshelf
 
 nfs_mounts:
   - main/nextcloud
   - main/radicale
+  - main/audiobookshelf

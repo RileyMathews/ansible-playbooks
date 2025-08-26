@@ -1,0 +1,15 @@
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    ports:
+      - 13378:80
+    volumes:
+      - /mnt/main/audiobookshelf/audiobooks:/audiobooks
+      - /mnt/main/audiobookshelf/podcasts:/podcasts
+      - /mnt/main/audiobookshelf/config:/config
+      - /mnt/main/audiobookshelf/metadata:/metadata
+    environment:
+      - TZ=America/Chicago
+
