@@ -1,6 +1,7 @@
 ---
 - name: Purge Unused Docker Resources
   hosts: docker # This targets hosts with the tag 'docker'
+  strategy: free
   become: true # Required to run docker commands with sufficient privileges
   tasks:
     - name: Prune stopped containers older than 24 hours
