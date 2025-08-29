@@ -1,7 +1,7 @@
 services:
   miniflux:
     image: miniflux/miniflux:latest
-    restart: unless_stopped
+    restart: unless-stopped
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     ports:

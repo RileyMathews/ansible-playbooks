@@ -1,5 +1,6 @@
 services:
   audiobookshelf:
+    restart: unless-stopped
     image: ghcr.io/advplyr/audiobookshelf:latest
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

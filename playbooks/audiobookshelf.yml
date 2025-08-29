@@ -4,5 +4,7 @@
     - mount-nfs
     - certbot
     - dns_records
-    - audiobookshelf
+    - name: audiobookshelf
+      tags:
+        - docker_only
     - proxy
