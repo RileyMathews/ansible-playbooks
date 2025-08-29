@@ -1,0 +1,9 @@
+---
+- hosts: holodeck
+  roles:
+    - certbot
+    - dns_records
+    - name: tasktrove
+      tags:
+        - docker_only
+    - proxy

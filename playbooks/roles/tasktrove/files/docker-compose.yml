@@ -1,0 +1,9 @@
+services:
+  tasktrove:
+    image: ghcr.io/dohsimpson/tasktrove:latest
+    container_name: tasktrove
+    ports:
+      - "8091:3000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

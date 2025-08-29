@@ -19,6 +19,10 @@ available_sites:
   - name: beszel
     listen_host: "beszel.rileymathews.com"
     backend_host: "http://127.0.0.1:8090"
+
+  - name: tasktrove
+    listen_host: "tasktrove.rileymathews.com"
+    backend_host: "http://127.0.0.1:8091"
     
 accept_tcp_proxy: false
 
@@ -28,3 +32,4 @@ dns_records:
   - "pinchflat"
   - "chat"
   - "beszel"
+  - "tasktrove"
