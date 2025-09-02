@@ -2,7 +2,7 @@
 
 on_error() {
   echo $1
-  curl -d "db backup failed" https://ntfy.rileymathews.com/home-server-alerts
+  curl -d "restic backup failed" https://ntfy.rileymathews.com/home-server-alerts
 }
 
 echo "starting backup"
