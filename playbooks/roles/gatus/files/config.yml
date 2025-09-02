@@ -76,3 +76,7 @@ endpoints:
   - name: audiobookshelf
     <<: *defaults
     url: "https://audiobookshelf.rileymathews.com"
+
+  - name: WUD
+    <<: *defaults
+    url: "https://wud.rileymathews.com"
