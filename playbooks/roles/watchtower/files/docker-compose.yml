@@ -7,6 +7,7 @@ services:
     environment:
       - WATCHTOWER_LABEL_ENABLE=true
       - WATCHTOWER_NOTIFICATION_URL=ntfy://ntfy.rileymathews.com/server-alerts
+      - WATCHTOWER_SCHEDULE=0 0 * * * *
+      - WATCHTOWER_CLEANUP=true
     labels:
       - wud.tag.include=^v\d+\.\d+\.\d+$$
-    command: --interval 600
