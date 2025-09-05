@@ -7,3 +7,5 @@ services:
     volumes:
       - ./data:/app/data
     restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
