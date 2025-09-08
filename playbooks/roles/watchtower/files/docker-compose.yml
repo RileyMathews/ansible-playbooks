@@ -1,6 +1,7 @@
 services:
   whatsupdocker:
     image: containrrr/watchtower:1.7.1
+    restart: unless-stopped
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
