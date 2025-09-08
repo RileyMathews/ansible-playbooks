@@ -1,0 +1,14 @@
+---
+
+- name: restart systemd-resolved
+  systemd:
+    name: systemd-resolved
+    state: restarted
+    daemon_reload: yes
+  become: yes
+
+- name: restart tailscaled
+  systemd:
+    name: tailscaled
+    state: restarted
+  become: yes

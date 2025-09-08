@@ -1,0 +1,10 @@
+---
+- name: Fix Tailscale DNS configuration on all tailscale hosts
+  hosts: tailscale
+  become: yes
+  gather_facts: no
+  
+  tasks:
+    - name: Fix DNS configuration
+      include_role:
+        name: tailscale-dns-fix

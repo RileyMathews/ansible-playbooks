@@ -1,0 +1,31 @@
+---
+
+- name: Check if /etc/resolv.conf is a symlink to systemd stub resolver
+  stat:
+    path: /etc/resolv.conf
+  register: resolv_conf_stat
+
+- name: Check if symlink points to correct target
+  set_fact:
+    resolv_conf_correct: "{{ resolv_conf_stat.stat.islnk and resolv_conf_stat.stat.lnk_target == '/run/systemd/resolve/stub-resolv.conf' }}"
+
+- name: Remove incorrect /etc/resolv.conf
+  file:
+    path: /etc/resolv.conf
+    state: absent
+  when: not resolv_conf_correct
+  notify: restart systemd-resolved
+
+- name: Create symlink to systemd stub resolver
+  file:
+    src: /run/systemd/resolve/stub-resolv.conf
+    dest: /etc/resolv.conf
+    state: link
+  when: not resolv_conf_correct
+  notify:
+    - restart systemd-resolved
+    - restart tailscaled
+
+- name: Display resolv.conf status
+  debug:
+    msg: "/etc/resolv.conf is {{ 'already' if resolv_conf_correct else 'now' }} correctly symlinked to systemd stub resolver"
