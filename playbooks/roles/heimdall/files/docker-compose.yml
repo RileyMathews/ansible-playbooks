@@ -1,7 +1,7 @@
 ---
 services:
   heimdall:
-    image: linuxserver/heimdall:2.7.4
+    image: linuxserver/heimdall:latest
     container_name: heimdall
     environment:
       - PUID=1000
@@ -15,3 +15,4 @@ services:
     labels:
       - 'wud.tag.include=^\d+.\d+.\d+$'
       - 'wud.tag.exclude=2021'
+      - "com.centurylinklabs.watchtower.enable=true"
