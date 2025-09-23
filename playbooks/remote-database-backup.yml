@@ -1,0 +1,5 @@
+---
+- hosts: database-backup
+  become: true
+  roles:
+    - remote_pg_backup

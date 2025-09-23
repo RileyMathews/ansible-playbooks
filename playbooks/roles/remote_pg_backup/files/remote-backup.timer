@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily timer for remote PostgreSQL database backups
+Requires=remote-backup.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

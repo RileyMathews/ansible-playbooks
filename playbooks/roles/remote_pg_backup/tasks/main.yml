@@ -1,0 +1,73 @@
+---
+- name: Install required packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - postgresql-client
+      - jq
+      - awscli
+    state: present
+
+- name: Copy remote backup service file
+  become: true
+  ansible.builtin.copy:
+    src: remote-backup.service
+    dest: /etc/systemd/system/remote-backup.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload_systemd
+
+- name: Copy remote backup timer file
+  become: true
+  ansible.builtin.copy:
+    src: remote-backup.timer
+    dest: /etc/systemd/system/remote-backup.timer
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload_systemd
+
+- name: Copy the remote backup script
+  become: true
+  ansible.builtin.copy:
+    src: remote_backup.sh
+    dest: /usr/local/bin/remote_backup.sh
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Create backup configuration directory
+  become: true
+  ansible.builtin.file:
+    path: /var/lib/backup
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copy backup environment file
+  become: true
+  ansible.builtin.template:
+    src: env.j2
+    dest: /var/lib/backup/env
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Copy databases configuration file
+  become: true
+  ansible.builtin.template:
+    src: databases.json.j2
+    dest: /var/lib/backup/databases.json
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Enable and start remote backup timer
+  become: true
+  ansible.builtin.systemd:
+    name: remote-backup.timer
+    enabled: yes
+    state: started
+    daemon_reload: yes
