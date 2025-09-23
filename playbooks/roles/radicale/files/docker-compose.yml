@@ -1,6 +1,6 @@
 services:
   radicale:
-    image: ghcr.io/kozea/radicale:3.5.5
+    image: ghcr.io/kozea/radicale:3.5.6
     user: root
     ports:
       - "5232:5232"
