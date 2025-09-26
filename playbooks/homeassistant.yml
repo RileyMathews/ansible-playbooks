@@ -1,4 +1,8 @@
 ---
 - hosts: homeassistant
+  vars:
+    nfs_mounts:
+      - main/homeassistant
   roles:
+    - mount-nfs
     - homeassistant
