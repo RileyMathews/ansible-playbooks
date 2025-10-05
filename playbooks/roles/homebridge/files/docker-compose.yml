@@ -1,6 +1,6 @@
 services:
   homebridge:
-    image: homebridge/homebridge:2025-09-21
+    image: homebridge/homebridge:2025-09-28
     restart: always
     network_mode: host
     labels:

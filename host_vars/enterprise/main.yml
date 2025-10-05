@@ -5,20 +5,10 @@ available_sites:
     cert_host: start.rileymathews.com
     backend_host: "http://127.0.0.1:8080"
 
-  - name: gatus
-    listen_host: gatus.rileymathews.com
-    cert_host: gatus.rileymathews.com
-    backend_host: "http://127.0.0.1:8081"
-
   - name: ntfy
     listen_host: "ntfy.rileymathews.com"
     cert_host: "ntfy.rileymathews.com"
     backend_host: "http://127.0.0.1:8004"
-
-  - name: searxng
-    listen_host: "search.rileymathews.com"
-    cert_host: "search.rileymathews.com"
-    backend_host: "http://127.0.0.1:8005"
 
   - name: lubelogger
     listen_host: "lubelogger.rileymathews.com"
@@ -61,9 +51,7 @@ available_sites:
 default_cert_host: "rileymathews.com"
 certbot_domains: 
   - "start.rileymathews.com"
-  - "gatus.rileymathews.com"
   - "ntfy.rileymathews.com"
-  - "search.rileymathews.com"
   - "lubelogger.rileymathews.com"
   - "paperless.rileymathews.com"
   - "docker.rileymathews.com"
@@ -77,10 +65,8 @@ certbot_domains:
 accept_tcp_proxy: false
 
 dns_records:
-  - gatus
   - start
   - ntfy
-  - search
   - lubelogger
   - paperless
   - docker
