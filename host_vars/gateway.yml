@@ -11,7 +11,8 @@ available_sites:
     backend_host: "http://rpgweave:80"
   - name: vaultwarden
     listen_host: "vaultwarden.rileymathews.com"
-    backend_host: "http://vaultwarden:8000"
+    backend_host: "http://worf:8222"
+
 dns_records:
   - "whoami-gateway"
   - "vaultwarden"
