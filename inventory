@@ -19,7 +19,6 @@ db2
 gpu
 karakeep
 replicator
-forgejo
 command
 
 [docker]
@@ -44,7 +43,6 @@ mealie
 gateway
 karakeep
 replicator
-forgejo
 
 [awscli]
 memory-alpha
@@ -52,4 +50,3 @@ memory-alpha
 [restic]
 nas
 karakeep
-forgejo
