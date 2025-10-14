@@ -37,8 +37,6 @@
       password: "{{ rpgweave_staging_database_password }}"
     - name: rpgweave
       password: "{{ rpgweave_production_database_password }}"
-    - name: gatus
-      password: "{{ gatus_database_password }}"
     - name: board-game-companion
       password: "{{ board_game_companion_database_password }}"
     - name: lubelogger
@@ -76,7 +74,6 @@
     - rpgweave-staging
     - rpgweave
     - riley
-    - gatus
     - board-game-companion
     - lubelogger
     - paperless
