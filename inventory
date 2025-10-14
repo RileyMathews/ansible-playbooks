@@ -15,7 +15,6 @@ rpgweave-staging
 rpgweave
 redis
 mealie
-vaultwarden
 db2
 gpu
 karakeep
@@ -31,7 +30,6 @@ holodeck
 rpgweave-staging
 rpgweave
 mealie
-vaultwarden
 db2
 gpu
 nas
@@ -44,7 +42,6 @@ homeassistant
 enterprise
 holodeck
 mealie
-vaultwarden
 gateway
 karakeep
 replicator
