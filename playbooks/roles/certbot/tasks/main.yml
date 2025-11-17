@@ -1,26 +1,26 @@
-# ---
-# - name: install certbot dependencies
-#   become: true
-#   apt:
-#     name:
-#       - gnupg2
-#       - ca-certificates
-#       - debian-archive-keyring
-#       - certbot
-#       - python3-certbot-dns-cloudflare
-#     state: present
-#     update_cache: yes
-#   when: ansible_os_family == 'Debian'
-#
-# - name: install certbot [arch]
-#   become: true
-#   pacman:
-#     name:
-#       - certbot
-#       - certbot-dns-cloudflare
-#     state: present
-#     update_cache: yes
-#   when: ansible_os_family == 'Archlinux'
+---
+- name: install certbot dependencies
+  become: true
+  apt:
+    name:
+      - gnupg2
+      - ca-certificates
+      - debian-archive-keyring
+      - certbot
+      - python3-certbot-dns-cloudflare
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+- name: install certbot [arch]
+  become: true
+  pacman:
+    name:
+      - certbot
+      - certbot-dns-cloudflare
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Archlinux'
 
 - name: Create Cloudflare credentials file
   become: true
